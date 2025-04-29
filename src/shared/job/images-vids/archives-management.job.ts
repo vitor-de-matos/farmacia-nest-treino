@@ -151,7 +151,7 @@ export class ArchivesManagementJob {
     }
   }
 
-  completeArchivePath(fileName: string): string {
+  async completeArchivePath(fileName: string): Promise<string> {
     const encodedFileName = encodeURIComponent(fileName);
     const VIDEO = /\.(mp4|avi|mov|webm|mkv|flv|wmv)$/i;
 

@@ -45,9 +45,9 @@ export class UpdateMidiaUseCase {
     if (
       updateData.productId != null ||
       updateData.productId != undefined ||
-      media.productId
+      media.product
     ) {
-      const product = await this.productRepository.findById(media.productId);
+      const product = await this.productRepository.findById(media.product.id);
       if (product.media.find((media) => media.icon != false) && mediaDTO.icon) {
         throw new BadRequestException({ message: 'Produto ja possui icone' });
       }

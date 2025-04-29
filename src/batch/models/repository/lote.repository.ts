@@ -2,26 +2,26 @@ import { FindManyOptions, ILike, LessThanOrEqual, Repository } from 'typeorm';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DB_PG_DATABASE } from 'src/shared/database/typeOrm/postgres.config';
-import { UpdateLoteDTO } from '../dtos/update-lote.dto';
-import { CreateLoteDTO } from '../dtos/create-lote.dto';
-import { FindLoteDTO } from '../dtos/find-lote.dto';
-import { IloteRepo } from '../interface/lote-repo.interface';
+import { UpdateBatchDTO } from '../dtos/update-lote.dto';
+import { CreateBatchDTO } from '../dtos/create-lote.dto';
+import { FindBatchDTO } from '../dtos/find-lote.dto';
+import { IBatchRepo } from '../interface/lote-repo.interface';
 import { endOfDay } from 'date-fns';
 import { Lote } from '../entity/batch.entity';
 
 @Injectable()
-export class LoteRepository implements IloteRepo {
+export class BatchRepository implements IBatchRepo {
   constructor(
     @InjectRepository(Lote, DB_PG_DATABASE)
     private readonly repository: Repository<Lote>,
   ) {}
 
-  async create(loteDTO: CreateLoteDTO): Promise<number> {
-    const result = await this.repository.save(loteDTO);
+  async create(batchDTO: CreateBatchDTO): Promise<number> {
+    const result = await this.repository.save(batchDTO);
     return result.id;
   }
 
-  async find(filters: FindLoteDTO): Promise<{
+  async find(filters: FindBatchDTO): Promise<{
     data: Lote[];
     currentPage: number;
     totalPages: number;
@@ -56,12 +56,12 @@ export class LoteRepository implements IloteRepo {
   async findById(id: number): Promise<Lote | undefined> {
     const batch = await this.repository.findOne({ where: { id: id } });
     if (!batch) {
-      throw new NotFoundException({ message: 'Midia não encontrada' });
+      throw new NotFoundException({ message: 'Lote não encontrado' });
     }
     return batch;
   }
 
-  async update(Id: number, batchDTO: UpdateLoteDTO): Promise<Lote> {
+  async update(Id: number, batchDTO: UpdateBatchDTO): Promise<Lote> {
     const batch = await this.repository.findOne({ where: { id: Id } });
 
     const UpdateBatch = await this.repository.save({

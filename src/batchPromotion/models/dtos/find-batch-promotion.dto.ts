@@ -1,23 +1,35 @@
-import { IsDate, IsNumber, IsOptional, IsString } from 'class-validator';
+import { IsBoolean, IsDate, IsNumber, IsOptional } from 'class-validator';
 import { ApiPropertyOptional } from '@nestjs/swagger';
 import { PaginationDTO } from 'src/shared/utils/dto/pagination.dto';
 import { Type } from 'class-transformer';
 
-export class FindBatchDTO extends PaginationDTO {
+export class FindBatchPromotionDTO extends PaginationDTO {
   @ApiPropertyOptional()
   @IsOptional()
-  @IsString()
-  code?: string;
+  @IsDate()
+  @Type(() => Date)
+  startDate?: Date;
 
   @ApiPropertyOptional()
   @IsOptional()
   @IsDate()
   @Type(() => Date)
-  expiresAt?: Date;
+  endDate?: Date;
 
   @ApiPropertyOptional()
   @IsOptional()
   @IsNumber()
   @Type(() => Number)
   productId?: number;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsNumber()
+  @Type(() => Number)
+  batchId?: number;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsBoolean()
+  autoEnded?: boolean;
 }

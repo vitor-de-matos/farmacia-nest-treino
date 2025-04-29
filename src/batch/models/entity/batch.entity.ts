@@ -3,14 +3,14 @@ import { ItemVenda } from 'src/itemSale/models/entity/item-sale.entity';
 import { Produto } from 'src/products/models/entity/product.entity';
 import { Estoque } from 'src/stock/models/entity/stock.entity';
 import {
-  Column,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
   CreateDateColumn,
-  Entity,
   JoinColumn,
   ManyToOne,
   OneToMany,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
+  Entity,
+  Column,
 } from 'typeorm';
 
 @Entity()

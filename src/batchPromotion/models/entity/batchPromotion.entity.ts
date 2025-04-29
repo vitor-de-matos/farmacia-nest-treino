@@ -1,13 +1,13 @@
-import { Lote } from 'src/batch/models/entity/batch.entity';
 import { Produto } from 'src/products/models/entity/product.entity';
+import { Lote } from 'src/batch/models/entity/batch.entity';
 import {
-  Column,
+  PrimaryGeneratedColumn,
   CreateDateColumn,
-  Entity,
+  UpdateDateColumn,
   JoinColumn,
   ManyToOne,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
+  Column,
+  Entity,
 } from 'typeorm';
 
 @Entity()

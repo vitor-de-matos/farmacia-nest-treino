@@ -1,8 +1,8 @@
+import { IsDate, IsNumber, IsOptional, IsString } from 'class-validator';
 import { ApiPropertyOptional } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
-import { IsDate, IsNumber, IsOptional, IsString } from 'class-validator';
 
-export class UpdateLoteDTO {
+export class UpdateBatchDTO {
   @ApiPropertyOptional()
   @IsOptional()
   @IsString()
