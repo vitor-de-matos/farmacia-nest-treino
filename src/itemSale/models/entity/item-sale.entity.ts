@@ -1,12 +1,12 @@
-import { Lote } from 'src/batch/models/entity/batch.entity';
 import { Produto } from 'src/products/models/entity/product.entity';
 import { Venda } from 'src/sales/models/entity/sales.entity';
+import { Lote } from 'src/batch/models/entity/batch.entity';
 import {
-  Column,
-  Entity,
+  PrimaryGeneratedColumn,
   JoinColumn,
   ManyToOne,
-  PrimaryGeneratedColumn,
+  Column,
+  Entity,
 } from 'typeorm';
 
 @Entity()
@@ -15,10 +15,10 @@ export class ItemVenda {
   id: number;
 
   @Column({ name: 'quantidade', type: 'integer' })
-  quantidade: number;
+  quantity: number;
 
   @Column({ name: 'preco_unitario', type: 'decimal', precision: 10, scale: 2 })
-  precoUnitario: number;
+  unitPrice: number;
 
   @Column({ name: 'subtotal', type: 'decimal', precision: 10, scale: 2 })
   subtotal: number;
