@@ -29,7 +29,7 @@ export class UpdateItemSaleUseCase {
 
     if (!updated) {
       throw new InternalServerErrorException({
-        message: 'Erro ao atualizar o lote no banco de dados',
+        message: 'Erro ao atualizar o lote entre em contato com o suporte',
       });
     }
 

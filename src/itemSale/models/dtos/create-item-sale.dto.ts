@@ -10,12 +10,14 @@ export class CreateItemSaleDTO {
 
   @ApiProperty({ required: true })
   @IsNotEmpty()
-  @IsNumber()
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Type(() => Number)
   unitPrice: number;
 
   @ApiProperty({ required: true })
   @IsNotEmpty()
-  @IsNumber()
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Type(() => Number)
   subtotal: number;
 
   @ApiProperty({ required: true })

@@ -1,12 +1,12 @@
 import { Venda } from 'src/sales/models/entity/sales.entity';
 import {
-  Column,
+  PrimaryGeneratedColumn,
   CreateDateColumn,
-  Entity,
+  UpdateDateColumn,
   JoinColumn,
   ManyToOne,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
+  Column,
+  Entity,
 } from 'typeorm';
 
 export enum FormaPagamento {
