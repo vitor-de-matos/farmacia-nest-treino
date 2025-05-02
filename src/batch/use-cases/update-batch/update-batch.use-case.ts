@@ -26,7 +26,7 @@ export class UpdateBatchUseCase {
 
     if (!updated) {
       throw new InternalServerErrorException({
-        message: 'Erro ao atualizar o lote no banco de dados',
+        message: 'Erro ao atualizar entre em contato com o suporte',
       });
     }
 

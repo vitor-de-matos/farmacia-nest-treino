@@ -9,7 +9,7 @@ import { UpdateBatchUseCase } from './use-cases/update-batch/update-batch.use-ca
 import { DeleteBatchUseCase } from './use-cases/delete-batch/delete-batch.use-case';
 import { FindBatchUseCase } from './use-cases/find-batch/find-batch.use-case';
 import { DB_PG_DATABASE } from 'src/shared/database/typeOrm/postgres.config';
-import { BatchRepository } from './models/repository/lote.repository';
+import { BatchRepository } from './models/repository/batch.repository';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Module } from '@nestjs/common';
 import { Lote } from './models/entity/batch.entity';
@@ -34,4 +34,4 @@ import { Lote } from './models/entity/batch.entity';
   ],
   exports: ['ILoteRepo'],
 })
-export class LoteModule {}
+export class PersonModule {}

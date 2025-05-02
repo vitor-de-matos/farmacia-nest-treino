@@ -1,18 +1,18 @@
-import { Lote } from 'src/batch/models/entity/batch.entity';
 import { PromocaoLote } from 'src/batchPromotion/models/entity/batchPromotion.entity';
+import { Fabricante } from 'src/manufacturer/models/entity/manufacturer.entity';
 import { Categoria } from 'src/category/models/entity/category.entity';
 import { ItemVenda } from 'src/itemSale/models/entity/item-sale.entity';
-import { Fabricante } from 'src/manufacturer/models/entity/manufacturer.entity';
 import { Midia } from 'src/media/models/entity/midia.entity';
+import { Lote } from 'src/batch/models/entity/batch.entity';
 import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  JoinColumn,
   OneToMany,
+  ManyToOne,
   Column,
   Entity,
-  ManyToOne,
-  JoinColumn,
 } from 'typeorm';
 
 export enum TipoTarja {

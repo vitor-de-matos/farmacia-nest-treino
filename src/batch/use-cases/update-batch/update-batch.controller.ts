@@ -26,7 +26,7 @@ import {
 export class UpdateBatchController {
   constructor(
     @Inject(UpdateBatchUseCase)
-    private readonly updateBatchService: UpdateBatchUseCase,
+    private readonly batchService: UpdateBatchUseCase,
   ) {}
 
   @ApiOperation({ summary: 'Modifica lote' })
@@ -45,6 +45,6 @@ export class UpdateBatchController {
     if (isNaN(id)) {
       throw new NotAcceptableException({ message: 'Id deve ser um numero' });
     }
-    return await this.updateBatchService.update(id, batchDTO);
+    return await this.batchService.update(id, batchDTO);
   }
 }

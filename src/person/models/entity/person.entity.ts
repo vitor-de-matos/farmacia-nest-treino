@@ -1,11 +1,11 @@
 import { Venda } from 'src/sales/models/entity/sales.entity';
 import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  OneToMany,
   PrimaryGeneratedColumn,
+  CreateDateColumn,
   UpdateDateColumn,
+  OneToMany,
+  Column,
+  Entity,
 } from 'typeorm';
 
 export enum TipoPessoa {

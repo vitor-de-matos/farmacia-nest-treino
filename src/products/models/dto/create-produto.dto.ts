@@ -1,16 +1,15 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { CreateMidiaJobDTO } from 'src/media/models/dtos/create-midia-others.dto';
+import { TipoTarja } from '../entity/product.entity';
 import { Type } from 'class-transformer';
 import {
-  IsBoolean,
-  IsEnum,
-  IsISO8601,
   IsNotEmpty,
-  IsNumber,
   IsOptional,
+  IsBoolean,
+  IsNumber,
   IsString,
+  IsEnum,
 } from 'class-validator';
-import { TipoTarja } from '../entity/product.entity';
 
 export class CreateProdutoDTO extends CreateMidiaJobDTO {
   @ApiPropertyOptional()
