@@ -2,13 +2,13 @@ import { ItemVenda } from 'src/itemSale/models/entity/item-sale.entity';
 import { Pagamento } from 'src/payment/models/entity/payment.entity';
 import { Pessoa } from 'src/person/models/entity/person.entity';
 import {
-  Column,
+  PrimaryGeneratedColumn,
   CreateDateColumn,
-  Entity,
   JoinColumn,
   ManyToOne,
   OneToMany,
-  PrimaryGeneratedColumn,
+  Column,
+  Entity,
 } from 'typeorm';
 
 @Entity()
