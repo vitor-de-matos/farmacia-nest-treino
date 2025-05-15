@@ -21,14 +21,22 @@ export class FindAllMidiaUseCase {
   }> {
     const media = await this.mediaRepository.find(mediaDto);
 
-    return {
-      ...media,
-      data: media.data.flatMap((media) => {
+    const mediaWithUrls = await Promise.all(
+      media.data.map(async (media) => {
+        const completedUrl =
+          await this.archivesManagementRepository.completeArchivePath(
+            media.url,
+          );
         return {
           ...media,
-          url: this.archivesManagementRepository.completeArchivePath(media.url),
+          url: completedUrl,
         };
       }),
+    );
+
+    return {
+      ...media,
+      data: mediaWithUrls,
     };
   }
 }
