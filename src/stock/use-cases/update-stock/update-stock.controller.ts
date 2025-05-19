@@ -1,24 +1,24 @@
+import { UpdateStockUseCase } from './update-stock.use-case';
+import { UpdateStockDTO } from 'src/stock/models/dtos/update-stock.dto';
+import { Estoque } from 'src/stock/models/entity/stock.entity';
 import {
-  Body,
-  Controller,
-  Inject,
-  NotAcceptableException,
-  Param,
-  Patch,
-} from '@nestjs/common';
-import {
-  ApiBearerAuth,
-  ApiBody,
   ApiInternalServerErrorResponse,
   ApiNotAcceptableResponse,
   ApiNotFoundResponse,
   ApiOkResponse,
+  ApiBearerAuth,
   ApiOperation,
+  ApiBody,
   ApiTags,
 } from '@nestjs/swagger';
-import { UpdateStockUseCase } from './update-stock.use-case';
-import { UpdateStockDTO } from 'src/stock/models/dtos/update-stock.dto';
-import { Estoque } from 'src/stock/models/entity/stock.entity';
+import {
+  NotAcceptableException,
+  Controller,
+  Inject,
+  Param,
+  Patch,
+  Body,
+} from '@nestjs/common';
 
 @ApiTags('Lote')
 @ApiBearerAuth('access-token')

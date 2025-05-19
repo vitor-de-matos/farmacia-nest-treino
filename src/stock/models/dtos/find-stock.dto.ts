@@ -1,8 +1,8 @@
-import { ApiPropertyOptional } from '@nestjs/swagger';
-import { Type } from 'class-transformer';
 import { IsDate, IsEnum, IsNumber, IsOptional } from 'class-validator';
+import { ApiPropertyOptional } from '@nestjs/swagger';
 import { TipoMovimentacao } from '../entity/stock.entity';
 import { PaginationDTO } from 'src/shared/utils/dto/pagination.dto';
+import { Type } from 'class-transformer';
 
 export class FindStockDTO extends PaginationDTO {
   @ApiPropertyOptional({ enum: TipoMovimentacao })

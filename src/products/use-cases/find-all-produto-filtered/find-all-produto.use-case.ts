@@ -1,14 +1,14 @@
 import { ArchivesManagementJob } from 'src/shared/job/images-vids/archives-management.job';
 import { Inject, Injectable } from '@nestjs/common';
 import { FindProdutoDTO } from 'src/products/models/dto/find-produto.dto';
-import { IProdutoRepo } from 'src/products/models/interface/produto-repo.interface';
+import { IProductRepo } from 'src/products/models/interface/produto-repo.interface';
 import { Produto } from 'src/products/models/entity/product.entity';
 
 @Injectable()
 export class FindAllProdutosUseCase {
   constructor(
     @Inject('IProductRepo')
-    private readonly productRepository: IProdutoRepo,
+    private readonly productRepository: IProductRepo,
     @Inject(ArchivesManagementJob)
     private readonly archivesService: ArchivesManagementJob,
   ) {}

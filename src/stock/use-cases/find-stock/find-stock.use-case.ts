@@ -1,6 +1,6 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
-import { Estoque } from 'src/stock/models/entity/stock.entity';
 import { IStockRepo } from 'src/stock/models/interface/stock-repo.interface';
+import { Estoque } from 'src/stock/models/entity/stock.entity';
 
 @Injectable()
 export class FindStockUseCase {

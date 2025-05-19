@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { FindCategoryDTO } from 'src/category/models/dtos/find-catetegory.dto';
-import { Categoria } from 'src/category/models/entity/category.entity';
 import { ICategoryRepo } from 'src/category/models/interface/category-repo.interface';
+import { Categoria } from 'src/category/models/entity/category.entity';
 
 @Injectable()
 export class FindAllCategoryUseCase {

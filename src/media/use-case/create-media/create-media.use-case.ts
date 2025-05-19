@@ -1,7 +1,7 @@
 import { BadRequestException, Inject, Injectable } from '@nestjs/common';
 import { ArchivesManagementJob } from 'src/shared/job/images-vids/archives-management.job';
 import { CreateMidiaDTO } from 'src/media/models/dtos/create-midia.dto';
-import { IProdutoRepo } from 'src/products/models/interface/produto-repo.interface';
+import { IProductRepo } from 'src/products/models/interface/produto-repo.interface';
 import { IMidiaRepo } from 'src/media/models/interface/midia-repo.interface';
 
 @Injectable()
@@ -10,7 +10,7 @@ export class CreateMidiaUseCase {
     @Inject('IMediaRepo')
     private readonly mediaRepository: IMidiaRepo,
     @Inject('IProductRepo')
-    private readonly productRepository: IProdutoRepo,
+    private readonly productRepository: IProductRepo,
     @Inject(ArchivesManagementJob)
     private readonly archivesManagementRepository: ArchivesManagementJob,
   ) {}

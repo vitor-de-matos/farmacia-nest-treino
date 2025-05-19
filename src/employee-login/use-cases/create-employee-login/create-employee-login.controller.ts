@@ -1,4 +1,6 @@
 import { Body, Controller, Inject, Post } from '@nestjs/common';
+import { CreateEmployeeLoginUseCase } from './create-employee-login.use-case';
+import { CreateEmployeeLoginDTO } from 'src/employee-login/models/dtos/create-employee-login.dto';
 import {
   ApiInternalServerErrorResponse,
   ApiCreatedResponse,
@@ -6,8 +8,6 @@ import {
   ApiBody,
   ApiTags,
 } from '@nestjs/swagger';
-import { CreateEmployeeLoginDTO } from 'src/employee-login/models/dtos/create-employee-login.dto';
-import { CreateEmployeeLoginUseCase } from './create-employee-login.use-case';
 
 @ApiTags('Login Funcionarios')
 //@ApiBearerAuth('access-token')

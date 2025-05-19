@@ -1,11 +1,11 @@
 import { Lote } from 'src/batch/models/entity/batch.entity';
 import {
-  Column,
+  PrimaryGeneratedColumn,
   CreateDateColumn,
-  Entity,
   JoinColumn,
   ManyToOne,
-  PrimaryGeneratedColumn,
+  Entity,
+  Column,
 } from 'typeorm';
 
 export enum TipoMovimentacao {

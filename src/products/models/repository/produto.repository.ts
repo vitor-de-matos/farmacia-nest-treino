@@ -4,7 +4,7 @@ import { CreateProdutoDTO } from '../dto/create-produto.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DB_PG_DATABASE } from 'src/shared/database/typeOrm/postgres.config';
 import { FindProdutoDTO } from '../dto/find-produto.dto';
-import { IProdutoRepo as IProductRepo } from '../interface/produto-repo.interface';
+import { IProductRepo } from '../interface/produto-repo.interface';
 import { Produto } from '../entity/product.entity';
 import {
   FindManyOptions,

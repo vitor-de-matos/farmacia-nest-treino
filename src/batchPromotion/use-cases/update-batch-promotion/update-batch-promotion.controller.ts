@@ -2,14 +2,6 @@ import { UpdateBatchPromotionUseCase } from './update-batch-promotion.use-case';
 import { UpdateBatchDTO } from 'src/batch/models/dtos/update-lote.dto';
 import { PromocaoLote } from 'src/batchPromotion/models/entity/batchPromotion.entity';
 import {
-  NotAcceptableException,
-  Controller,
-  Inject,
-  Param,
-  Patch,
-  Body,
-} from '@nestjs/common';
-import {
   ApiInternalServerErrorResponse,
   ApiNotAcceptableResponse,
   ApiNotFoundResponse,
@@ -19,6 +11,14 @@ import {
   ApiTags,
   ApiBody,
 } from '@nestjs/swagger';
+import {
+  NotAcceptableException,
+  Controller,
+  Inject,
+  Param,
+  Patch,
+  Body,
+} from '@nestjs/common';
 
 @ApiTags('Lote Promoção')
 @ApiBearerAuth('access-token')

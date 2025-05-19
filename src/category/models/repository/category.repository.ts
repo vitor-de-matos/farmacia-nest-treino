@@ -1,12 +1,12 @@
+import { FindManyOptions, ILike, Repository } from 'typeorm';
 import { Injectable, NotFoundException } from '@nestjs/common';
+import { UpdateCategoryDTO } from '../dtos/update-category.dto';
+import { CreateCategoryDTO } from '../dtos/create-category.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Categoria } from '../entity/category.entity';
+import { FindCategoryDTO } from '../dtos/find-catetegory.dto';
 import { DB_PG_DATABASE } from 'src/shared/database/typeOrm/postgres.config';
 import { ICategoryRepo } from '../interface/category-repo.interface';
-import { FindManyOptions, ILike, Repository } from 'typeorm';
-import { CreateCategoryDTO } from '../dtos/create-category.dto';
-import { FindCategoryDTO } from '../dtos/find-catetegory.dto';
-import { UpdateCategoryDTO } from '../dtos/update-category.dto';
+import { Categoria } from '../entity/category.entity';
 
 @Injectable()
 export class CategoryRepository implements ICategoryRepo {

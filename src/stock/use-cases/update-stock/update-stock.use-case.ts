@@ -1,11 +1,11 @@
-import {
-  Inject,
-  Injectable,
-  InternalServerErrorException,
-  NotFoundException,
-} from '@nestjs/common';
 import { UpdateStockDTO } from 'src/stock/models/dtos/update-stock.dto';
 import { IStockRepo } from 'src/stock/models/interface/stock-repo.interface';
+import {
+  InternalServerErrorException,
+  NotFoundException,
+  Injectable,
+  Inject,
+} from '@nestjs/common';
 
 @Injectable()
 export class UpdateStockUseCase {

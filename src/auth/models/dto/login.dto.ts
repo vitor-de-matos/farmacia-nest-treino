@@ -11,7 +11,7 @@ export class LoginDTO {
   @ApiProperty({ required: true })
   @IsString()
   @IsNotEmpty()
-  document: string;
+  login: string;
 
   @ApiProperty({ required: true, format: 'password' })
   @IsNotEmpty()

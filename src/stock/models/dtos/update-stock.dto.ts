@@ -1,13 +1,13 @@
 import { ApiPropertyOptional } from '@nestjs/swagger';
+import { TipoMovimentacao } from '../entity/stock.entity';
 import { Type } from 'class-transformer';
 import {
-  IsDate,
-  IsEnum,
-  IsNumber,
   IsOptional,
+  IsNumber,
   IsString,
+  IsEnum,
+  IsDate,
 } from 'class-validator';
-import { TipoMovimentacao } from '../entity/stock.entity';
 
 export class UpdateStockDTO {
   @ApiPropertyOptional()

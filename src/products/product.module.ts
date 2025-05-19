@@ -8,15 +8,15 @@ import { UpdateProdutoUseCase } from './use-cases/update-produto/update-produto.
 import { DeleteProdutoUseCase } from './use-cases/delete-produto/delete-produto.use-case';
 import { CreateProdutoUseCase } from './use-cases/create-produto/create-produto.use-case';
 import { FindProdutoUseCase } from './use-cases/find-produto/find-produto.use-case';
+import { ManufacturerModule } from 'src/manufacturer/manufacturer.module';
 import { forwardRef, Module } from '@nestjs/common';
 import { ProductRepository } from './models/repository/produto.repository';
 import { DB_PG_DATABASE } from 'src/shared/database/typeOrm/postgres.config';
+import { CategoryModule } from 'src/category/category.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { SharedModule } from 'src/shared/shared.module';
 import { MidiaModule } from 'src/media/media.module';
 import { Produto } from './models/entity/product.entity';
-import { CategoryModule } from 'src/category/category.module';
-import { ManufacturerModule } from 'src/manufacturer/manufacturer.module';
 
 @Module({
   imports: [

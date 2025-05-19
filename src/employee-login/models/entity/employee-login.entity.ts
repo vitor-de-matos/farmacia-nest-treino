@@ -1,11 +1,11 @@
 import { Pessoa } from 'src/person/models/entity/person.entity';
 import {
-  Column,
+  PrimaryGeneratedColumn,
   CreateDateColumn,
-  Entity,
   JoinColumn,
   OneToOne,
-  PrimaryGeneratedColumn,
+  Entity,
+  Column,
 } from 'typeorm';
 
 @Entity()
@@ -23,7 +23,7 @@ export class FuncionarioLogin {
   active: boolean;
 
   @Column({ name: 'nivel_permissao', type: 'smallint' })
-  permisionLevel: number;
+  permissionLevel: number;
 
   @CreateDateColumn({ name: 'criado_em', type: 'timestamptz' })
   createdAt: Date;

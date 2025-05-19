@@ -1,18 +1,18 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
+import { UpdateBatchPromotionDTO } from '../dtos/update-batch-promotion.dto';
+import { CreateBatchPromotionDTO } from '../dtos/create-batch-promotion.dto';
+import { FindBatchPromotionDTO } from '../dtos/find-batch-promotion.dto';
+import { endOfDay, startOfDay } from 'date-fns';
 import { IBatchPromotionRepo } from '../interface/lote-promocao-repo.interface';
 import { InjectRepository } from '@nestjs/typeorm';
-import { PromocaoLote } from '../entity/batchPromotion.entity';
 import { DB_PG_DATABASE } from 'src/shared/database/typeOrm/postgres.config';
+import { PromocaoLote } from '../entity/batchPromotion.entity';
 import {
   FindManyOptions,
   LessThanOrEqual,
   MoreThanOrEqual,
   Repository,
 } from 'typeorm';
-import { CreateBatchPromotionDTO } from '../dtos/create-batch-promotion.dto';
-import { FindBatchPromotionDTO } from '../dtos/find-batch-promotion.dto';
-import { endOfDay, startOfDay } from 'date-fns';
-import { UpdateBatchPromotionDTO } from '../dtos/update-batch-promotion.dto';
 
 @Injectable()
 export class BatchPromotionRepository implements IBatchPromotionRepo {

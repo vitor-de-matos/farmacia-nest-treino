@@ -1,6 +1,6 @@
 import { CreateEmployeeLoginDTO } from '../dtos/create-employee-login.dto';
-import { FindEmployeeLoginDTO } from '../dtos/find-employee-login.dto';
 import { UpdateEmployeeLoginDTO } from '../dtos/update-employee-login.dto';
+import { FindEmployeeLoginDTO } from '../dtos/find-employee-login.dto';
 import { FuncionarioLogin } from '../entity/employee-login.entity';
 
 export interface IEmployeeLoginRepo {
@@ -12,6 +12,7 @@ export interface IEmployeeLoginRepo {
     totalItems: number;
   }>;
   findById(id: number): Promise<FuncionarioLogin | undefined>;
+  findByDocument(login: string): Promise<FuncionarioLogin | undefined>;
   update(
     id: number,
     employeeLoginDTO: UpdateEmployeeLoginDTO,

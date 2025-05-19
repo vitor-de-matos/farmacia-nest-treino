@@ -2,14 +2,6 @@ import { UpdateBatchUseCase } from './update-batch.use-case';
 import { UpdateBatchDTO } from 'src/batch/models/dtos/update-lote.dto';
 import { Lote } from 'src/batch/models/entity/batch.entity';
 import {
-  NotAcceptableException,
-  Controller,
-  Inject,
-  Param,
-  Patch,
-  Body,
-} from '@nestjs/common';
-import {
   ApiInternalServerErrorResponse,
   ApiNotAcceptableResponse,
   ApiNotFoundResponse,
@@ -19,6 +11,14 @@ import {
   ApiBody,
   ApiTags,
 } from '@nestjs/swagger';
+import {
+  NotAcceptableException,
+  Controller,
+  Inject,
+  Param,
+  Patch,
+  Body,
+} from '@nestjs/common';
 
 @ApiTags('Lote')
 @ApiBearerAuth('access-token')

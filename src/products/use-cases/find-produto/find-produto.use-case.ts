@@ -1,13 +1,13 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { ArchivesManagementJob } from 'src/shared/job/images-vids/archives-management.job';
-import { IProdutoRepo } from 'src/products/models/interface/produto-repo.interface';
+import { IProductRepo } from 'src/products/models/interface/produto-repo.interface';
 import { Produto } from 'src/products/models/entity/product.entity';
 
 @Injectable()
 export class FindProdutoUseCase {
   constructor(
     @Inject('IProductRepo')
-    private readonly productRepository: IProdutoRepo,
+    private readonly productRepository: IProductRepo,
     @Inject(ArchivesManagementJob)
     private readonly archivesService: ArchivesManagementJob,
   ) {}

@@ -1,6 +1,6 @@
 import { CreateStockDTO } from '../dtos/create-stock.dto';
-import { FindStockDTO } from '../dtos/find-stock.dto';
 import { UpdateStockDTO } from '../dtos/update-stock.dto';
+import { FindStockDTO } from '../dtos/find-stock.dto';
 import { Estoque } from '../entity/stock.entity';
 
 export interface IStockRepo {

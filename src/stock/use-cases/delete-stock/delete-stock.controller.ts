@@ -1,20 +1,20 @@
+import { DeleteStockUseCase } from './delete-stock.use-case';
 import {
-  Controller,
-  Delete,
-  Inject,
-  NotAcceptableException,
-  Param,
-} from '@nestjs/common';
-import {
-  ApiBearerAuth,
   ApiInternalServerErrorResponse,
   ApiNotAcceptableResponse,
   ApiNotFoundResponse,
   ApiOkResponse,
+  ApiBearerAuth,
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
-import { DeleteStockUseCase } from './delete-stock.use-case';
+import {
+  NotAcceptableException,
+  Controller,
+  Delete,
+  Inject,
+  Param,
+} from '@nestjs/common';
 
 @ApiTags('Estoque')
 @ApiBearerAuth('access-token')

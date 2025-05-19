@@ -1,15 +1,15 @@
 import { Controller, Get, Inject, Query } from '@nestjs/common';
+import { FindAllStockUseCase } from './find-all-stock.use-case';
+import { FindStockDTO } from 'src/stock/models/dtos/find-stock.dto';
+import { Estoque } from 'src/stock/models/entity/stock.entity';
 import {
-  ApiBearerAuth,
   ApiInternalServerErrorResponse,
   ApiNotAcceptableResponse,
+  ApiBearerAuth,
   ApiOkResponse,
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
-import { FindAllStockUseCase } from './find-all-stock.use-case';
-import { FindStockDTO } from 'src/stock/models/dtos/find-stock.dto';
-import { Estoque } from 'src/stock/models/entity/stock.entity';
 
 @ApiTags('Estoque')
 @ApiBearerAuth('access-token')

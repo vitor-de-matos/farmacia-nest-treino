@@ -1,10 +1,3 @@
-import {
-  Body,
-  Controller,
-  Inject,
-  NotAcceptableException,
-  Post,
-} from '@nestjs/common';
 import { CreateManufacturerUseCase } from './create-manufacturer.use-case';
 import { CreateManufacturerDTO } from 'src/manufacturer/models/dtos/create-manufacturer.dto';
 import {
@@ -15,6 +8,13 @@ import {
   ApiBody,
   ApiTags,
 } from '@nestjs/swagger';
+import {
+  NotAcceptableException,
+  Controller,
+  Inject,
+  Post,
+  Body,
+} from '@nestjs/common';
 
 @ApiTags('Fabricante')
 @ApiBearerAuth('access-token')

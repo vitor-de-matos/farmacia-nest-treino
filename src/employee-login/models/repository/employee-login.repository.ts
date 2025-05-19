@@ -16,7 +16,12 @@ export class EmployeeLoginRepository implements IEmployeeLoginRepo {
   ) {}
 
   async create(employeeLoginDTO: CreateEmployeeLoginDTO): Promise<number> {
-    const result = await this.repository.save(employeeLoginDTO);
+    const result = await this.repository.save({
+      ...employeeLoginDTO,
+      person: employeeLoginDTO.personId
+        ? { id: employeeLoginDTO.permissionLevel }
+        : null,
+    });
     return result.id;
   }
 
@@ -29,6 +34,7 @@ export class EmployeeLoginRepository implements IEmployeeLoginRepo {
     const queryOptions: FindManyOptions<FuncionarioLogin> = {
       where: {
         ...(filters.login && { login: ILike(`%${filters.login}%`) }),
+        ...(filters.personId && { person: { id: filters.personId } }),
       },
       ...(filters.page && filters.quantity
         ? {
@@ -54,6 +60,13 @@ export class EmployeeLoginRepository implements IEmployeeLoginRepo {
       throw new NotFoundException({ message: 'Lote não encontrado' });
     }
     return empoyeeLogin;
+  }
+
+  async findByDocument(login: string): Promise<FuncionarioLogin | undefined> {
+    return this.repository.findOne({
+      where: { login },
+      relations: { person: true },
+    });
   }
 
   async update(

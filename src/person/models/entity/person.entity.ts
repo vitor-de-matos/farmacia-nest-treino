@@ -5,9 +5,9 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   OneToMany,
+  OneToOne,
   Column,
   Entity,
-  OneToOne,
 } from 'typeorm';
 
 export enum TipoPessoa {

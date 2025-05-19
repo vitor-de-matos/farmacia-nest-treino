@@ -1,6 +1,6 @@
+import { UpdateBatchPromotionDTO } from '../dtos/update-batch-promotion.dto';
 import { CreateBatchPromotionDTO } from '../dtos/create-batch-promotion.dto';
 import { FindBatchPromotionDTO } from '../dtos/find-batch-promotion.dto';
-import { UpdateBatchPromotionDTO } from '../dtos/update-batch-promotion.dto';
 import { PromocaoLote } from '../entity/batchPromotion.entity';
 
 export interface IBatchPromotionRepo {

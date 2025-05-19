@@ -1,7 +1,7 @@
 import { CreateMidiaUseCase } from 'src/media/use-case/create-media/create-media.use-case';
 import { UpdateProdutoDTO } from 'src/products/models/dto/update-produto.dto';
 import { CreateMidiaDTO } from 'src/media/models/dtos/create-midia.dto';
-import { IProdutoRepo } from 'src/products/models/interface/produto-repo.interface';
+import { IProductRepo } from 'src/products/models/interface/produto-repo.interface';
 import { Produto } from 'src/products/models/entity/product.entity';
 import {
   InternalServerErrorException,
@@ -15,7 +15,7 @@ import {
 export class UpdateProdutoUseCase {
   constructor(
     @Inject('IProductRepo')
-    private readonly productRepository: IProdutoRepo,
+    private readonly productRepository: IProductRepo,
     @Inject(forwardRef(() => CreateMidiaUseCase))
     private readonly mediaRepository: CreateMidiaUseCase,
   ) {}

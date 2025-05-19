@@ -1,14 +1,14 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { TipoMovimentacao } from '../entity/stock.entity';
 import { Type } from 'class-transformer';
 import {
+  IsNotEmpty,
+  IsOptional,
+  IsNumber,
+  IsString,
   IsDate,
   IsEnum,
-  IsNotEmpty,
-  IsNumber,
-  IsOptional,
-  IsString,
 } from 'class-validator';
-import { TipoMovimentacao } from '../entity/stock.entity';
 
 export class CreateStockDTO {
   @ApiProperty({ required: true })

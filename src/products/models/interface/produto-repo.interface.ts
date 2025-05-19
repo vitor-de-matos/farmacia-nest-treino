@@ -3,7 +3,7 @@ import { UpdateProdutoDTO } from '../dto/update-produto.dto';
 import { FindProdutoDTO } from '../dto/find-produto.dto';
 import { Produto } from '../entity/product.entity';
 
-export interface IProdutoRepo {
+export interface IProductRepo {
   create(productDTO: CreateProdutoDTO): Promise<number>;
   find(filters: FindProdutoDTO): Promise<{
     data: Produto[];

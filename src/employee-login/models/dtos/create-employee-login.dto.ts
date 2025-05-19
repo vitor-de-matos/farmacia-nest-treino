@@ -1,5 +1,5 @@
-import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateEmployeeLoginDTO {
   @ApiProperty()
@@ -20,5 +20,5 @@ export class CreateEmployeeLoginDTO {
   @ApiProperty()
   @IsNotEmpty()
   @IsNumber()
-  permisionLevel: number;
+  permissionLevel: number;
 }

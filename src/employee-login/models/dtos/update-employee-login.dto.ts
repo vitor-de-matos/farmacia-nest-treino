@@ -1,5 +1,5 @@
-import { ApiPropertyOptional } from '@nestjs/swagger';
 import { IsNumber, IsOptional, IsString } from 'class-validator';
+import { ApiPropertyOptional } from '@nestjs/swagger';
 
 export class UpdateEmployeeLoginDTO {
   @ApiPropertyOptional()
@@ -20,5 +20,5 @@ export class UpdateEmployeeLoginDTO {
   @ApiPropertyOptional()
   @IsOptional()
   @IsNumber()
-  permisionLevel?: number;
+  permissionLevel?: number;
 }

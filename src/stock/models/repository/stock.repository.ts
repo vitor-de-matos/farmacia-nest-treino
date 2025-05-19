@@ -1,19 +1,19 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
+import { endOfDay, startOfDay } from 'date-fns';
 import { InjectRepository } from '@nestjs/typeorm';
+import { DB_PG_DATABASE } from 'src/shared/database/typeOrm/postgres.config';
+import { CreateStockDTO } from '../dtos/create-stock.dto';
+import { UpdateStockDTO } from '../dtos/update-stock.dto';
+import { FindStockDTO } from '../dtos/find-stock.dto';
 import { IStockRepo } from '../interface/stock-repo.interface';
 import { Estoque } from '../entity/stock.entity';
-import { DB_PG_DATABASE } from 'src/shared/database/typeOrm/postgres.config';
 import {
-  Between,
   FindManyOptions,
   LessThanOrEqual,
   MoreThanOrEqual,
   Repository,
+  Between,
 } from 'typeorm';
-import { CreateStockDTO } from '../dtos/create-stock.dto';
-import { FindStockDTO } from '../dtos/find-stock.dto';
-import { endOfDay, startOfDay } from 'date-fns';
-import { UpdateStockDTO } from '../dtos/update-stock.dto';
 
 @Injectable()
 export class StockRepository implements IStockRepo {

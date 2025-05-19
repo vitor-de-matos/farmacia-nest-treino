@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { FindStockDTO } from 'src/stock/models/dtos/find-stock.dto';
-import { Estoque } from 'src/stock/models/entity/stock.entity';
 import { IStockRepo } from 'src/stock/models/interface/stock-repo.interface';
+import { Estoque } from 'src/stock/models/entity/stock.entity';
 
 @Injectable()
 export class FindAllStockUseCase {

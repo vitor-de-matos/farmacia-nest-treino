@@ -1,20 +1,20 @@
+import { DeleteEmployeeLoginUseCase } from './delete-employee-login.use-case';
 import {
-  Controller,
-  Delete,
-  Inject,
-  NotAcceptableException,
-  Param,
-} from '@nestjs/common';
-import {
-  ApiBearerAuth,
   ApiInternalServerErrorResponse,
   ApiNotAcceptableResponse,
   ApiNotFoundResponse,
   ApiOkResponse,
+  ApiBearerAuth,
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
-import { DeleteEmployeeLoginUseCase } from './delete-employee-login.use-case';
+import {
+  NotAcceptableException,
+  Controller,
+  Delete,
+  Inject,
+  Param,
+} from '@nestjs/common';
 
 @ApiTags('Login Funcionarios')
 //@ApiBearerAuth('access-token')

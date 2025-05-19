@@ -1,10 +1,3 @@
-import {
-  Body,
-  Controller,
-  Inject,
-  NotAcceptableException,
-  Post,
-} from '@nestjs/common';
 import { CreatePersonUseCase } from './create-person.use-case';
 import { CreatePersonDTO } from 'src/person/models/dtos/create-person.dto';
 import {
@@ -15,6 +8,13 @@ import {
   ApiBody,
   ApiTags,
 } from '@nestjs/swagger';
+import {
+  NotAcceptableException,
+  Controller,
+  Inject,
+  Post,
+  Body,
+} from '@nestjs/common';
 
 @ApiTags('Pessoa')
 //@ApiBearerAuth('access-token')

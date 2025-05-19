@@ -1,22 +1,22 @@
 import { CreateMidiaUseCase } from 'src/media/use-case/create-media/create-media.use-case';
+import { IManufacturerRepo } from 'src/manufacturer/models/interface/manufacturer-repo.interface';
 import { CreateProdutoDTO } from 'src/products/models/dto/create-produto.dto';
 import { CreateMidiaDTO } from 'src/media/models/dtos/create-midia.dto';
-import { IProdutoRepo } from 'src/products/models/interface/produto-repo.interface';
+import { ICategoryRepo } from 'src/category/models/interface/category-repo.interface';
+import { IProductRepo } from 'src/products/models/interface/produto-repo.interface';
 import {
   BadRequestException,
+  NotFoundException,
   forwardRef,
   Injectable,
   Inject,
-  NotFoundException,
 } from '@nestjs/common';
-import { ICategoryRepo } from 'src/category/models/interface/category-repo.interface';
-import { IManufacturerRepo } from 'src/manufacturer/models/interface/manufacturer-repo.interface';
 
 @Injectable()
 export class CreateProdutoUseCase {
   constructor(
     @Inject('IProductRepo')
-    private readonly produtoRepository: IProdutoRepo,
+    private readonly produtoRepository: IProductRepo,
     @Inject('ICategoryRepo')
     private readonly categoryRepository: ICategoryRepo,
     @Inject('IManufacturerRepo')

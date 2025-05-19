@@ -1,15 +1,15 @@
 import { Controller, Get, Inject, Query } from '@nestjs/common';
+import { FindAllEmployeeLoginUseCase } from './find-all-employee-login.use-case';
+import { FindEmployeeLoginDTO } from 'src/employee-login/models/dtos/find-employee-login.dto';
+import { FuncionarioLogin } from 'src/employee-login/models/entity/employee-login.entity';
 import {
-  ApiBearerAuth,
   ApiInternalServerErrorResponse,
   ApiNotAcceptableResponse,
+  ApiBearerAuth,
   ApiOkResponse,
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
-import { FindAllEmployeeLoginUseCase } from './find-all-employee-login.use-case';
-import { FindEmployeeLoginDTO } from 'src/employee-login/models/dtos/find-employee-login.dto';
-import { FuncionarioLogin } from 'src/employee-login/models/entity/employee-login.entity';
 
 @ApiTags('Login Funcionarios')
 //@ApiBearerAuth('access-token')

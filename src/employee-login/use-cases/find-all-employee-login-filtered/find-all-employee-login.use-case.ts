@@ -1,7 +1,7 @@
-import { Inject, Injectable } from '@nestjs/common';
 import { FindEmployeeLoginDTO } from 'src/employee-login/models/dtos/find-employee-login.dto';
-import { FuncionarioLogin } from 'src/employee-login/models/entity/employee-login.entity';
 import { IEmployeeLoginRepo } from 'src/employee-login/models/interface/employee-login.interface';
+import { Inject, Injectable } from '@nestjs/common';
+import { FuncionarioLogin } from 'src/employee-login/models/entity/employee-login.entity';
 
 @Injectable()
 export class FindAllEmployeeLoginUseCase {

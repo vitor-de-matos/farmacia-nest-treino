@@ -13,6 +13,7 @@ import { SalesModule } from './sales/sales.module';
 import { BatachPromotionModule } from './batchPromotion/batch-promotion.module';
 import { CategoryModule } from './category/category.module';
 import { EmployeeLoginModule } from './employee-login/employee-login.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { EmployeeLoginModule } from './employee-login/employee-login.module';
       envFilePath: [__dirname + '/../.env'],
     }),
     SharedModule,
+    AuthModule,
     EmployeeLoginModule,
     BatchModule,
     BatachPromotionModule,
