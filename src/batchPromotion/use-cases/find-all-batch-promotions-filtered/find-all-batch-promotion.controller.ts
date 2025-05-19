@@ -11,7 +11,7 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 
-@ApiTags('Lote promoção')
+@ApiTags('Lote Promoção')
 @ApiBearerAuth('access-token')
 @Controller('promotionBatch')
 export class FindAllBatchPromotionController {

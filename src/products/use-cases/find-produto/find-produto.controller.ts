@@ -18,7 +18,7 @@ import {
 } from '@nestjs/common';
 
 @ApiTags('Produto')
-@ApiBearerAuth('access-token')
+//@ApiBearerAuth('access-token')
 @Controller('product')
 export class FindProdutoController {
   constructor(

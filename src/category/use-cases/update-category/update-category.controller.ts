@@ -20,7 +20,7 @@ import {
   Body,
 } from '@nestjs/common';
 
-@ApiTags('Category')
+@ApiTags('Categoria')
 @ApiBearerAuth('access-token')
 @Controller('category')
 export class UpdateCategoryController {

@@ -32,7 +32,7 @@ export class CreatePersonDTO {
 
   @ApiProperty({ required: true, enum: TipoPessoa })
   @IsNotEmpty()
-  @IsEnum({ TipoPessoa })
+  @IsEnum(TipoPessoa)
   type: TipoPessoa;
 
   @ApiPropertyOptional({ default: false })

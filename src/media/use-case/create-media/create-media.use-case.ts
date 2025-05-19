@@ -9,7 +9,7 @@ export class CreateMidiaUseCase {
   constructor(
     @Inject('IMediaRepo')
     private readonly mediaRepository: IMidiaRepo,
-    @Inject('IProdutoRepo')
+    @Inject('IProductRepo')
     private readonly productRepository: IProdutoRepo,
     @Inject(ArchivesManagementJob)
     private readonly archivesManagementRepository: ArchivesManagementJob,
@@ -29,21 +29,18 @@ export class CreateMidiaUseCase {
         message: `Apenas um deve ser enviado: ${idFields.join(', ')}`,
       });
     }
-
     if (
       mediaToCreate.productId != null ||
       mediaToCreate.productId != undefined
     ) {
-      const products = await this.productRepository.find({
-        id: mediaToCreate.productId,
-        icon: true,
-      });
-      if (products.data?.length && mediaDTO.icon) {
+      const product = await this.productRepository.findById(
+        mediaToCreate.productId,
+      );
+      if (product.media?.length && mediaDTO.icon) {
         throw new BadRequestException({
           message: 'Produto ja possui um icone',
         });
       }
-      await this.productRepository.findById(mediaToCreate.productId);
     }
 
     const savedMedia = await this.mediaRepository.create(mediaToCreate);

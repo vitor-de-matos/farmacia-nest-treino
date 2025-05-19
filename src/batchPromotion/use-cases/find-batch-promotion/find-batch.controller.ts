@@ -17,7 +17,7 @@ import {
   Get,
 } from '@nestjs/common';
 
-@ApiTags('Lote promoção')
+@ApiTags('Lote Promoção')
 @ApiBearerAuth('access-token')
 @Controller('promotionBatch')
 export class FindBatchPromotionController {

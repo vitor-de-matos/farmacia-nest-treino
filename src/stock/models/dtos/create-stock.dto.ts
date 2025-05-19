@@ -24,7 +24,7 @@ export class CreateStockDTO {
 
   @ApiProperty({ required: true, enum: TipoMovimentacao })
   @IsNotEmpty()
-  @IsEnum({ TipoMovimentacao })
+  @IsEnum(TipoMovimentacao)
   movementType: TipoMovimentacao;
 
   @ApiProperty({ required: true })

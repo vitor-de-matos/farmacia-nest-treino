@@ -14,7 +14,7 @@ import {
 @Injectable()
 export class UpdateProdutoUseCase {
   constructor(
-    @Inject('IProdutoRepo')
+    @Inject('IProductRepo')
     private readonly productRepository: IProdutoRepo,
     @Inject(forwardRef(() => CreateMidiaUseCase))
     private readonly mediaRepository: CreateMidiaUseCase,

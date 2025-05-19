@@ -2,10 +2,10 @@ import { Produto } from 'src/products/models/entity/product.entity';
 import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
+  JoinColumn,
   ManyToOne,
   Entity,
   Column,
-  JoinColumn,
 } from 'typeorm';
 
 @Entity()
@@ -19,7 +19,7 @@ export class Midia {
   @Column({ name: 'icone', type: 'boolean' })
   icon: boolean;
 
-  @Column({ name: 'url', type: 'varchar' })
+  @Column({ name: 'url', type: 'varchar', nullable: true })
   url: string;
 
   @CreateDateColumn({ name: 'criado_em', type: 'timestamptz' })

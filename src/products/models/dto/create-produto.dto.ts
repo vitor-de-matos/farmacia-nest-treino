@@ -47,6 +47,6 @@ export class CreateProdutoDTO extends CreateMidiaJobDTO {
 
   @ApiProperty({ required: true })
   @IsNotEmpty()
-  @IsBoolean()
-  controlled: boolean;
+  @IsString()
+  controlled: string;
 }

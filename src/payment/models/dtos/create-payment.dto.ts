@@ -12,7 +12,7 @@ import {
 export class CreatePaymentDTO {
   @ApiProperty({ required: true, enum: FormaPagamento })
   @IsNotEmpty()
-  @IsEnum({ FormaPagamento })
+  @IsEnum(FormaPagamento)
   paymentMethod: FormaPagamento;
 
   @ApiPropertyOptional()
@@ -41,7 +41,7 @@ export class CreatePaymentDTO {
 
   @ApiProperty({ required: true, enum: StatusPagamento })
   @IsNotEmpty()
-  @IsEnum({ StatusPagamento })
+  @IsEnum(StatusPagamento)
   status: StatusPagamento;
 
   @ApiProperty({ required: true })

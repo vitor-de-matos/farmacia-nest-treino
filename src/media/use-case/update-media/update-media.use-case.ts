@@ -13,9 +13,9 @@ import {
 @Injectable()
 export class UpdateMidiaUseCase {
   constructor(
-    @Inject('IMidiaRepo')
+    @Inject('IMediaRepo')
     private readonly mediaRepository: IMidiaRepo,
-    @Inject('IProdutoRepo')
+    @Inject('IProductRepo')
     private readonly productRepository: IProdutoRepo,
     @Inject(ArchivesManagementJob)
     private readonly archivesManagementRepository: ArchivesManagementJob,

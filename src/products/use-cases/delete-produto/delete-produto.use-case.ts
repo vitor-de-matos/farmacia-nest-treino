@@ -5,7 +5,7 @@ import { IProdutoRepo } from 'src/products/models/interface/produto-repo.interfa
 @Injectable()
 export class DeleteProdutoUseCase {
   constructor(
-    @Inject('IProdutoRepo')
+    @Inject('IProductRepo')
     private readonly productRepository: IProdutoRepo,
     @Inject(DeleteMidiaUseCase)
     private readonly mediaService: DeleteMidiaUseCase,

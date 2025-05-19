@@ -36,10 +36,10 @@ import { Midia } from './models/entity/midia.entity';
     UpdateMidiaUseCase,
     DeleteMidiaUseCase,
     MidiaRepository,
-    { provide: 'IMidiaRepo', useExisting: MidiaRepository },
+    { provide: 'IMediaRepo', useExisting: MidiaRepository },
   ],
   exports: [
-    'IMidiaRepo',
+    'IMediaRepo',
     CreateMidiaUseCase,
     UpdateMidiaUseCase,
     DeleteMidiaUseCase,

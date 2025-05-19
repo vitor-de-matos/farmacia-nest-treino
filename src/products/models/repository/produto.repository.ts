@@ -4,7 +4,7 @@ import { CreateProdutoDTO } from '../dto/create-produto.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DB_PG_DATABASE } from 'src/shared/database/typeOrm/postgres.config';
 import { FindProdutoDTO } from '../dto/find-produto.dto';
-import { IProdutoRepo } from '../interface/produto-repo.interface';
+import { IProdutoRepo as IProductRepo } from '../interface/produto-repo.interface';
 import { Produto } from '../entity/product.entity';
 import {
   FindManyOptions,
@@ -21,14 +21,26 @@ import {
 } from '@nestjs/common';
 
 @Injectable()
-export class ProdutoRepository implements IProdutoRepo {
+export class ProductRepository implements IProductRepo {
   constructor(
     @InjectRepository(Produto, DB_PG_DATABASE)
     private readonly repository: Repository<Produto>,
   ) {}
 
   async create(productDTO: CreateProdutoDTO): Promise<number> {
-    const result = await this.repository.save(productDTO);
+    const controlledBoolean =
+      typeof productDTO.controlled === 'string'
+        ? productDTO.controlled.toLowerCase() === 'true'
+        : Boolean(productDTO.controlled);
+
+    const result = await this.repository.save({
+      ...productDTO,
+      controlled: controlledBoolean,
+      category: productDTO.categoryId ? { id: productDTO.categoryId } : null,
+      manufacturer: productDTO.manufacturerId
+        ? { id: productDTO.manufacturerId }
+        : null,
+    });
     return result.id;
   }
 
@@ -79,6 +91,7 @@ export class ProdutoRepository implements IProdutoRepo {
 
     const queryOptions: FindManyOptions<Produto> = {
       where: {
+        ...(filters.id && { id: filters.id }),
         ...(filters.nome && { name: ILike(`%${filters.nome}%`) }),
         ...(filters.categoriaId !== undefined && {
           categoriaId: filters.categoriaId,
@@ -125,6 +138,7 @@ export class ProdutoRepository implements IProdutoRepo {
             skip: (filters.page - 1) * filters.quantity,
           }
         : {}),
+      relations: { category: true, manufacturer: true, media: true },
     };
 
     const [products, totalItems] =

@@ -6,7 +6,7 @@ import { Type } from 'class-transformer';
 export class UpdatePaymentDTO {
   @ApiPropertyOptional({ enum: FormaPagamento })
   @IsOptional()
-  @IsEnum({ FormaPagamento })
+  @IsEnum(FormaPagamento)
   paymentMethod?: FormaPagamento;
 
   @ApiPropertyOptional()
@@ -35,7 +35,7 @@ export class UpdatePaymentDTO {
 
   @ApiPropertyOptional({ enum: StatusPagamento })
   @IsOptional()
-  @IsEnum({ StatusPagamento })
+  @IsEnum(StatusPagamento)
   status?: StatusPagamento;
 
   @ApiPropertyOptional()

@@ -1,4 +1,10 @@
-import { Body, Controller, Inject, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Inject,
+  NotAcceptableException,
+  Post,
+} from '@nestjs/common';
 import { CreateManufacturerUseCase } from './create-manufacturer.use-case';
 import { CreateManufacturerDTO } from 'src/manufacturer/models/dtos/create-manufacturer.dto';
 import {
@@ -29,6 +35,11 @@ export class CreateManufacturerController {
   async create(
     @Body() manufacturerDTO: CreateManufacturerDTO,
   ): Promise<number> {
+    if (manufacturerDTO.cnpj.length != 14) {
+      throw new NotAcceptableException({
+        message: 'CNPJ não pode ter mais nem menos de 14 digitos',
+      });
+    }
     return await this.manufacturerService.create(manufacturerDTO);
   }
 }

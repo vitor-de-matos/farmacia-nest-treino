@@ -1,3 +1,4 @@
+import { FuncionarioLogin } from 'src/employee-login/models/entity/employee-login.entity';
 import { Venda } from 'src/sales/models/entity/sales.entity';
 import {
   PrimaryGeneratedColumn,
@@ -6,6 +7,7 @@ import {
   OneToMany,
   Column,
   Entity,
+  OneToOne,
 } from 'typeorm';
 
 export enum TipoPessoa {
@@ -50,6 +52,9 @@ export class Pessoa {
 
   @UpdateDateColumn({ name: 'atualizado_em', type: 'timestamptz' })
   updatedAt: Date;
+
+  @OneToOne(() => FuncionarioLogin, (login) => login.person)
+  employeeLogin?: FuncionarioLogin;
 
   @OneToMany(() => Venda, (venda) => venda.customer)
   buys: Venda[];

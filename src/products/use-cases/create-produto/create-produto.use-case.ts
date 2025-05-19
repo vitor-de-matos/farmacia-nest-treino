@@ -7,13 +7,20 @@ import {
   forwardRef,
   Injectable,
   Inject,
+  NotFoundException,
 } from '@nestjs/common';
+import { ICategoryRepo } from 'src/category/models/interface/category-repo.interface';
+import { IManufacturerRepo } from 'src/manufacturer/models/interface/manufacturer-repo.interface';
 
 @Injectable()
 export class CreateProdutoUseCase {
   constructor(
-    @Inject('IProdutoRepo')
+    @Inject('IProductRepo')
     private readonly produtoRepository: IProdutoRepo,
+    @Inject('ICategoryRepo')
+    private readonly categoryRepository: ICategoryRepo,
+    @Inject('IManufacturerRepo')
+    private readonly manufacturerRepository: IManufacturerRepo,
     @Inject(forwardRef(() => CreateMidiaUseCase))
     private readonly midiaRepository: CreateMidiaUseCase,
   ) {}
@@ -22,6 +29,20 @@ export class CreateProdutoUseCase {
     produtoDTO: CreateProdutoDTO,
     archives: Express.Multer.File[],
   ): Promise<number> {
+    const category = await this.categoryRepository.findById(
+      produtoDTO.categoryId,
+    );
+    if (!category) {
+      throw new NotFoundException({ message: 'categoria não encontrada' });
+    }
+
+    const manufacturer = await this.manufacturerRepository.findById(
+      produtoDTO.manufacturerId,
+    );
+    if (!manufacturer) {
+      throw new NotFoundException({ message: 'fabricante não encontrado' });
+    }
+
     const productCreated = await this.produtoRepository.create(produtoDTO);
     if (archives?.length) {
       await Promise.all(

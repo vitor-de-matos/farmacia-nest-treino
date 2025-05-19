@@ -23,7 +23,7 @@ export class UpdateStockDTO {
 
   @ApiPropertyOptional({ enum: TipoMovimentacao })
   @IsOptional()
-  @IsEnum({ TipoMovimentacao })
+  @IsEnum(TipoMovimentacao)
   movementType?: TipoMovimentacao;
 
   @ApiPropertyOptional()

@@ -31,7 +31,7 @@ export class UpdatePersonDTO {
 
   @ApiPropertyOptional({ enum: TipoPessoa })
   @IsOptional()
-  @IsEnum({ TipoPessoa })
+  @IsEnum(TipoPessoa)
   type?: TipoPessoa;
 
   @ApiPropertyOptional({ default: false })

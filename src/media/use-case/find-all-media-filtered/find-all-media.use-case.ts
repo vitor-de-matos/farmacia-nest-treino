@@ -7,7 +7,7 @@ import { Midia } from 'src/media/models/entity/midia.entity';
 @Injectable()
 export class FindAllMidiaUseCase {
   constructor(
-    @Inject('IMidiaRepo')
+    @Inject('IMediaRepo')
     private readonly mediaRepository: IMidiaRepo,
     @Inject(ArchivesManagementJob)
     private readonly archivesManagementRepository: ArchivesManagementJob,

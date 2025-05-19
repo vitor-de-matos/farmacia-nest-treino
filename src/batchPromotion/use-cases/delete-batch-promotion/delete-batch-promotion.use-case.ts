@@ -4,7 +4,7 @@ import { IBatchPromotionRepo } from 'src/batchPromotion/models/interface/lote-pr
 @Injectable()
 export class DeleteBatchPromotionUseCase {
   constructor(
-    @Inject('ILotePromocaoRepo')
+    @Inject('IBatchPromotionRepo')
     private readonly batchPromotionRepository: IBatchPromotionRepo,
   ) {}
 

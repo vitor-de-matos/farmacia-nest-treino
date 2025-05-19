@@ -17,5 +17,5 @@ export class CreateMidiaJobDTO {
   })
   @Allow()
   @IsOptional()
-  archive?: Express.Multer.File;
+  archives?: Express.Multer.File;
 }

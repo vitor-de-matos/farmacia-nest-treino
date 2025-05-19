@@ -20,19 +20,19 @@ import {
   ApiBody,
 } from '@nestjs/swagger';
 
-@ApiTags('Lote')
+@ApiTags('Lote Promoção')
 @ApiBearerAuth('access-token')
-@Controller('batch')
+@Controller('promotionBatch')
 export class UpdateBatchPromotionController {
   constructor(
     @Inject(UpdateBatchPromotionUseCase)
     private readonly updatePromocaoLoteService: UpdateBatchPromotionUseCase,
   ) {}
 
-  @ApiOperation({ summary: 'Modifica lote' })
+  @ApiOperation({ summary: 'Modifica promoção de lote' })
   @ApiBody({ type: UpdateBatchDTO })
-  @ApiOkResponse({ description: 'lote atualizado' })
-  @ApiNotFoundResponse({ description: 'lote não encontrado.' })
+  @ApiOkResponse({ description: 'Promoção de lote atualizado' })
+  @ApiNotFoundResponse({ description: 'Promoção de lote não encontrado.' })
   @ApiNotAcceptableResponse({ description: 'Id inválido.' })
   @ApiInternalServerErrorResponse({
     description: 'Erro interno entre em contato com o suporte.',

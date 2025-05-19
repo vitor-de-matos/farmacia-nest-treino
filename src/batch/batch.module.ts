@@ -30,8 +30,8 @@ import { Lote } from './models/entity/batch.entity';
     UpdateBatchUseCase,
     DeleteBatchUseCase,
     BatchRepository,
-    { provide: 'ILoteRepo', useExisting: BatchRepository },
+    { provide: 'IBatchRepo', useExisting: BatchRepository },
   ],
-  exports: ['ILoteRepo'],
+  exports: ['IBatchRepo'],
 })
-export class PersonModule {}
+export class BatchModule {}

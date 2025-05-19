@@ -7,7 +7,7 @@ import { PaginationDTO } from 'src/shared/utils/dto/pagination.dto';
 export class FindStockDTO extends PaginationDTO {
   @ApiPropertyOptional({ enum: TipoMovimentacao })
   @IsOptional()
-  @IsEnum({ TipoMovimentacao })
+  @IsEnum(TipoMovimentacao)
   movementType?: TipoMovimentacao;
 
   @ApiPropertyOptional()

@@ -9,18 +9,22 @@ import { DeleteProdutoUseCase } from './use-cases/delete-produto/delete-produto.
 import { CreateProdutoUseCase } from './use-cases/create-produto/create-produto.use-case';
 import { FindProdutoUseCase } from './use-cases/find-produto/find-produto.use-case';
 import { forwardRef, Module } from '@nestjs/common';
-import { ProdutoRepository } from './models/repository/produto.repository';
+import { ProductRepository } from './models/repository/produto.repository';
 import { DB_PG_DATABASE } from 'src/shared/database/typeOrm/postgres.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { SharedModule } from 'src/shared/shared.module';
 import { MidiaModule } from 'src/media/media.module';
 import { Produto } from './models/entity/product.entity';
+import { CategoryModule } from 'src/category/category.module';
+import { ManufacturerModule } from 'src/manufacturer/manufacturer.module';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([Produto], DB_PG_DATABASE),
     SharedModule,
     forwardRef(() => MidiaModule),
+    CategoryModule,
+    ManufacturerModule,
   ],
   controllers: [
     CreateProdutoController,
@@ -35,12 +39,12 @@ import { Produto } from './models/entity/product.entity';
     FindAllProdutosUseCase,
     UpdateProdutoUseCase,
     DeleteProdutoUseCase,
-    ProdutoRepository,
+    ProductRepository,
     {
-      provide: 'IProduypRepo',
-      useExisting: ProdutoRepository,
+      provide: 'IProductRepo',
+      useExisting: ProductRepository,
     },
   ],
-  exports: ['IProdutoRepo'],
+  exports: ['IProductRepo'],
 })
 export class ProductModule {}

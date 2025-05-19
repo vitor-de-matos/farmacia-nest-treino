@@ -7,7 +7,7 @@ import { Produto } from 'src/products/models/entity/product.entity';
 @Injectable()
 export class FindAllProdutosUseCase {
   constructor(
-    @Inject('IProdutoRepo')
+    @Inject('IProductRepo')
     private readonly productRepository: IProdutoRepo,
     @Inject(ArchivesManagementJob)
     private readonly archivesService: ArchivesManagementJob,

@@ -7,12 +7,12 @@ import { Type } from 'class-transformer';
 export class FindPaymentDTO extends PaginationDTO {
   @ApiPropertyOptional({ enum: FormaPagamento })
   @IsOptional()
-  @IsEnum({ FormaPagamento })
+  @IsEnum(FormaPagamento)
   paymentMethod?: FormaPagamento;
 
   @ApiPropertyOptional({ enum: StatusPagamento })
   @IsOptional()
-  @IsEnum({ StatusPagamento })
+  @IsEnum(StatusPagamento)
   status?: StatusPagamento;
 
   @ApiPropertyOptional()

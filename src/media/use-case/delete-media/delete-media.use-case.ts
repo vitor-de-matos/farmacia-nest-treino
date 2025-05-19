@@ -5,7 +5,7 @@ import { IMidiaRepo } from 'src/media/models/interface/midia-repo.interface';
 @Injectable()
 export class DeleteMidiaUseCase {
   constructor(
-    @Inject('IMidiaRepo')
+    @Inject('IMediaRepo')
     private readonly mediaRepository: IMidiaRepo,
     @Inject(ArchivesManagementJob)
     private readonly archivesManagementJob: ArchivesManagementJob,

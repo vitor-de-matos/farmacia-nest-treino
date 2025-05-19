@@ -16,7 +16,10 @@ export class MidiaRepository implements IMidiaRepo {
   ) {}
 
   async create(mediaDTO: CreateMidiaDTO): Promise<number> {
-    const result = await this.repository.save(mediaDTO);
+    const result = await this.repository.save({
+      ...mediaDTO,
+      product: mediaDTO.productId ? { id: mediaDTO.productId } : null,
+    });
     return result.id;
   }
 

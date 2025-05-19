@@ -1,4 +1,10 @@
-import { Body, Controller, Inject, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Inject,
+  NotAcceptableException,
+  Post,
+} from '@nestjs/common';
 import { CreatePersonUseCase } from './create-person.use-case';
 import { CreatePersonDTO } from 'src/person/models/dtos/create-person.dto';
 import {
@@ -10,8 +16,8 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 
-@ApiTags('Pessoas')
-@ApiBearerAuth('access-token')
+@ApiTags('Pessoa')
+//@ApiBearerAuth('access-token')
 @Controller('person')
 export class CreatePersonController {
   constructor(
@@ -27,6 +33,11 @@ export class CreatePersonController {
   })
   @Post()
   async create(@Body() personDTO: CreatePersonDTO): Promise<number> {
+    if (personDTO.document.length != 11) {
+      throw new NotAcceptableException({
+        message: 'CPF deve conter 11 digitos',
+      });
+    }
     return await this.personService.create(personDTO);
   }
 }
