@@ -13,7 +13,7 @@ import {
 @ApiTags('Estoque')
 @ApiBearerAuth('access-token')
 @Controller('stock')
-export class CreateBatchController {
+export class CreateStockController {
   constructor(
     @Inject(CreateStockUseCase)
     private readonly stockService: CreateStockUseCase,

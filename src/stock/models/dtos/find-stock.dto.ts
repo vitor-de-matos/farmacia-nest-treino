@@ -26,5 +26,10 @@ export class FindStockDTO extends PaginationDTO {
   @IsOptional()
   @IsNumber()
   @Type(() => Number)
-  batchId: number;
+  batchId?: number;
+
+  @IsOptional()
+  @IsDate()
+  @Type(() => Date)
+  expiration?: Date;
 }

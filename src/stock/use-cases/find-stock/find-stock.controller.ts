@@ -23,7 +23,7 @@ import {
 export class FindStockController {
   constructor(
     @Inject(FindStockUseCase)
-    private readonly batchService: FindStockUseCase,
+    private readonly stockService: FindStockUseCase,
   ) {}
 
   @ApiOperation({ summary: 'Busca estoque por ID' })
@@ -40,6 +40,6 @@ export class FindStockController {
         message: 'Requisição inválida; era esperado um ID numérico válido.',
       });
     }
-    return await this.batchService.find(id);
+    return await this.stockService.find(id);
   }
 }

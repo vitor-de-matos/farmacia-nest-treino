@@ -20,13 +20,13 @@ import {
   Body,
 } from '@nestjs/common';
 
-@ApiTags('Lote')
+@ApiTags('Estoque')
 @ApiBearerAuth('access-token')
-@Controller('batch')
-export class UpdateBatchController {
+@Controller('stock')
+export class UpdateStockController {
   constructor(
     @Inject(UpdateStockUseCase)
-    private readonly batchService: UpdateStockUseCase,
+    private readonly StockService: UpdateStockUseCase,
   ) {}
 
   @ApiOperation({ summary: 'Modifica Estoque' })
@@ -45,6 +45,6 @@ export class UpdateBatchController {
     if (isNaN(id)) {
       throw new NotAcceptableException({ message: 'Id deve ser um numero' });
     }
-    return await this.batchService.update(id, batchDTO);
+    return await this.StockService.update(id, batchDTO);
   }
 }

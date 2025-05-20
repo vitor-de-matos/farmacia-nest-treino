@@ -14,9 +14,12 @@ import { BatachPromotionModule } from './batchPromotion/batch-promotion.module';
 import { CategoryModule } from './category/category.module';
 import { EmployeeLoginModule } from './employee-login/employee-login.module';
 import { AuthModule } from './auth/auth.module';
+import { StockModule } from './stock/stock.module';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
+    ScheduleModule.forRoot(),
     ConfigModule.forRoot({
       isGlobal: true,
       load: [config],
@@ -34,6 +37,7 @@ import { AuthModule } from './auth/auth.module';
     PaymentModule,
     PersonModule,
     ProductModule,
+    StockModule,
     SalesModule,
   ],
   controllers: [],
