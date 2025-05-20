@@ -26,7 +26,7 @@ export class Venda {
   emissionDate: Date;
 
   @OneToMany(() => ItemVenda, (item) => item.sale, { cascade: true })
-  items: ItemVenda[];
+  itemSale: ItemVenda[];
 
   @OneToMany(() => Pagamento, (pagamento) => pagamento.sale, { cascade: true })
   payments: Pagamento[];

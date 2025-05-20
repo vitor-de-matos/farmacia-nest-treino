@@ -15,8 +15,13 @@ export class ItemSaleRepository implements IItemSaleRepo {
     private readonly repository: Repository<ItemVenda>,
   ) {}
 
-  async create(batchDTO: CreateItemSaleDTO): Promise<number> {
-    const result = await this.repository.save(batchDTO);
+  async create(itemSaleDTO: CreateItemSaleDTO): Promise<number> {
+    const result = await this.repository.save({
+      ...itemSaleDTO,
+      product: itemSaleDTO.productId ? { id: itemSaleDTO.productId } : null,
+      sale: itemSaleDTO.saleId ? { id: itemSaleDTO.saleId } : null,
+      batch: itemSaleDTO.batchId ? { id: itemSaleDTO.batchId } : null,
+    });
     return result.id;
   }
 

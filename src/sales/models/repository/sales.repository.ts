@@ -24,7 +24,11 @@ export class SalesRepository implements ISalesRepo {
   ) {}
 
   async create(salesDTO: CreateSalesDTO): Promise<number> {
-    const result = await this.repository.save(salesDTO);
+    const result = await this.repository.save({
+      ...salesDTO,
+      employee: salesDTO.employeeId ? { id: salesDTO.employeeId } : null,
+      customer: salesDTO.customerId ? { id: salesDTO.customerId } : null,
+    });
     return result.id;
   }
 
@@ -76,7 +80,15 @@ export class SalesRepository implements ISalesRepo {
   }
 
   async findById(id: number): Promise<Venda | undefined> {
-    const sales = await this.repository.findOne({ where: { id: id } });
+    const sales = await this.repository.findOne({
+      where: { id: id },
+      relations: {
+        employee: true,
+        customer: true,
+        itemSale: true,
+        payments: true,
+      },
+    });
     if (!sales) {
       throw new NotFoundException({ message: 'Venda não encontrada' });
     }

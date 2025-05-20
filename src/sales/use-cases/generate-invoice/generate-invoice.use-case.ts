@@ -3,7 +3,7 @@ import { ISalesRepo } from 'src/sales/models/interface/sales-repo.interface';
 import { Venda } from 'src/sales/models/entity/sales.entity';
 
 @Injectable()
-export class FindSalesUseCase {
+export class GenerateInvoiceUseCase {
   constructor(
     @Inject('ISalesRepo')
     private readonly salesRepository: ISalesRepo,
@@ -16,23 +16,7 @@ export class FindSalesUseCase {
         message: 'Venda não encontrada',
       });
     }
-
-    return {
-      id: sales.id,
-      cpf: sales.cpf,
-      totalValue: sales.totalValue,
-      emissionDate: sales.emissionDate,
-      itemSale: sales.itemSale.map((item) => ({
-        id: item.id,
-        quantity: item.quantity,
-        unitPrice: item.unitPrice,
-        subtotal: item.subtotal,
-        sale: undefined,
-        product: undefined,
-        batch: undefined,
-      })),
-      payments: undefined,
-      employee: undefined,
-    };
+    console.log(sales);
+    return sales;
   }
 }

@@ -23,7 +23,7 @@ export class ItemVenda {
   @Column({ name: 'subtotal', type: 'decimal', precision: 10, scale: 2 })
   subtotal: number;
 
-  @ManyToOne(() => Venda, (venda) => venda.items, { nullable: false })
+  @ManyToOne(() => Venda, (venda) => venda.itemSale, { nullable: false })
   @JoinColumn({ name: 'id_venda' })
   sale: Venda;
 

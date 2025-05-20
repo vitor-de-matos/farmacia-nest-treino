@@ -16,7 +16,10 @@ export class PaymentRepository implements IPaymentRepo {
   ) {}
 
   async create(paymentDTO: CreatePaymentDTO): Promise<number> {
-    const result = await this.repository.save(paymentDTO);
+    const result = await this.repository.save({
+      ...paymentDTO,
+      sale: paymentDTO.saleId ? { id: paymentDTO.saleId } : null,
+    });
     return result.id;
   }
 

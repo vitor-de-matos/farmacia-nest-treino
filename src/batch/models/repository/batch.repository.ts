@@ -17,7 +17,10 @@ export class BatchRepository implements IBatchRepo {
   ) {}
 
   async create(batchDTO: CreateBatchDTO): Promise<number> {
-    const result = await this.repository.save(batchDTO);
+    const result = await this.repository.save({
+      ...batchDTO,
+      product: batchDTO.productId ? { id: batchDTO.productId } : null,
+    });
     return result.id;
   }
 

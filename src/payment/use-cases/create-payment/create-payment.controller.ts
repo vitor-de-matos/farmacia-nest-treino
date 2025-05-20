@@ -10,9 +10,9 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 
-@ApiTags('Item Venda')
+@ApiTags('Pagamento')
 @ApiBearerAuth('access-token')
-@Controller('itemSale')
+@Controller('payment')
 export class CreatePaymentController {
   constructor(
     @Inject(CreatePaymentUseCase)

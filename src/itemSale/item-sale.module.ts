@@ -13,9 +13,13 @@ import { DB_PG_DATABASE } from 'src/shared/database/typeOrm/postgres.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ItemVenda } from './models/entity/item-sale.entity';
 import { Module } from '@nestjs/common';
+import { ProductModule } from 'src/products/product.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([ItemVenda], DB_PG_DATABASE)],
+  imports: [
+    TypeOrmModule.forFeature([ItemVenda], DB_PG_DATABASE),
+    ProductModule,
+  ],
   controllers: [
     CreateItemSaleController,
     FindItemSaleController,

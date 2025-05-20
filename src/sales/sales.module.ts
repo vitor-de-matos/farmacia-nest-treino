@@ -13,6 +13,8 @@ import { DB_PG_DATABASE } from 'src/shared/database/typeOrm/postgres.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Module } from '@nestjs/common';
 import { Venda } from './models/entity/sales.entity';
+import { GenerateInvoiceController } from './use-cases/generate-invoice/generate-invoice.controller';
+import { GenerateInvoiceUseCase } from './use-cases/generate-invoice/generate-invoice.use-case';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Venda], DB_PG_DATABASE)],
@@ -22,6 +24,7 @@ import { Venda } from './models/entity/sales.entity';
     FindAllSalesController,
     UpdateSalesController,
     DeleteSalesController,
+    GenerateInvoiceController,
   ],
   providers: [
     CreateSalesUseCase,
@@ -29,6 +32,7 @@ import { Venda } from './models/entity/sales.entity';
     FindAllSalesUseCase,
     UpdateSalesUseCase,
     DeleteSalesUseCase,
+    GenerateInvoiceUseCase,
     SalesRepository,
     { provide: 'ISalesRepo', useExisting: SalesRepository },
   ],
