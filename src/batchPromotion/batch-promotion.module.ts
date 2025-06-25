@@ -34,4 +34,4 @@ import { Module } from '@nestjs/common';
   ],
   exports: ['IBatchPromotionRepo'],
 })
-export class BatachPromotionModule {}
+export class BatchPromotionModule {}

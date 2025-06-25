@@ -61,6 +61,8 @@ export class GlobalExceptionFilter implements ExceptionFilter {
     const userId = (request as any).user?.id ?? null;
     const timestamp = new Date().toLocaleString();
 
+    const sanitizedBody = this.sanitizeBody(body);
+
     const errorDetails =
       exception instanceof Error
         ? `${exception.message}\n${exception.stack}`
@@ -72,7 +74,7 @@ export class GlobalExceptionFilter implements ExceptionFilter {
             UserID: ${userId}
             IP: ${ip}
             Error: ${errorDetails}
-            Body: ${JSON.stringify(body)}
+            Body: ${JSON.stringify(sanitizedBody)}
             Params: ${JSON.stringify(params)}
             Query: ${JSON.stringify(query)}
 \r\n`;
@@ -90,5 +92,15 @@ export class GlobalExceptionFilter implements ExceptionFilter {
     }
 
     await fs.promises.appendFile(logPath, message);
+  }
+
+  private sanitizeBody(body: any): any {
+    if (body?.password) {
+      body.password = '***';
+    }
+    if (body?.token) {
+      body.token = '***';
+    }
+    return body;
   }
 }

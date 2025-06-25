@@ -3,6 +3,16 @@ import { DocumentBuilder, SwaggerCustomOptions } from '@nestjs/swagger';
 export const SWAGGER_CONFIG = new DocumentBuilder()
   .setTitle('Farmacia api')
   .setVersion('0.0.0')
+  .addBearerAuth(
+    {
+      type: 'http',
+      scheme: 'bearer',
+      bearerFormat: 'JWT',
+      name: 'Authorization',
+      in: 'header',
+    },
+    'access-token',
+  )
   .build();
 
 export const SWAGGER_CUSTOM_OPTIONS: SwaggerCustomOptions = {

@@ -9,9 +9,12 @@ import {
   SWAGGER_CONFIG,
 } from './shared/config/swagger.config';
 import * as express from 'express';
+import { CustomLoggerService } from './shared/utils/logger/custom-logger.service';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    //logger: new CustomLoggerService(),
+  });
   const configService = app.get(ConfigService);
   const port = configService.get<number>('port');
   const pathToPublicStorage = configService.get<string>('pathToPublicStorage');

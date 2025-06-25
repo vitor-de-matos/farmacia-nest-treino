@@ -10,6 +10,7 @@ import { LoginDTO } from './models/dto/login.dto';
 import { RefreshDTO } from './models/dto/refresh.dto';
 import { Public } from './public.decorator';
 import { AuthService } from './auth.service';
+import { Throttle } from '@nestjs/throttler';
 
 @ApiTags('Autenticação')
 @Controller('auth')
@@ -22,6 +23,7 @@ export class AuthController {
   @Public()
   @ApiConsumes('application/x-www-form-urlencoded')
   @ApiBody({ type: LoginDTO })
+  @Throttle({ default: { limit: 5, ttl: 50 } })
   @Post('login')
   async login(@Body() loginDTO: LoginDTO) {
     const { login: document, password, remember } = loginDTO;

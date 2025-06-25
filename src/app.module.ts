@@ -10,12 +10,14 @@ import { PaymentModule } from './payment/payment.module';
 import { PersonModule } from './person/person.module';
 import { ProductModule } from './products/product.module';
 import { SalesModule } from './sales/sales.module';
-import { BatachPromotionModule } from './batchPromotion/batch-promotion.module';
+import { BatchPromotionModule } from './batchPromotion/batch-promotion.module';
 import { CategoryModule } from './category/category.module';
 import { EmployeeLoginModule } from './employee-login/employee-login.module';
 import { AuthModule } from './auth/auth.module';
 import { StockModule } from './stock/stock.module';
 import { ScheduleModule } from '@nestjs/schedule';
+import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
+import { APP_GUARD } from '@nestjs/core';
 
 @Module({
   imports: [
@@ -25,11 +27,12 @@ import { ScheduleModule } from '@nestjs/schedule';
       load: [config],
       envFilePath: [__dirname + '/../.env'],
     }),
+    ThrottlerModule.forRoot([{ ttl: 60000, limit: 10 }]),
     SharedModule,
     AuthModule,
     EmployeeLoginModule,
     BatchModule,
-    BatachPromotionModule,
+    BatchPromotionModule,
     CategoryModule,
     ItemSaleModule,
     ManufacturerModule,
@@ -41,6 +44,6 @@ import { ScheduleModule } from '@nestjs/schedule';
     SalesModule,
   ],
   controllers: [],
-  providers: [],
+  providers: [{ provide: APP_GUARD, useClass: ThrottlerGuard }],
 })
 export class AppModule {}
