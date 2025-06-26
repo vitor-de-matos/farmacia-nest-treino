@@ -1,4 +1,4 @@
-import { Pessoa } from 'src/person/models/entity/person.entity';
+import { Pessoa } from '../../../person/models/entity/person.entity';
 import {
   PrimaryGeneratedColumn,
   CreateDateColumn,

@@ -1,6 +1,6 @@
-import { ItemVenda } from 'src/itemSale/models/entity/item-sale.entity';
-import { Pagamento } from 'src/payment/models/entity/payment.entity';
-import { Pessoa } from 'src/person/models/entity/person.entity';
+import { ItemVenda } from '../../../itemSale/models/entity/item-sale.entity';
+import { Pagamento } from '../../../payment/models/entity/payment.entity';
+import { Pessoa } from '../../../person/models/entity/person.entity';
 import {
   PrimaryGeneratedColumn,
   CreateDateColumn,

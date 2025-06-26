@@ -1,7 +1,7 @@
-import { PromocaoLote } from 'src/batchPromotion/models/entity/batchPromotion.entity';
-import { ItemVenda } from 'src/itemSale/models/entity/item-sale.entity';
-import { Produto } from 'src/products/models/entity/product.entity';
-import { Estoque } from 'src/stock/models/entity/stock.entity';
+import { PromocaoLote } from '../../../batchPromotion/models/entity/batchPromotion.entity';
+import { ItemVenda } from '../../../itemSale/models/entity/item-sale.entity';
+import { Produto } from '../../../products/models/entity/product.entity';
+import { Estoque } from '../../../stock/models/entity/stock.entity';
 import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,

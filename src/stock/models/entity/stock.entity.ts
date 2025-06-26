@@ -1,4 +1,4 @@
-import { Lote } from 'src/batch/models/entity/batch.entity';
+import { Lote } from '../../../batch/models/entity/batch.entity';
 import {
   PrimaryGeneratedColumn,
   CreateDateColumn,

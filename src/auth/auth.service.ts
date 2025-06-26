@@ -1,8 +1,8 @@
 import { Inject, Injectable, UnauthorizedException } from '@nestjs/common';
-import { JwtService } from '@nestjs/jwt';
 import { IEmployeeLoginRepo } from 'src/employee-login/models/interface/employee-login.interface';
-import * as bcrypt from 'bcrypt';
 import { FuncionarioLogin } from 'src/employee-login/models/entity/employee-login.entity';
+import { JwtService } from '@nestjs/jwt';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class AuthService {
@@ -24,7 +24,6 @@ export class AuthService {
     }
 
     const { password: _, ...result } = user;
-    console.log(result);
     return result;
   }
 

@@ -1,4 +1,4 @@
-import { Produto } from 'src/products/models/entity/product.entity';
+import { Produto } from '../../../products/models/entity/product.entity';
 import {
   PrimaryGeneratedColumn,
   CreateDateColumn,

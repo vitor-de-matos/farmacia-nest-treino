@@ -1,5 +1,6 @@
-import { FuncionarioLogin } from 'src/employee-login/models/entity/employee-login.entity';
-import { Venda } from 'src/sales/models/entity/sales.entity';
+import { Venda } from '../../../sales/models/entity/sales.entity';
+import { FuncionarioLogin } from '../../../employee-login/models/entity/employee-login.entity';
+
 import {
   PrimaryGeneratedColumn,
   CreateDateColumn,

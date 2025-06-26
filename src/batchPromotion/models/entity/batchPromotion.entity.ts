@@ -1,5 +1,5 @@
-import { Produto } from 'src/products/models/entity/product.entity';
-import { Lote } from 'src/batch/models/entity/batch.entity';
+import { Produto } from '../../../products/models/entity/product.entity';
+import { Lote } from '../../../batch/models/entity/batch.entity';
 import {
   PrimaryGeneratedColumn,
   CreateDateColumn,

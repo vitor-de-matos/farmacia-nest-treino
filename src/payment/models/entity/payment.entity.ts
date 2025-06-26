@@ -1,4 +1,4 @@
-import { Venda } from 'src/sales/models/entity/sales.entity';
+import { Venda } from '../../../sales/models/entity/sales.entity';
 import {
   PrimaryGeneratedColumn,
   CreateDateColumn,

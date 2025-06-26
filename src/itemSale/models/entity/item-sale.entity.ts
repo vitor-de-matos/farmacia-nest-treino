@@ -1,6 +1,6 @@
-import { Produto } from 'src/products/models/entity/product.entity';
-import { Venda } from 'src/sales/models/entity/sales.entity';
-import { Lote } from 'src/batch/models/entity/batch.entity';
+import { Produto } from '../../../products/models/entity/product.entity';
+import { Venda } from '../../../sales/models/entity/sales.entity';
+import { Lote } from '../../../batch/models/entity/batch.entity';
 import {
   PrimaryGeneratedColumn,
   JoinColumn,
