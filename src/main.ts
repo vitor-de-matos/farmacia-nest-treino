@@ -13,7 +13,7 @@ import { CustomLoggerService } from './shared/utils/logger/custom-logger.service
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
-    //logger: new CustomLoggerService(),
+    logger: new CustomLoggerService(),
   });
   const configService = app.get(ConfigService);
   const port = configService.get<number>('port');

@@ -1,28 +1,44 @@
 import { Injectable, LoggerService } from '@nestjs/common';
 import * as fs from 'fs';
 import * as path from 'path';
+import chalk from 'chalk';
 
 @Injectable()
 export class CustomLoggerService implements LoggerService {
+  private readonly logFile: string;
+
+  constructor() {
+    const logDir = path.join(__dirname, '../../../../log/');
+    this.logFile = path.join(logDir, 'application.log');
+
+    fs.mkdirSync(logDir, { recursive: true });
+    fs.writeFileSync(this.logFile, '', 'utf8');
+  }
+
   log(message: any) {
-    this.writeToFile('Log', message);
+    this.printAndWrite('Log', message);
   }
 
   error(message: any, trace?: string) {
-    this.writeToFile('ERROR', `${message} \n${trace}`);
+    this.printAndWrite('ERROR', `${message} \n${trace}`);
   }
 
   warn(message: any) {
-    this.writeToFile('WARN', message);
+    this.printAndWrite('WARN', message);
   }
 
-  private writeToFile(level: string, message: string) {
+  private printAndWrite(level: string, message: string) {
     const timestamp = new Date().toISOString();
-    const logMessage = `[${level}] ${timestamp} - ${message}\n`;
-    const logDir = path.join(__dirname, '../../../../log/');
-    const logFile = path.join(logDir, 'application.log');
+    const logMessage = `[${level}] ${timestamp} - ${message}`;
 
-    fs.mkdirSync(logDir, { recursive: true });
-    fs.appendFileSync(logFile, logMessage);
+    if (level === 'Error') {
+      console.error(chalk.red(logMessage));
+    } else if (level === 'Warn') {
+      console.warn(chalk.yellow(logMessage));
+    } else {
+      console.log(chalk.green(logMessage));
+    }
+
+    fs.appendFileSync(this.logFile, logMessage + '\n');
   }
 }
