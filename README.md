@@ -1,98 +1,151 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 🏥 Pharmacy Management System
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+[![Node.js](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org/)
+[![Last Commit](https://img.shields.io/github/last-commit/vitor-de-matos/farmacia)](https://github.com/vitor-de-matos/farmacia/commits)
+[![Stars](https://img.shields.io/github/stars/vitor-de-matos/farmacia?style=social)](https://github.com/vitor-de-matos/farmacia)
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+📄 This README is also available in [Português 🇧🇷](./README.pt-BR.md)
 
-## Description
+---
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 💡 Description
 
-## Project setup
+This is a backend project for a pharmacy management system built with NestJS, using PostgreSQL and TypeORM. It provides features like inventory control, sales, product registration, employee access control, and more.
 
-```bash
-$ npm install
-```
+---
 
-## Compile and run the project
+## 🛠️ Technologies Used
 
-```bash
-# development
-$ npm run start
+- Node.js
+- NestJS
+- TypeORM
+- PostgreSQL
+- JWT for authentication
+- Swagger for API documentation
+- Multer for file uploads
+- Dotenv for environment variables
+- Class-validator for request validation
+- Global exception filter for error handling
 
-# watch mode
-$ npm run start:dev
+---
 
-# production mode
-$ npm run start:prod
-```
-
-## Run tests
+## 📦 Installation
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+git clone https://github.com/vitor-de-matos/farmacia.git
+cd farmacia
+npm install
+cp .env.example .env
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+> ✏️ Edit the `.env` file with your PostgreSQL credentials and other settings.
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+npm run start:dev
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+> ⚠️ When connected to a valid PostgreSQL database, all tables will be created automatically via TypeORM.
 
-## Resources
+---
 
-Check out a few resources that may come in handy when working with NestJS:
+## 🧪 Seed
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+```bash
+npm run start:seed
+```
 
-## Support
+Creates an **admin user**:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+- Login: `admin`
+- Password: `admin`
 
-## Stay in touch
+> 🔒 It's recommended to change the password after logging in.
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+---
 
-## License
+## 🚪 Protected Routes
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+Most routes require JWT authentication. After login, use the token in the request header:
+
+```
+Authorization: Bearer <token>
+```
+
+---
+
+## 📄 Swagger Documentation
+
+You can access the interactive API docs at:
+
+```
+http://localhost:3000/api
+```
+
+> Swagger documentation includes DTO descriptions and is planned to include more examples and error messages soon.
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+├── auth/               # Authentication (login, JWT)
+├── batch/              # Product batches
+├── batchPromotion/     # Batch promotions
+├── category/           # Product categories
+├── employee-login/     # Employee access
+├── itemSale/           # Items in a sale
+├── manufacturer/       # Manufacturers
+├── media/              # File upload handling
+├── payment/            # Payment logic
+├── person/             # People (employees, customers)
+├── products/           # Product management
+├── sales/              # Sales and orders
+├── shared/             # Reusable components (DTOs, filters, configs)
+├── stock/              # Stock management
+├── app.module.ts       # Root module
+├── main.ts             # Application entry point
+├── seed.ts             # Seed script for initial data
+```
+
+---
+
+## 📌 Features
+
+- ✅ JWT authentication
+- ✅ Products, categories, manufacturers
+- ✅ Inventory by batch/expiration
+- ✅ Sales with multiple items
+- ✅ Image upload
+- ✅ Pagination and filters
+- ✅ Swagger (basic)
+- ✅ Admin user seed
+- ✅ Global error filter
+- ✅ DTO validation
+
+---
+
+## 📈 Future Improvements
+
+- Standard API responses
+- Enhanced Swagger documentation (examples, errors)
+- Custom exception classes
+- Structured logging (e.g. with Winston or Pino)
+- Unit and integration tests
+- Docker support
+- Role-based access control
+
+---
+
+## 📢 Developer Note
+
+> This project was created as a personal learning exercise with NestJS.  
+> Some features are still in progress or may be refactored.  
+> Feel free to use, test, or contribute as you wish.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
