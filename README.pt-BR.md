@@ -33,8 +33,8 @@ Projeto backend de um sistema de gerenciamento de farmácia desenvolvido com Nes
 ## 📦 Instalação
 
 ```bash
-git clone https://github.com/vitor-de-matos/farmacia.git
-cd farmacia
+git clone https://github.com/vitor-de-matos/farmacia-nest-treino.git
+cd farmacia-nest-treino
 npm install
 cp .env.example .env
 ```

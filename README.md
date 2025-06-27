@@ -2,8 +2,8 @@
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org/)
-[![Last Commit](https://img.shields.io/github/last-commit/vitor-de-matos/farmacia)](https://github.com/vitor-de-matos/farmacia/commits)
-[![Stars](https://img.shields.io/github/stars/vitor-de-matos/farmacia?style=social)](https://github.com/vitor-de-matos/farmacia)
+[![Last Commit](https://img.shields.io/github/last-commit/vitor-de-matos/farmacia-nest-treino)](https://github.com/vitor-de-matos/farmacia-nest-treino/commits)
+[![Stars](https://img.shields.io/github/stars/vitor-de-matos/farmacia-nest-treino?style=social)](https://github.com/vitor-de-matos/farmacia-nest-treino)
 
 📄 This README is also available in [Português 🇧🇷](./README.pt-BR.md)
 
@@ -33,8 +33,8 @@ This is a backend project for a pharmacy management system built with NestJS, us
 ## 📦 Installation
 
 ```bash
-git clone https://github.com/vitor-de-matos/farmacia.git
-cd farmacia
+git clone https://github.com/vitor-de-matos/farmacia-nest-treino.git
+cd farmacia-nest-treino
 npm install
 cp .env.example .env
 ```
