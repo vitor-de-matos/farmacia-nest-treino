@@ -2,8 +2,8 @@
 
 [![Licença: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org/)
-[![Último Commit](https://img.shields.io/github/last-commit/vitor-de-matos/farmacia)](https://github.com/vitor-de-matos/farmacia/commits)
-[![Estrelas](https://img.shields.io/github/stars/vitor-de-matos/farmacia?style=social)](https://github.com/vitor-de-matos/farmacia)
+[![Último Commit](https://img.shields.io/github/last-commit/vitor-de-matos/farmacia-nest-treino)](https://github.com/vitor-de-matos/farmacia-nest-treino/commits)
+[![Estrelas](https://img.shields.io/github/stars/vitor-de-matos/farmacia-nest-treino?style=social)](https://github.com/vitor-de-matos/farmacia-nest-treino)
 
 📄 Este README também está disponível em [English 🌎](./README.md)
 
