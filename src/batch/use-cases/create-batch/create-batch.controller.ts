@@ -1,4 +1,4 @@
-import { Body, Controller, Inject, Post } from '@nestjs/common';
+import { Body, Controller, Inject, Post, UseGuards } from '@nestjs/common';
 import { CreateBatchUseCase } from './create-batch.use-case';
 import { CreateBatchDTO } from 'src/batch/models/dtos/create-lote.dto';
 import {
@@ -9,10 +9,12 @@ import {
   ApiBody,
   ApiTags,
 } from '@nestjs/swagger';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Lote')
 @ApiBearerAuth('access-token')
 @Controller('batch')
+@UseGuards(AuthGuard('jwt'))
 export class CreateBatchController {
   constructor(
     @Inject(CreateBatchUseCase)

@@ -18,6 +18,7 @@ import { StockModule } from './stock/stock.module';
 import { ScheduleModule } from '@nestjs/schedule';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
+import { HealthModule } from './system-health/health.module';
 
 @Module({
   imports: [
@@ -28,8 +29,9 @@ import { APP_GUARD } from '@nestjs/core';
       envFilePath: [__dirname + '/../.env'],
     }),
     ThrottlerModule.forRoot([{ ttl: 60000, limit: 10 }]),
-    SharedModule,
     AuthModule,
+    HealthModule,
+    SharedModule,
     EmployeeLoginModule,
     BatchModule,
     BatchPromotionModule,

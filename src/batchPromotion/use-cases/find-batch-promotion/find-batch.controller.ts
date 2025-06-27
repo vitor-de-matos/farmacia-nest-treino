@@ -15,11 +15,14 @@ import {
   Inject,
   Param,
   Get,
+  UseGuards,
 } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Lote Promoção')
 @ApiBearerAuth('access-token')
 @Controller('promotionBatch')
+@UseGuards(AuthGuard('jwt'))
 export class FindBatchPromotionController {
   constructor(
     @Inject(FindBatchPromotionUseCase)

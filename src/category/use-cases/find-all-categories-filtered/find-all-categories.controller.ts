@@ -1,4 +1,4 @@
-import { Controller, Get, Inject, Query } from '@nestjs/common';
+import { Controller, Get, Inject, Query, UseGuards } from '@nestjs/common';
 import { FindAllCategoryUseCase } from './find-all-categories.use-case';
 import { FindCategoryDTO } from 'src/category/models/dtos/find-catetegory.dto';
 import { Categoria } from 'src/category/models/entity/category.entity';
@@ -10,10 +10,12 @@ import {
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Categoria')
 @ApiBearerAuth('access-token')
 @Controller('category')
+@UseGuards(AuthGuard('jwt'))
 export class FindAllCategoryController {
   constructor(
     @Inject(FindAllCategoryUseCase)

@@ -1,4 +1,4 @@
-import { Body, Controller, Inject, Post } from '@nestjs/common';
+import { Body, Controller, Inject, Post, UseGuards } from '@nestjs/common';
 import { CreateCategoryUseCase } from './create-category.use-case';
 import { CreateCategoryDTO } from 'src/category/models/dtos/create-category.dto';
 import {
@@ -9,10 +9,12 @@ import {
   ApiBody,
   ApiTags,
 } from '@nestjs/swagger';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Categoria')
 @ApiBearerAuth('access-token')
 @Controller('category')
+@UseGuards(AuthGuard('jwt'))
 export class CreateCategoryController {
   constructor(
     @Inject(CreateCategoryUseCase)

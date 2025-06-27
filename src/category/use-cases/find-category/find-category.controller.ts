@@ -15,11 +15,14 @@ import {
   Inject,
   Param,
   Get,
+  UseGuards,
 } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Categoria')
 @ApiBearerAuth('access-token')
 @Controller('category')
+@UseGuards(AuthGuard('jwt'))
 export class FindCategoryController {
   constructor(
     @Inject(FindCategoryUseCase)

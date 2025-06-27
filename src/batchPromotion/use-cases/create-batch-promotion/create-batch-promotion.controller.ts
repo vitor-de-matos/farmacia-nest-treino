@@ -1,4 +1,4 @@
-import { Body, Controller, Inject, Post } from '@nestjs/common';
+import { Body, Controller, Inject, Post, UseGuards } from '@nestjs/common';
 import { CreateBatchPromotionUseCase } from './create-batch-promotion.use-case';
 import { CreateBatchPromotionDTO } from 'src/batchPromotion/models/dtos/create-batch-promotion.dto';
 import {
@@ -9,10 +9,12 @@ import {
   ApiBody,
   ApiTags,
 } from '@nestjs/swagger';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Lote Promoção')
 @ApiBearerAuth('access-token')
 @Controller('promotionBatch')
+@UseGuards(AuthGuard('jwt'))
 export class CreateBatchPromotionController {
   constructor(
     @Inject(CreateBatchPromotionUseCase)

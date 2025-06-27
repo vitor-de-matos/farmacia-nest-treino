@@ -14,11 +14,14 @@ import {
   Delete,
   Inject,
   Param,
+  UseGuards,
 } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Lote')
 @ApiBearerAuth('access-token')
 @Controller('batch')
+@UseGuards(AuthGuard('jwt'))
 export class DeleteBatchController {
   constructor(
     @Inject(DeleteBatchUseCase)

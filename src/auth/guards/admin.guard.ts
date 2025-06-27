@@ -11,7 +11,7 @@ export class AdminGuard implements CanActivate {
     const request = context.switchToHttp().getRequest();
     const user = request.user;
 
-    if (user?.permissions.includes(1)) {
+    if (user?.permissions?.includes(1)) {
       return true;
     }
 
