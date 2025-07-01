@@ -18,7 +18,7 @@ import {
 } from '@nestjs/common';
 
 @ApiTags('Login Funcionarios')
-//@ApiBearerAuth('access-token')
+@ApiBearerAuth('access-token')
 @Controller('employeeLogin')
 export class FindEmployeeLoginController {
   constructor(
