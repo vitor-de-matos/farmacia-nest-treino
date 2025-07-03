@@ -140,13 +140,10 @@ export class ArchivesManagementJob {
       const filePath = `${this.PATH_TO_IMAGES}/${mediaName}`;
       if (fs.existsSync(filePath)) {
         fs.unlinkSync(filePath);
-      }
-      if (!filePath) {
+      } else {
         throw new InternalServerErrorException({
           message: 'Erro ao deletar arquivo',
         });
-      } else {
-        return;
       }
     }
   }

@@ -31,16 +31,18 @@ export class UpdateMidiaUseCase {
 
     const { archive, ...updateData } = mediaDTO;
 
-    const idFields = ['productId'];
-    const filledIdFields = idFields.filter(
-      (field) => updateData[field] !== undefined && updateData[field] !== null,
-    );
+    //const idFields = ['productId'];
+    //const filledIdFields = idFields.filter(
+    //  (field) => updateData[field] !== undefined && updateData[field] !== null,
+    //);
 
-    if (filledIdFields.length > 1) {
-      throw new BadRequestException({
-        message: `Apenas um deve ser enviado: ${idFields.join(', ')}`,
-      });
-    }
+    //if (filledIdFields.length > 1) {
+    //  throw new BadRequestException({
+    //    message: `Apenas um deve ser enviado: ${idFields.join(', ')}`,
+    //  });
+    //}
+
+    // essa verificação impedirá que múltiplos relacionamentos sejam enviados ao mesmo tempo.
 
     if (
       updateData.productId != null ||

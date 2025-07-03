@@ -24,11 +24,12 @@ export class CreateMidiaUseCase {
         mediaToCreate[field] !== undefined && mediaToCreate[field] !== null,
     );
 
-    if (filledIdFields.length > 1) {
+    if (filledIdFields.length === 0) {
       throw new BadRequestException({
-        message: `Apenas um deve ser enviado: ${idFields.join(', ')}`,
+        message: `É necessário informar ao menos um dos seguintes campos: ${idFields.join(', ')}`,
       });
     }
+
     if (
       mediaToCreate.productId != null ||
       mediaToCreate.productId != undefined
