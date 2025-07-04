@@ -84,6 +84,20 @@ describe('CreateMidiaUseCase', () => {
     );
   });
 
+  it('deve lançar BadRequestException se productId for undefined', async () => {
+    const dtoSemProduto: CreateMidiaDTO = {
+      name: 'Sem Produto',
+      icon: false,
+      archive: undefined,
+      productId: undefined,
+    } as any;
+
+    await expect(useCase.create(dtoSemProduto)).rejects.toThrow(
+      BadRequestException,
+    );
+    expect(mockProductRepo.findById).not.toHaveBeenCalled();
+  });
+
   it('deve lançar erro se o produto já possuir um ícone e mediaDTO.icon for true', async () => {
     const dtoComIcone = {
       name: 'Imagem com ícone',

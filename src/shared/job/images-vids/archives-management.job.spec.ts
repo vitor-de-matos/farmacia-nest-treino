@@ -141,6 +141,27 @@ describe('ArchivesManagementJob', () => {
       expect(fs.writeFileSync).toHaveBeenCalled();
       expect(result).toMatch(/1_\d+\.mp4/);
     });
+
+    it('deve salvar imagem SVG corretamente', async () => {
+      const svgFile: Express.Multer.File = {
+        ...mockFile,
+        originalname: 'icon.svg',
+        mimetype: 'image/svg+xml',
+      };
+
+      (fs.existsSync as jest.Mock).mockReturnValue(false);
+      (fs.mkdirSync as jest.Mock).mockImplementation(() => {});
+      (fs.writeFileSync as jest.Mock).mockImplementation(() => {});
+
+      const result = await service.saveArchivesInFileSystem(99, svgFile);
+
+      expect(fs.mkdirSync).toHaveBeenCalledWith(
+        expect.stringContaining('/images'),
+        { recursive: true },
+      );
+      expect(fs.writeFileSync).toHaveBeenCalled();
+      expect(result).toMatch(/99_\d+\.svg/);
+    });
   });
 
   describe('removeArchivesFromFileSystem', () => {
