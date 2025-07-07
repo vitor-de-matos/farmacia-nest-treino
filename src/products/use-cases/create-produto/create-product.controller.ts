@@ -1,5 +1,5 @@
 import { ArchivesManagementJob } from 'src/shared/job/images-vids/archives-management.job';
-import { CreateProdutoUseCase } from './create-produto.use-case';
+import { CreateProdutoUseCase } from './create-product.use-case';
 import { CreateProdutoDTO } from 'src/products/models/dto/create-produto.dto';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import {
@@ -22,7 +22,7 @@ import {
 } from '@nestjs/common';
 
 @ApiTags('Produto')
-//@ApiBearerAuth('access-token')
+@ApiBearerAuth('access-token')
 @Controller('product')
 export class CreateProdutoController {
   constructor(

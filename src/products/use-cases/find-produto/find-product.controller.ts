@@ -1,4 +1,4 @@
-import { FindProdutoUseCase } from './find-produto.use-case';
+import { FindProdutoUseCase } from './find-product.use-case';
 import { Produto } from 'src/products/models/entity/product.entity';
 import {
   ApiInternalServerErrorResponse,
@@ -18,7 +18,7 @@ import {
 } from '@nestjs/common';
 
 @ApiTags('Produto')
-//@ApiBearerAuth('access-token')
+@ApiBearerAuth('access-token')
 @Controller('product')
 export class FindProdutoController {
   constructor(

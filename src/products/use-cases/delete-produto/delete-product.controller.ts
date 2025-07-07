@@ -1,4 +1,4 @@
-import { DeleteProdutoUseCase } from './delete-produto.use-case';
+import { DeleteProdutoUseCase } from './delete-product.use-case';
 import {
   ApiInternalServerErrorResponse,
   ApiNotAcceptableResponse,

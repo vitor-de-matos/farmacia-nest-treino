@@ -1,5 +1,5 @@
 import { Controller, Get, Inject, Query } from '@nestjs/common';
-import { FindAllProdutosUseCase } from './find-all-produto.use-case';
+import { FindAllProdutosUseCase } from './find-all-product.use-case';
 import { FindProdutoDTO } from 'src/products/models/dto/find-produto.dto';
 import { Produto } from 'src/products/models/entity/product.entity';
 import {
@@ -11,7 +11,7 @@ import {
 } from '@nestjs/swagger';
 
 @ApiTags('Produto')
-//@ApiBearerAuth('access-token')
+@ApiBearerAuth('access-token')
 @Controller('product')
 export class FindAllProdutoController {
   constructor(
