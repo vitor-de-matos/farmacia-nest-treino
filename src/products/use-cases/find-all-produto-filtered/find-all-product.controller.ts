@@ -1,6 +1,6 @@
 import { Controller, Get, Inject, Query } from '@nestjs/common';
 import { FindAllProdutosUseCase } from './find-all-product.use-case';
-import { FindProdutoDTO } from 'src/products/models/dto/find-produto.dto';
+import { FindProductDTO } from 'src/products/models/dto/find-produto.dto';
 import { Produto } from 'src/products/models/entity/product.entity';
 import {
   ApiInternalServerErrorResponse,
@@ -25,7 +25,7 @@ export class FindAllProdutoController {
     description: 'Erro interno entre em contato com o suporte.',
   })
   @Get()
-  async find(@Query() productDTO: FindProdutoDTO): Promise<{
+  async find(@Query() productDTO: FindProductDTO): Promise<{
     data: Produto[];
     currentPage: number;
     totalPages: number;

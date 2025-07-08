@@ -3,34 +3,35 @@ import { ApiPropertyOptional } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 
 export class UpdateItemSaleDTO {
-  @ApiPropertyOptional()
+  @ApiPropertyOptional({ description: 'Quantidade do item' })
   @IsOptional()
   @IsNumber()
   quantity?: number;
 
-  @ApiPropertyOptional()
+  @ApiPropertyOptional({ description: 'Preço unitário do produto' })
   @IsOptional()
   @IsNumber()
   unitPrice?: number;
 
-  @ApiPropertyOptional()
   @IsOptional()
   @IsNumber()
   subtotal?: number;
 
-  @ApiPropertyOptional()
+  @ApiPropertyOptional({
+    description: 'ID do produto associado',
+  })
   @IsOptional()
   @IsNumber()
   @Type(() => Number)
   productId?: number;
 
-  @ApiPropertyOptional()
+  @ApiPropertyOptional({ description: 'ID da venda' })
   @IsOptional()
   @IsNumber()
   @Type(() => Number)
   saleId?: number;
 
-  @ApiPropertyOptional()
+  @ApiPropertyOptional({ description: 'ID do lote do produto' })
   @IsOptional()
   @IsNumber()
   @Type(() => Number)

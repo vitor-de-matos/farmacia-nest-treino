@@ -1,7 +1,7 @@
 import { IProductRepo } from 'src/products/models/interface/produto-repo.interface';
 import { FindAllProdutosUseCase } from './find-all-product.use-case';
 import { ArchivesManagementJob } from 'src/shared/job/images-vids/archives-management.job';
-import { FindProdutoDTO } from 'src/products/models/dto/find-produto.dto';
+import { FindProductDTO } from 'src/products/models/dto/find-produto.dto';
 import { Produto, TipoTarja } from 'src/products/models/entity/product.entity';
 
 describe('FindAllProdutosUseCase', () => {
@@ -22,7 +22,7 @@ describe('FindAllProdutosUseCase', () => {
   });
 
   it('deve retornar produtos com URLs completas de mídia', async () => {
-    const dto: FindProdutoDTO = { name: 'Teste' } as FindProdutoDTO;
+    const dto: FindProductDTO = { name: 'Teste' } as FindProductDTO;
 
     const produtos: Produto[] = [
       {
@@ -54,7 +54,7 @@ describe('FindAllProdutosUseCase', () => {
   });
 
   it('deve lidar com produtos sem mídia', async () => {
-    const dto: FindProdutoDTO = {} as FindProdutoDTO;
+    const dto: FindProductDTO = {} as FindProductDTO;
 
     const produtos: Produto[] = [
       {

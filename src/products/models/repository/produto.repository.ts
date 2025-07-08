@@ -1,9 +1,9 @@
 import { endOfDay, isValid, parse, startOfDay } from 'date-fns';
-import { UpdateProdutoDTO } from '../dto/update-produto.dto';
-import { CreateProdutoDTO } from '../dto/create-produto.dto';
+import { UpdateProductDTO } from '../dto/update-produto.dto';
+import { CreateProductDTO } from '../dto/create-produto.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DB_PG_DATABASE } from 'src/shared/database/typeOrm/postgres.config';
-import { FindProdutoDTO } from '../dto/find-produto.dto';
+import { FindProductDTO } from '../dto/find-produto.dto';
 import { IProductRepo } from '../interface/produto-repo.interface';
 import { Produto } from '../entity/product.entity';
 import {
@@ -27,7 +27,7 @@ export class ProductRepository implements IProductRepo {
     private readonly repository: Repository<Produto>,
   ) {}
 
-  async create(productDTO: CreateProdutoDTO): Promise<number> {
+  async create(productDTO: CreateProductDTO): Promise<number> {
     const controlledBoolean =
       typeof productDTO.controlled === 'string'
         ? productDTO.controlled.toLowerCase() === 'true'
@@ -44,7 +44,7 @@ export class ProductRepository implements IProductRepo {
     return result.id;
   }
 
-  async find(filters: FindProdutoDTO): Promise<{
+  async find(filters: FindProductDTO): Promise<{
     data: Produto[];
     currentPage: number;
     totalPages: number;
@@ -53,15 +53,15 @@ export class ProductRepository implements IProductRepo {
     let parsedvalidadeStart: Date | undefined;
     let parsedvalidadeEnd: Date | undefined;
 
-    if (filters.validadeStart) {
+    if (filters.deadlineStart) {
       parsedvalidadeStart = parse(
-        filters.validadeStart,
+        filters.deadlineStart,
         'yyyy-MM-dd',
         new Date(),
       );
       if (!isValid(parsedvalidadeStart)) {
         parsedvalidadeStart = parse(
-          filters.validadeStart,
+          filters.deadlineStart,
           'dd-MM-yyyy',
           new Date(),
         );
@@ -73,11 +73,11 @@ export class ProductRepository implements IProductRepo {
       }
     }
 
-    if (filters.validadeEnd) {
-      parsedvalidadeEnd = parse(filters.validadeEnd, 'yyyy-MM-dd', new Date());
+    if (filters.deadlineEnd) {
+      parsedvalidadeEnd = parse(filters.deadlineEnd, 'yyyy-MM-dd', new Date());
       if (!isValid(parsedvalidadeEnd)) {
         parsedvalidadeEnd = parse(
-          filters.validadeEnd,
+          filters.deadlineEnd,
           'dd-MM-yyyy',
           new Date(),
         );
@@ -92,31 +92,33 @@ export class ProductRepository implements IProductRepo {
     const queryOptions: FindManyOptions<Produto> = {
       where: {
         ...(filters.id && { id: filters.id }),
-        ...(filters.nome && { name: ILike(`%${filters.nome}%`) }),
-        ...(filters.categoriaId !== undefined && {
-          categoriaId: filters.categoriaId,
+        ...(filters.name && { name: ILike(`%${filters.name}%`) }),
+        ...(filters.categoryId !== undefined && {
+          categoriaId: filters.categoryId,
         }),
-        ...(filters.fabricanteId !== undefined && {
-          fabricanteId: filters.fabricanteId,
+        ...(filters.manufacturerId !== undefined && {
+          fabricanteId: filters.manufacturerId,
         }),
-        ...(filters.lote !== undefined && { lote: ILike(`%${filters.lote}%`) }),
-        ...(filters.precoMin !== undefined && filters.precoMax !== undefined
-          ? { preco: Between(filters.precoMin, filters.precoMax) }
-          : filters.precoMin !== undefined
-            ? { preco: MoreThanOrEqual(filters.precoMin) }
-            : filters.precoMax !== undefined
-              ? { preco: LessThanOrEqual(filters.precoMax) }
+        ...(filters.batch !== undefined && {
+          lote: ILike(`%${filters.batch}%`),
+        }),
+        ...(filters.minPrice !== undefined && filters.maxPrice !== undefined
+          ? { preco: Between(filters.minPrice, filters.maxPrice) }
+          : filters.minPrice !== undefined
+            ? { preco: MoreThanOrEqual(filters.minPrice) }
+            : filters.maxPrice !== undefined
+              ? { preco: LessThanOrEqual(filters.maxPrice) }
               : {}),
 
-        ...(filters.quantidadeMin !== undefined &&
-        filters.quantidadeMax !== undefined
+        ...(filters.minQuantity !== undefined &&
+        filters.maxQuantity !== undefined
           ? {
-              quantidade: Between(filters.quantidadeMin, filters.quantidadeMax),
+              quantidade: Between(filters.minQuantity, filters.maxQuantity),
             }
-          : filters.quantidadeMin !== undefined
-            ? { quantidade: MoreThanOrEqual(filters.quantidadeMin) }
-            : filters.quantidadeMax !== undefined
-              ? { quantidade: LessThanOrEqual(filters.quantidadeMax) }
+          : filters.minQuantity !== undefined
+            ? { quantidade: MoreThanOrEqual(filters.minQuantity) }
+            : filters.maxQuantity !== undefined
+              ? { quantidade: LessThanOrEqual(filters.maxQuantity) }
               : {}),
 
         ...(parsedvalidadeEnd && parsedvalidadeStart
@@ -161,7 +163,7 @@ export class ProductRepository implements IProductRepo {
     return product;
   }
 
-  async update(id: number, productDTO: UpdateProdutoDTO): Promise<Produto> {
+  async update(id: number, productDTO: UpdateProductDTO): Promise<Produto> {
     const product = await this.repository.findOne({ where: { id: id } });
     if (!product) {
       throw new NotFoundException({ message: 'Produto não encontrado' });

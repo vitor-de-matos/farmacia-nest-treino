@@ -3,7 +3,7 @@ import { CreateProdutoUseCase } from './create-product.use-case';
 import { ICategoryRepo } from 'src/category/models/interface/category-repo.interface';
 import { IManufacturerRepo } from 'src/manufacturer/models/interface/manufacturer-repo.interface';
 import { CreateMidiaUseCase } from 'src/media/use-case/create-media/create-media.use-case';
-import { CreateProdutoDTO } from 'src/products/models/dto/create-produto.dto';
+import { CreateProductDTO } from 'src/products/models/dto/create-produto.dto';
 import { BadRequestException, NotFoundException } from '@nestjs/common';
 
 describe('CreateProdutoUseCase', () => {
@@ -28,7 +28,7 @@ describe('CreateProdutoUseCase', () => {
   });
 
   it('deve criar um produto com sucesso', async () => {
-    const dto: CreateProdutoDTO = {
+    const dto: CreateProductDTO = {
       nome: 'Produto Teste',
       descricao: 'Descrição',
       valor: 100,

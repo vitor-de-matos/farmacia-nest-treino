@@ -1,7 +1,7 @@
 import { IProductRepo } from 'src/products/models/interface/produto-repo.interface';
 import { UpdateProdutoUseCase } from './update-product.use-case';
 import { CreateMidiaUseCase } from 'src/media/use-case/create-media/create-media.use-case';
-import { UpdateProdutoDTO } from 'src/products/models/dto/update-produto.dto';
+import { UpdateProductDTO } from 'src/products/models/dto/update-produto.dto';
 import { Produto } from 'src/products/models/entity/product.entity';
 import {
   InternalServerErrorException,
@@ -28,10 +28,10 @@ describe('UpdateProdutoUseCase', () => {
 
   it('deve atualizar o produto e criar mídias', async () => {
     const id = 1;
-    const dto: UpdateProdutoDTO = {
-      nome: 'Produto Atualizado',
+    const dto: UpdateProductDTO = {
+      productName: 'Produto Atualizado',
       icon: ['true'],
-    } as UpdateProdutoDTO;
+    } as UpdateProductDTO;
 
     const file: Express.Multer.File = {
       originalname: 'imagem.jpg',
@@ -70,14 +70,14 @@ describe('UpdateProdutoUseCase', () => {
     mockRepo.findById.mockResolvedValue(null);
 
     await expect(
-      useCase.update(999, {} as UpdateProdutoDTO, []),
+      useCase.update(999, {} as UpdateProductDTO, []),
     ).rejects.toThrow(NotFoundException);
     expect(mockRepo.findById).toHaveBeenCalledWith(999);
   });
 
   it('deve lançar InternalServerErrorException se o update falhar', async () => {
     const id = 1;
-    const dto = {} as UpdateProdutoDTO;
+    const dto = {} as UpdateProductDTO;
     const produtoExistente = { id, name: 'Produto' } as Produto;
 
     mockRepo.findById.mockResolvedValue(produtoExistente);

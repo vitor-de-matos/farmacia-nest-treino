@@ -1,7 +1,7 @@
 import { ArchivesManagementJob } from 'src/shared/job/images-vids/archives-management.job';
 import { UpdateProdutoController } from './update-product.controller';
 import { UpdateProdutoUseCase } from './update-product.use-case';
-import { UpdateProdutoDTO } from 'src/products/models/dto/update-produto.dto';
+import { UpdateProductDTO } from 'src/products/models/dto/update-produto.dto';
 import { Produto } from 'src/products/models/entity/product.entity';
 import { NotAcceptableException } from '@nestjs/common';
 
@@ -24,9 +24,9 @@ describe('UpdateProdutoController', () => {
 
   it('deve atualizar o produto com arquivos válidos', async () => {
     const id = 1;
-    const dto: UpdateProdutoDTO = {
-      nome: 'Novo Produto',
-    } as UpdateProdutoDTO;
+    const dto: UpdateProductDTO = {
+      productName: 'Novo Produto',
+    } as UpdateProductDTO;
 
     const files: Express.Multer.File[] = [
       { originalname: 'img.jpg' } as Express.Multer.File,
@@ -50,7 +50,7 @@ describe('UpdateProdutoController', () => {
   });
 
   it('deve lançar NotAcceptableException se o ID for inválido', async () => {
-    const dto = {} as UpdateProdutoDTO;
+    const dto = {} as UpdateProductDTO;
 
     await expect(controller.update(undefined as any, dto, [])).rejects.toThrow(
       NotAcceptableException,
@@ -60,7 +60,7 @@ describe('UpdateProdutoController', () => {
 
   it('não deve validar arquivos se a lista estiver vazia', async () => {
     const id = 2;
-    const dto = {} as UpdateProdutoDTO;
+    const dto = {} as UpdateProductDTO;
 
     const produtoAtualizado: Produto = {
       id,

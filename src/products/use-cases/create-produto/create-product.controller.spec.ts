@@ -1,7 +1,7 @@
 import { ArchivesManagementJob } from 'src/shared/job/images-vids/archives-management.job';
 import { CreateProdutoController } from './create-product.controller';
 import { CreateProdutoUseCase } from './create-product.use-case';
-import { CreateProdutoDTO } from 'src/products/models/dto/create-produto.dto';
+import { CreateProductDTO } from 'src/products/models/dto/create-produto.dto';
 import { BadRequestException } from '@nestjs/common';
 
 describe('CreateProdutoController', () => {
@@ -22,7 +22,7 @@ describe('CreateProdutoController', () => {
   });
 
   it('deve criar produto com sucesso e validar arquivos', async () => {
-    const dto: CreateProdutoDTO = {
+    const dto: CreateProductDTO = {
       nome: 'Produto X',
       descricao: 'Teste',
       valor: 100,
@@ -51,7 +51,7 @@ describe('CreateProdutoController', () => {
   });
 
   it('deve lançar BadRequestException se arquivos não forem enviados', async () => {
-    const dto: CreateProdutoDTO = {
+    const dto: CreateProductDTO = {
       nome: 'Produto Y',
       descricao: 'Sem arquivos',
       valor: 200,

@@ -22,6 +22,18 @@ export class UpdateItemSaleUseCase {
       });
     }
 
+    if (
+      (itemSaleDTO.quantity !== undefined &&
+        itemSale.quantity !== itemSaleDTO.quantity) ||
+      (itemSaleDTO.unitPrice !== undefined &&
+        itemSale.unitPrice !== itemSaleDTO.unitPrice)
+    ) {
+      const newQuantity = itemSaleDTO.quantity ?? itemSale.quantity;
+      const newUnitPrice = itemSaleDTO.unitPrice ?? itemSale.unitPrice;
+
+      itemSaleDTO.subtotal = newQuantity * newUnitPrice;
+    }
+
     const updated = await this.itemSaleRepository.update(
       itemSaleId,
       itemSaleDTO,

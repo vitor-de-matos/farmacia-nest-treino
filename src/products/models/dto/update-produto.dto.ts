@@ -3,48 +3,48 @@ import { ApiPropertyOptional } from '@nestjs/swagger';
 import { UpdateMidiaJobDTO } from 'src/media/models/dtos/update-midia-others.dto';
 import { Type } from 'class-transformer';
 
-export class UpdateProdutoDTO extends UpdateMidiaJobDTO {
+export class UpdateProductDTO extends UpdateMidiaJobDTO {
   @ApiPropertyOptional()
   @IsOptional()
   @IsNumber()
   @Type(() => Number)
-  categoriaId?: number;
+  categoryId?: number;
 
   @ApiPropertyOptional()
   @IsOptional()
   @IsNumber()
   @Type(() => Number)
-  fabricanteId?: number;
+  manufacturerId?: number;
 
   @ApiPropertyOptional()
   @IsOptional()
   @IsString()
-  nome?: string;
+  productName?: string;
 
   @ApiPropertyOptional()
   @IsOptional()
   @IsString()
-  descricao?: string;
+  description?: string;
 
   @ApiPropertyOptional()
   @IsOptional()
   @IsNumber()
   @Type(() => Number)
-  preco?: number;
+  price?: number;
 
   @ApiPropertyOptional()
   @IsOptional()
   @IsNumber()
   @Type(() => Number)
-  quantidade?: number;
+  quantity?: number;
 
   @ApiPropertyOptional()
   @IsOptional()
   @IsISO8601()
-  validade?: Date;
+  deadline?: Date;
 
   @ApiPropertyOptional()
   @IsOptional()
   @IsString()
-  lote?: string;
+  batch?: string;
 }

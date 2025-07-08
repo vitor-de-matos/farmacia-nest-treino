@@ -1,6 +1,6 @@
 import { ArchivesManagementJob } from 'src/shared/job/images-vids/archives-management.job';
 import { CreateProdutoUseCase } from './create-product.use-case';
-import { CreateProdutoDTO } from 'src/products/models/dto/create-produto.dto';
+import { CreateProductDTO } from 'src/products/models/dto/create-produto.dto';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import {
   ApiInternalServerErrorResponse,
@@ -33,7 +33,7 @@ export class CreateProdutoController {
   ) {}
 
   @ApiOperation({ summary: 'Adicionar produto' })
-  @ApiBody({ type: CreateProdutoDTO })
+  @ApiBody({ type: CreateProductDTO })
   @ApiCreatedResponse({ type: Number })
   @ApiInternalServerErrorResponse({
     description: 'Erro interno entre em contato com o suporte.',
@@ -42,7 +42,7 @@ export class CreateProdutoController {
   @UseInterceptors(FilesInterceptor('archives', 10))
   @ApiConsumes('multipart/form-data')
   async create(
-    @Body() productDTO: CreateProdutoDTO,
+    @Body() productDTO: CreateProductDTO,
     @UploadedFiles() archives: Express.Multer.File[],
   ): Promise<number> {
     if (archives?.length) {

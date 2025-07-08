@@ -14,6 +14,7 @@ export class CreateMidiaJobDTO {
     required: false,
     type: 'string',
     format: 'binary',
+    description: 'Arquivo de mídia enviado no formulário',
   })
   @Allow()
   @IsOptional()

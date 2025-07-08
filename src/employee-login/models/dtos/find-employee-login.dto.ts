@@ -3,12 +3,14 @@ import { ApiPropertyOptional } from '@nestjs/swagger';
 import { PaginationDTO } from 'src/shared/utils/dto/pagination.dto';
 
 export class FindEmployeeLoginDTO extends PaginationDTO {
-  @ApiPropertyOptional()
+  @ApiPropertyOptional({
+    description: 'Filtrar por nome de login',
+  })
   @IsOptional()
   @IsString()
   login?: string;
 
-  @ApiPropertyOptional()
+  @ApiPropertyOptional({ description: 'Filtrar pelo ID da pessoa funcionário' })
   @IsOptional()
   @IsNumber()
   personId?: number;

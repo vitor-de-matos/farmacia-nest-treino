@@ -1,6 +1,6 @@
 import { CreateMidiaUseCase } from 'src/media/use-case/create-media/create-media.use-case';
 import { IManufacturerRepo } from 'src/manufacturer/models/interface/manufacturer-repo.interface';
-import { CreateProdutoDTO } from 'src/products/models/dto/create-produto.dto';
+import { CreateProductDTO } from 'src/products/models/dto/create-produto.dto';
 import { CreateMidiaDTO } from 'src/media/models/dtos/create-midia.dto';
 import { ICategoryRepo } from 'src/category/models/interface/category-repo.interface';
 import { IProductRepo } from 'src/products/models/interface/produto-repo.interface';
@@ -26,7 +26,7 @@ export class CreateProdutoUseCase {
   ) {}
 
   async create(
-    produtoDTO: CreateProdutoDTO,
+    produtoDTO: CreateProductDTO,
     archives: Express.Multer.File[],
   ): Promise<number> {
     const category = await this.categoryRepository.findById(

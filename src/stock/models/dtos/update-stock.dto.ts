@@ -10,29 +10,45 @@ import {
 } from 'class-validator';
 
 export class UpdateStockDTO {
-  @ApiPropertyOptional()
+  @ApiPropertyOptional({
+    example: 75,
+    description: 'Nova quantidade de itens no estoque',
+  })
   @IsOptional()
   @IsNumber()
   @Type(() => Number)
   quantity?: number;
 
-  @ApiPropertyOptional()
+  @ApiPropertyOptional({
+    example: 'Correção de contagem manual',
+    description: 'Nova observação associada à movimentação',
+  })
   @IsOptional()
   @IsString()
   observation?: string;
 
-  @ApiPropertyOptional({ enum: TipoMovimentacao })
+  @ApiPropertyOptional({
+    enum: TipoMovimentacao,
+    example: TipoMovimentacao.SAIDA,
+    description: 'Novo tipo de movimentação (ENTRADA ou SAIDA)',
+  })
   @IsOptional()
   @IsEnum(TipoMovimentacao)
   movementType?: TipoMovimentacao;
 
-  @ApiPropertyOptional()
+  @ApiPropertyOptional({
+    example: '2024-08-15',
+    description: 'Nova data da movimentação (formato ISO 8601)',
+  })
   @IsOptional()
   @IsDate()
   @Type(() => Date)
   movementDate?: Date;
 
-  @ApiPropertyOptional()
+  @ApiPropertyOptional({
+    example: 3,
+    description: 'Novo ID do lote relacionado à movimentação',
+  })
   @IsOptional()
   @IsNumber()
   @Type(() => Number)

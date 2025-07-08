@@ -59,4 +59,37 @@ describe('UpdateItemSaleUseCase', () => {
     expect(mockRepo.findById).toHaveBeenCalledWith(itemSaleId);
     expect(mockRepo.update).toHaveBeenCalledWith(itemSaleId, updateDTO);
   });
+
+  it('deve recalcular subtotal se quantity ou unitPrice forem alterados', async () => {
+    const existingItem = {
+      id: itemSaleId,
+      quantity: 2,
+      unitPrice: 25,
+      subtotal: 50,
+    } as ItemVenda;
+
+    const partialUpdate: UpdateItemSaleDTO = {
+      quantity: 3,
+    };
+
+    const expectedSubtotal = 3 * 25;
+
+    const updatedItem = {
+      id: itemSaleId,
+      quantity: 3,
+      unitPrice: 25,
+      subtotal: expectedSubtotal,
+    };
+
+    mockRepo.findById.mockResolvedValue(existingItem);
+    mockRepo.update.mockResolvedValue(updatedItem);
+
+    const result = await useCase.update(itemSaleId, partialUpdate);
+
+    expect(result).toEqual(updatedItem);
+    expect(mockRepo.update).toHaveBeenCalledWith(itemSaleId, {
+      ...partialUpdate,
+      subtotal: expectedSubtotal,
+    });
+  });
 });

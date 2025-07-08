@@ -3,68 +3,92 @@ import { ApiPropertyOptional } from '@nestjs/swagger';
 import { PaginationDTO } from 'src/shared/utils/dto/pagination.dto';
 import { Type } from 'class-transformer';
 
-export class FindProdutoDTO extends PaginationDTO {
+export class FindProductDTO extends PaginationDTO {
   @IsOptional()
   @IsNumber()
   id?: number;
 
-  @ApiPropertyOptional()
+  @ApiPropertyOptional({
+    example: true,
+    description: 'Filtrar apenas produtos com ícone',
+  })
   @IsOptional()
   icon?: boolean;
 
-  @ApiPropertyOptional()
+  @ApiPropertyOptional({
+    example: 3,
+    description: 'ID da categoria do produto',
+  })
   @IsOptional()
   @IsNumber()
   @Type(() => Number)
-  categoriaId?: number;
+  categoryId?: number;
 
-  @ApiPropertyOptional()
+  @ApiPropertyOptional({
+    example: 2,
+    description: 'ID do fabricante do produto',
+  })
   @IsOptional()
   @IsNumber()
   @Type(() => Number)
-  fabricanteId?: number;
+  manufacturerId?: number;
 
-  @ApiPropertyOptional()
+  @ApiPropertyOptional({
+    example: 'Dipirona',
+    description: 'Nome (ou parte do nome) do produto',
+  })
   @IsOptional()
   @IsString()
-  nome?: string;
+  name?: string;
 
-  @ApiPropertyOptional()
+  @ApiPropertyOptional({ example: 10, description: 'Preço mínimo para filtro' })
   @IsOptional()
   @IsNumber()
   @Type(() => Number)
-  precoMin?: number;
+  minPrice?: number;
 
-  @ApiPropertyOptional()
+  @ApiPropertyOptional({ example: 50, description: 'Preço máximo para filtro' })
   @IsOptional()
   @IsNumber()
   @Type(() => Number)
-  precoMax?: number;
+  maxPrice?: number;
 
-  @ApiPropertyOptional()
+  @ApiPropertyOptional({
+    example: 5,
+    description: 'Quantidade mínima no estoque',
+  })
   @IsOptional()
   @IsNumber()
   @Type(() => Number)
-  quantidadeMin?: number;
+  minQuantity?: number;
 
-  @ApiPropertyOptional()
+  @ApiPropertyOptional({
+    example: 100,
+    description: 'Quantidade máxima no estoque',
+  })
   @IsOptional()
   @IsNumber()
   @Type(() => Number)
-  quantidadeMax?: number;
+  maxQuantity?: number;
 
-  @ApiPropertyOptional()
+  @ApiPropertyOptional({
+    example: '2025-01-01',
+    description: 'Data inicial de validade',
+  })
   @IsOptional()
   @IsString()
-  validadeStart?: string;
+  deadlineStart?: string;
 
-  @ApiPropertyOptional()
+  @ApiPropertyOptional({
+    example: '2025-12-31',
+    description: 'Data final de validade',
+  })
   @IsOptional()
   @IsString()
-  validadeEnd?: string;
+  deadlineEnd?: string;
 
-  @ApiPropertyOptional()
+  @ApiPropertyOptional({ example: 'L12345', description: 'Número do lote' })
   @IsOptional()
   @IsString()
-  lote?: string;
+  batch?: string;
 }

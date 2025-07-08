@@ -1,4 +1,4 @@
-import { FindProdutoDTO } from 'src/products/models/dto/find-produto.dto';
+import { FindProductDTO } from 'src/products/models/dto/find-produto.dto';
 import { FindAllProdutoController } from './find-all-product.controller';
 import { FindAllProdutosUseCase } from './find-all-product.use-case';
 import { Produto } from 'src/products/models/entity/product.entity';
@@ -16,7 +16,7 @@ describe('FindAllProdutoController', () => {
   });
 
   it('deve retornar produtos paginados ao chamar find()', async () => {
-    const queryDto: FindProdutoDTO = { name: 'Produto' } as FindProdutoDTO;
+    const queryDto: FindProductDTO = { name: 'Produto' } as FindProductDTO;
 
     const produtosMock: Produto[] = [
       {

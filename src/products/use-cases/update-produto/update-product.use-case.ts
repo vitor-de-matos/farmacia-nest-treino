@@ -1,5 +1,5 @@
 import { CreateMidiaUseCase } from 'src/media/use-case/create-media/create-media.use-case';
-import { UpdateProdutoDTO } from 'src/products/models/dto/update-produto.dto';
+import { UpdateProductDTO } from 'src/products/models/dto/update-produto.dto';
 import { CreateMidiaDTO } from 'src/media/models/dtos/create-midia.dto';
 import { IProductRepo } from 'src/products/models/interface/produto-repo.interface';
 import { Produto } from 'src/products/models/entity/product.entity';
@@ -22,7 +22,7 @@ export class UpdateProdutoUseCase {
 
   async update(
     productId: number,
-    productDTO: UpdateProdutoDTO,
+    productDTO: UpdateProductDTO,
     archives: Express.Multer.File[],
   ): Promise<Produto> {
     const product = await this.productRepository.findById(productId);

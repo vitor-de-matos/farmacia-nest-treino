@@ -1,6 +1,6 @@
 import { ArchivesManagementJob } from 'src/shared/job/images-vids/archives-management.job';
 import { UpdateProdutoUseCase } from './update-product.use-case';
-import { UpdateProdutoDTO } from 'src/products/models/dto/update-produto.dto';
+import { UpdateProductDTO } from 'src/products/models/dto/update-produto.dto';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import { Produto } from 'src/products/models/entity/product.entity';
 import {
@@ -37,7 +37,7 @@ export class UpdateProdutoController {
   ) {}
 
   @ApiOperation({ summary: 'Modificar produto' })
-  @ApiBody({ type: UpdateProdutoDTO })
+  @ApiBody({ type: UpdateProductDTO })
   @ApiOkResponse({ description: 'Produto atualizado' })
   @ApiNotFoundResponse({
     description: 'Produto não encontrado.',
@@ -53,7 +53,7 @@ export class UpdateProdutoController {
   @ApiConsumes('multipart/form-data')
   async update(
     @Param('id') id: number,
-    @Body() productDTO: UpdateProdutoDTO,
+    @Body() productDTO: UpdateProductDTO,
     @UploadedFiles() archives: Express.Multer.File[],
   ): Promise<Produto> {
     if (!id) {
