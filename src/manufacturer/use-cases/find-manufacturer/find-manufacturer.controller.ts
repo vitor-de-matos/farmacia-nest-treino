@@ -15,11 +15,14 @@ import {
   Inject,
   Param,
   Get,
+  UseGuards,
 } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Fabricante')
 @ApiBearerAuth('access-token')
 @Controller('manufacturer')
+@UseGuards(AuthGuard('jwt'))
 export class FindManufacturerController {
   constructor(
     @Inject(FindManufacturerUseCase)

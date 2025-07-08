@@ -13,11 +13,14 @@ import {
   Delete,
   Inject,
   Param,
+  UseGuards,
 } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Midia')
 @ApiBearerAuth('access-token')
 @Controller('media')
+@UseGuards(AuthGuard('jwt'))
 export class DeleteMidiaController {
   constructor(
     @Inject(DeleteMidiaUseCase)

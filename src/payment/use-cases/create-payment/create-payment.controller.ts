@@ -1,4 +1,4 @@
-import { Body, Controller, Inject, Post } from '@nestjs/common';
+import { Body, Controller, Inject, Post, UseGuards } from '@nestjs/common';
 import { CreatePaymentUseCase } from './create-payment.use-case';
 import { CreatePaymentDTO } from 'src/payment/models/dtos/create-payment.dto';
 import {
@@ -9,10 +9,12 @@ import {
   ApiBody,
   ApiTags,
 } from '@nestjs/swagger';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Pagamento')
 @ApiBearerAuth('access-token')
 @Controller('payment')
+@UseGuards(AuthGuard('jwt'))
 export class CreatePaymentController {
   constructor(
     @Inject(CreatePaymentUseCase)

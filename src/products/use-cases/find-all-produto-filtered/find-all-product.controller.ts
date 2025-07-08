@@ -1,4 +1,4 @@
-import { Controller, Get, Inject, Query } from '@nestjs/common';
+import { Controller, Get, Inject, Query, UseGuards } from '@nestjs/common';
 import { FindAllProdutosUseCase } from './find-all-product.use-case';
 import { FindProductDTO } from 'src/products/models/dto/find-produto.dto';
 import { Produto } from 'src/products/models/entity/product.entity';
@@ -9,10 +9,12 @@ import {
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Produto')
 @ApiBearerAuth('access-token')
 @Controller('product')
+@UseGuards(AuthGuard('jwt'))
 export class FindAllProdutoController {
   constructor(
     @Inject(FindAllProdutosUseCase)

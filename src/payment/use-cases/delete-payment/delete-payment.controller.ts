@@ -14,11 +14,14 @@ import {
   Delete,
   Inject,
   Param,
+  UseGuards,
 } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Pagamento')
 @ApiBearerAuth('access-token')
 @Controller('payment')
+@UseGuards(AuthGuard('jwt'))
 export class DeletePaymentController {
   constructor(
     @Inject(DeletePaymentUseCase)

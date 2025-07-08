@@ -1,6 +1,6 @@
-import { FuncionarioLogin } from './employee-login/models/entity/employee-login.entity';
-import { Pessoa, TipoPessoa } from './person/models/entity/person.entity';
-import { AppDataSource } from './shared/config/typeorm.config';
+import { FuncionarioLogin } from '../employee-login/models/entity/employee-login.entity';
+import { Pessoa, TipoPessoa } from '../person/models/entity/person.entity';
+import { AppDataSource } from '../shared/config/typeorm.config';
 import * as bcrypt from 'bcrypt';
 import * as dotenv from 'dotenv';
 
@@ -48,10 +48,10 @@ async function seed() {
       permissionLevel: 1,
     });
     await loginRepo.save(newLogin);
-    console.log('Login criado com sucesso (login: admin | senha: admin)');
+    console.log('Login criado com sucesso (login: admin)');
   }
   await AppDataSource.destroy();
-  console.log('Seed finalizado com sucesso.');
+  console.log('Seed executado com sucesso. Admin pronto para login.');
 }
 
 seed().catch((err) => {

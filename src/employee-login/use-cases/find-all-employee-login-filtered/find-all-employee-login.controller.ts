@@ -1,4 +1,4 @@
-import { Controller, Get, Inject, Query } from '@nestjs/common';
+import { Controller, Get, Inject, Query, UseGuards } from '@nestjs/common';
 import { FindAllEmployeeLoginUseCase } from './find-all-employee-login.use-case';
 import { FindEmployeeLoginDTO } from 'src/employee-login/models/dtos/find-employee-login.dto';
 import { FuncionarioLogin } from 'src/employee-login/models/entity/employee-login.entity';
@@ -10,10 +10,12 @@ import {
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Login Funcionarios')
-//@ApiBearerAuth('access-token')
+@ApiBearerAuth('access-token')
 @Controller('employeeLogin')
+@UseGuards(AuthGuard('jwt'))
 export class FindAllEmployeeLoginController {
   constructor(
     @Inject(FindAllEmployeeLoginUseCase)

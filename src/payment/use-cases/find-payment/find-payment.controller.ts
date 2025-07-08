@@ -15,11 +15,14 @@ import {
   Inject,
   Param,
   Get,
+  UseGuards,
 } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Pagamento')
 @ApiBearerAuth('access-token')
 @Controller('payment')
+@UseGuards(AuthGuard('jwt'))
 export class FindPaymentController {
   constructor(
     @Inject(FindPaymentUseCase)

@@ -11,27 +11,29 @@ import {
 import * as express from 'express';
 import { CustomLoggerService } from './shared/utils/logger/custom-logger.service';
 
-async function bootstrap() {
+async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule, {
     logger: new CustomLoggerService(),
   });
+
   const configService = app.get(ConfigService);
+
   const port = configService.get<number>('port');
   const pathToPublicStorage = configService.get<string>('pathToPublicStorage');
   const production = configService.get<string>('production');
 
   app.useGlobalFilters(new GlobalExceptionFilter());
+  app.useGlobalPipes(CONFIG_PIPES);
+  app.enableCors();
+
+  app.use('/uploads', express.static(pathToPublicStorage));
 
   if (production === 'false') {
     const document = SwaggerModule.createDocument(app, SWAGGER_CONFIG);
     SwaggerModule.setup('api', app, document, SWAGGER_CUSTOM_OPTIONS);
   }
 
-  app.useGlobalPipes(CONFIG_PIPES);
-
-  app.use('/uploads', express.static(pathToPublicStorage));
-
-  app.enableCors();
+  app.enableShutdownHooks();
 
   await app.listen(port);
 }

@@ -18,7 +18,7 @@ export class CreateEmployeeLoginUseCase {
     if (employeeLogin.data?.length) {
       throw new BadRequestException({ message: 'Pessoa ja possui login' });
     }
-    const hashedPassword = await bcrypt.hash(employeeDTO.password, 10);
+    const hashedPassword = await bcrypt.hash(employeeDTO.password, 14);
     employeeDTO.password = hashedPassword;
 
     const employeeCreated = await this.employeeRepository.create(employeeDTO);

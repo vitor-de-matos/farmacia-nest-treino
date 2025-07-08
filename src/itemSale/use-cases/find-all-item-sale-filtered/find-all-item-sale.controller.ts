@@ -1,4 +1,4 @@
-import { Controller, Get, Inject, Query } from '@nestjs/common';
+import { Controller, Get, Inject, Query, UseGuards } from '@nestjs/common';
 import { FindAllItemSaleUseCase } from './find-all-item-sale.use-case';
 import { FindItemSaleDTO } from 'src/itemSale/models/dtos/find-item-sale.dto';
 import { ItemVenda } from 'src/itemSale/models/entity/item-sale.entity';
@@ -10,10 +10,12 @@ import {
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Item Venda')
 @ApiBearerAuth('access-token')
 @Controller('itemSale')
+@UseGuards(AuthGuard('jwt'))
 export class FindAllItemSaleController {
   constructor(
     @Inject(FindAllItemSaleUseCase)

@@ -23,7 +23,7 @@ export class AuthController {
   @Public()
   @ApiConsumes('application/x-www-form-urlencoded')
   @ApiBody({ type: LoginDTO })
-  @Throttle({ default: { limit: 5, ttl: 50 } })
+  @Throttle({ default: { limit: 5, ttl: 60000 } })
   @Post('login')
   async login(@Body() loginDTO: LoginDTO) {
     const { login: document, password, remember } = loginDTO;

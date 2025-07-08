@@ -15,11 +15,14 @@ import {
   Inject,
   Param,
   Get,
+  UseGuards,
 } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Midia')
 @ApiBearerAuth('access-token')
 @Controller('media')
+@UseGuards(AuthGuard('jwt'))
 export class FindMidiaController {
   constructor(
     @Inject(FindMidiaUseCase)

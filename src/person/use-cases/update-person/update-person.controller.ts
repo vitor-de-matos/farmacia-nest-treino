@@ -18,11 +18,14 @@ import {
   Param,
   Patch,
   Body,
+  UseGuards,
 } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Pessoa')
 @ApiBearerAuth('access-token')
 @Controller('person')
+@UseGuards(AuthGuard('jwt'))
 export class UpdatePersonController {
   constructor(
     @Inject(UpdatePersonUseCase)

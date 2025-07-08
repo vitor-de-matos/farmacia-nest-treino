@@ -14,11 +14,14 @@ import {
   Delete,
   Inject,
   Param,
+  UseGuards,
 } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Login Funcionarios')
-//@ApiBearerAuth('access-token')
+@ApiBearerAuth('access-token')
 @Controller('employeeLogin')
+@UseGuards(AuthGuard('jwt'))
 export class DeleteEmployeeLoginController {
   constructor(
     @Inject(DeleteEmployeeLoginUseCase)

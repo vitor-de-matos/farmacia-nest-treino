@@ -1,4 +1,4 @@
-import { Body, Controller, Inject, Post } from '@nestjs/common';
+import { Body, Controller, Inject, Post, UseGuards } from '@nestjs/common';
 import { CreateStockUseCase } from './create-stock.use-case';
 import { CreateStockDTO } from 'src/stock/models/dtos/create-stock.dto';
 import {
@@ -9,10 +9,12 @@ import {
   ApiBody,
   ApiTags,
 } from '@nestjs/swagger';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Estoque')
 @ApiBearerAuth('access-token')
 @Controller('stock')
+@UseGuards(AuthGuard('jwt'))
 export class CreateStockController {
   constructor(
     @Inject(CreateStockUseCase)
