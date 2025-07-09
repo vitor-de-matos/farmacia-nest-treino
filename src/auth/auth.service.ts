@@ -34,14 +34,14 @@ export class AuthService {
       permissions: user.permissionLevel,
     };
     return {
-      access_token: this.jwtService.sign(payload),
+      access_token: this.jwtService.sign(payload, { expiresIn: '1d' }),
       refresh_token: this.generateRefreshToken(user, remember),
     };
   }
 
   private generateRefreshToken(user: FuncionarioLogin, remember: boolean) {
     const payload = { id: user.id };
-    const daysToExpiry = remember ? '360d' : '30d';
+    const daysToExpiry = remember ? '30d' : '7d';
     return this.jwtService.sign(payload, {
       secret: process.env.REFRESH_TOKEN_SECRET_KEY,
       expiresIn: daysToExpiry,

@@ -5,7 +5,9 @@ import {
   NotFoundException,
   Injectable,
   Inject,
+  UnauthorizedException,
 } from '@nestjs/common';
+import { Request } from 'express';
 
 @Injectable()
 export class UpdatePersonUseCase {
@@ -14,11 +16,17 @@ export class UpdatePersonUseCase {
     private readonly personRepository: IPersonRepo,
   ) {}
 
-  async update(personId: number, personDTO: UpdatePersonDTO) {
+  async update(personId: number, personDTO: UpdatePersonDTO, req: Request) {
     const person = await this.personRepository.findById(personId);
     if (!person) {
       throw new NotFoundException({
         message: 'Pessoa não encontrada',
+      });
+    }
+
+    if (personDTO.type !== undefined && req.user['permissions'] !== 1) {
+      throw new UnauthorizedException({
+        message: 'Apenas administradores podem alterar o tipo de pessoa',
       });
     }
 

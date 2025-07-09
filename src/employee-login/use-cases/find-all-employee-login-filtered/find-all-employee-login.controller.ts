@@ -11,11 +11,12 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 import { AuthGuard } from '@nestjs/passport';
+import { AdminGuard } from 'src/auth/guards/admin.guard';
 
 @ApiTags('Login Funcionarios')
 @ApiBearerAuth('access-token')
 @Controller('employeeLogin')
-@UseGuards(AuthGuard('jwt'))
+@UseGuards(AuthGuard('jwt'), AdminGuard)
 export class FindAllEmployeeLoginController {
   constructor(
     @Inject(FindAllEmployeeLoginUseCase)

@@ -17,11 +17,12 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
+import { AdminGuard } from 'src/auth/guards/admin.guard';
 
 @ApiTags('Categoria')
 @ApiBearerAuth('access-token')
 @Controller('category')
-@UseGuards(AuthGuard('jwt'))
+@UseGuards(AuthGuard('jwt'), AdminGuard)
 export class DeleteCategoryController {
   constructor(
     @Inject(DeleteCategoryUseCase)

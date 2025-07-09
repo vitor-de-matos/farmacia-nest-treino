@@ -17,11 +17,12 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
+import { AdminGuard } from 'src/auth/guards/admin.guard';
 
 @ApiTags('Lote Promoção')
 @ApiBearerAuth('access-token')
 @Controller('promotionBatch')
-@UseGuards(AuthGuard('jwt'))
+@UseGuards(AuthGuard('jwt'), AdminGuard)
 export class DeleteBatchPromotionController {
   constructor(
     @Inject(DeleteBatchPromotionUseCase)

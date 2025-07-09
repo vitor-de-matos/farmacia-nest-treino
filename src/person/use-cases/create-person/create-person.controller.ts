@@ -1,5 +1,7 @@
 import { CreatePersonUseCase } from './create-person.use-case';
 import { CreatePersonDTO } from 'src/person/models/dtos/create-person.dto';
+import { AuthGuard } from '@nestjs/passport';
+import { Request } from 'express';
 import {
   ApiInternalServerErrorResponse,
   ApiCreatedResponse,
@@ -15,8 +17,8 @@ import {
   Post,
   Body,
   UseGuards,
+  Req,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Pessoa')
 @ApiBearerAuth('access-token')
@@ -35,12 +37,15 @@ export class CreatePersonController {
     description: 'Erro interno entre em contato com o suporte.',
   })
   @Post()
-  async create(@Body() personDTO: CreatePersonDTO): Promise<number> {
+  async create(
+    @Body() personDTO: CreatePersonDTO,
+    @Req() req: Request,
+  ): Promise<number> {
     if (personDTO.document.length != 11) {
       throw new NotAcceptableException({
         message: 'CPF deve conter 11 digitos',
       });
     }
-    return await this.personService.create(personDTO);
+    return await this.personService.create(personDTO, req);
   }
 }

@@ -26,11 +26,12 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
+import { AdminGuard } from 'src/auth/guards/admin.guard';
 
 @ApiTags('Produto')
 @ApiBearerAuth('access-token')
 @Controller('product')
-@UseGuards(AuthGuard('jwt'))
+@UseGuards(AuthGuard('jwt'), AdminGuard)
 export class UpdateProdutoController {
   constructor(
     @Inject(UpdateProdutoUseCase)

@@ -19,8 +19,10 @@ import {
   Patch,
   Body,
   UseGuards,
+  Req,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
+import { Request } from 'express';
 
 @ApiTags('Pessoa')
 @ApiBearerAuth('access-token')
@@ -44,10 +46,11 @@ export class UpdatePersonController {
   async update(
     @Param('id') id: number,
     @Body() personDTO: UpdatePersonDTO,
+    @Req() req: Request,
   ): Promise<Pessoa> {
     if (isNaN(id)) {
       throw new NotAcceptableException({ message: 'Id deve ser um numero' });
     }
-    return await this.personService.update(id, personDTO);
+    return await this.personService.update(id, personDTO, req);
   }
 }

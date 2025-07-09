@@ -35,7 +35,6 @@ export class FindAllPersonController {
     totalPages: number;
     totalItems: number;
   }> {
-    console.log(personDTO);
     return await this.personService.find(personDTO);
   }
 }

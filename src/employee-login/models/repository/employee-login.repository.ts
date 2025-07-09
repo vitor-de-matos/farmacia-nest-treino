@@ -19,7 +19,7 @@ export class EmployeeLoginRepository implements IEmployeeLoginRepo {
     const result = await this.repository.save({
       ...employeeLoginDTO,
       person: employeeLoginDTO.personId
-        ? { id: employeeLoginDTO.permissionLevel }
+        ? { id: employeeLoginDTO.personId }
         : null,
     });
     return result.id;
