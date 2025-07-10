@@ -67,6 +67,12 @@ export class SalesRepository implements ISalesRepo {
             skip: (filters.page - 1) * filters.quantity,
           }
         : {}),
+      relations: {
+        employee: true,
+        customer: true,
+        payments: true,
+        itemSale: true,
+      },
     };
 
     const [sales, totalItems] =
