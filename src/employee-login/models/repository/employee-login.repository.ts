@@ -3,7 +3,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateEmployeeLoginDTO } from '../dtos/create-employee-login.dto';
 import { UpdateEmployeeLoginDTO } from '../dtos/update-employee-login.dto';
 import { FindEmployeeLoginDTO } from '../dtos/find-employee-login.dto';
-import { IEmployeeLoginRepo } from '../interface/employee-login.interface';
+import { IEmployeeLoginRepo } from '../interface/employee-login-repo.interface';
 import { FuncionarioLogin } from '../entity/employee-login.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DB_PG_DATABASE } from 'src/shared/database/typeOrm/postgres.config';
@@ -55,7 +55,10 @@ export class EmployeeLoginRepository implements IEmployeeLoginRepo {
   }
 
   async findById(id: number): Promise<FuncionarioLogin | undefined> {
-    const empoyeeLogin = await this.repository.findOne({ where: { id: id } });
+    const empoyeeLogin = await this.repository.findOne({
+      where: { id: id },
+      relations: { person: true },
+    });
     if (!empoyeeLogin) {
       throw new NotFoundException({ message: 'Lote não encontrado' });
     }

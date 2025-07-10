@@ -1,5 +1,14 @@
-import { BadRequestException, Body, Controller, Post } from '@nestjs/common';
 import {
+  BadRequestException,
+  Body,
+  Controller,
+  Delete,
+  Post,
+  Req,
+  UseGuards,
+} from '@nestjs/common';
+import {
+  ApiBearerAuth,
   ApiBody,
   ApiConsumes,
   ApiOperation,
@@ -11,6 +20,7 @@ import { RefreshDTO } from './models/dto/refresh.dto';
 import { Public } from './public.decorator';
 import { AuthService } from './auth.service';
 import { Throttle } from '@nestjs/throttler';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Autenticação')
 @Controller('auth')
@@ -47,5 +57,20 @@ export class AuthController {
   async refresh(@Body() refreshDTO: RefreshDTO) {
     const refresh_token = refreshDTO.refresh_token;
     return this.authService.refreshAccessToken(refresh_token);
+  }
+}
+
+@ApiTags('Autenticação')
+@ApiBearerAuth('access-token')
+@Controller('auth')
+@UseGuards(AuthGuard('jwt'))
+export class AuthLogout {
+  constructor(private authService: AuthService) {}
+
+  @ApiOperation({ summary: 'Logout do usuario' })
+  @Delete('logout')
+  async logout(@Req() req) {
+    await this.authService.logout(req.user.id);
+    return { message: 'Logout realizado com sucesso' };
   }
 }

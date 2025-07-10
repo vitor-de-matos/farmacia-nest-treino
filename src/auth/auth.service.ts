@@ -1,5 +1,5 @@
 import { Inject, Injectable, UnauthorizedException } from '@nestjs/common';
-import { IEmployeeLoginRepo } from 'src/employee-login/models/interface/employee-login.interface';
+import { IEmployeeLoginRepo } from 'src/employee-login/models/interface/employee-login-repo.interface';
 import { FuncionarioLogin } from 'src/employee-login/models/entity/employee-login.entity';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
@@ -39,13 +39,27 @@ export class AuthService {
     };
   }
 
-  private generateRefreshToken(user: FuncionarioLogin, remember: boolean) {
+  private async generateRefreshToken(
+    user: FuncionarioLogin,
+    remember: boolean,
+  ): Promise<string> {
     const payload = { id: user.id };
-    const daysToExpiry = remember ? '30d' : '7d';
-    return this.jwtService.sign(payload, {
+    const expiresIn = remember ? '30d' : '7d';
+
+    const token = this.jwtService.sign(payload, {
       secret: process.env.REFRESH_TOKEN_SECRET_KEY,
-      expiresIn: daysToExpiry,
+      expiresIn,
     });
+
+    const expiresAt = new Date();
+    expiresAt.setDate(expiresAt.getDate() + (remember ? 30 : 7));
+
+    user.refreshToken = token;
+    user.refreshTokenExpiresAt = expiresAt;
+
+    await this.employeeLoginRepository.update(user.id, user);
+
+    return token;
   }
 
   async refreshAccessToken(refreshToken: string) {
@@ -53,13 +67,14 @@ export class AuthService {
       secret: process.env.REFRESH_TOKEN_SECRET_KEY,
     });
 
-    if (!decoded) {
-      throw new UnauthorizedException('Token de refresh inválido ou expirado');
-    }
-
     const user = await this.employeeLoginRepository.findById(decoded.id);
-    if (!user) {
-      throw new UnauthorizedException('Usuário não encontrado');
+
+    if (
+      !user ||
+      user.refreshToken !== refreshToken ||
+      new Date() > user.refreshTokenExpiresAt
+    ) {
+      throw new UnauthorizedException('Token invalido ou expirado');
     }
 
     const payload = {
@@ -67,8 +82,16 @@ export class AuthService {
       name: user.person.name,
       permissions: user.permissionLevel,
     };
+
     return {
       access_token: this.jwtService.sign(payload),
     };
+  }
+
+  async logout(userId: number) {
+    await this.employeeLoginRepository.update(userId, {
+      refreshToken: null,
+      refreshTokenExpiresAt: null,
+    });
   }
 }

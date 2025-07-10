@@ -28,6 +28,16 @@ export class FuncionarioLogin {
   @CreateDateColumn({ name: 'criado_em', type: 'timestamptz' })
   createdAt: Date;
 
+  @Column({ name: 'refresh_token', type: 'text', nullable: true })
+  refreshToken: string;
+
+  @Column({
+    name: 'refresh_token_expira_em',
+    type: 'timestamptz',
+    nullable: true,
+  })
+  refreshTokenExpiresAt: Date;
+
   @OneToOne(() => Pessoa)
   @JoinColumn({ name: 'id_pessoa' })
   person: Pessoa;

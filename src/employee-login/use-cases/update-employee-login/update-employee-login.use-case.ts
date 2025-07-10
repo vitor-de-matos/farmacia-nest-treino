@@ -1,5 +1,5 @@
 import { UpdateEmployeeLoginDTO } from 'src/employee-login/models/dtos/update-employee-login.dto';
-import { IEmployeeLoginRepo } from 'src/employee-login/models/interface/employee-login.interface';
+import { IEmployeeLoginRepo } from 'src/employee-login/models/interface/employee-login-repo.interface';
 import {
   InternalServerErrorException,
   NotFoundException,

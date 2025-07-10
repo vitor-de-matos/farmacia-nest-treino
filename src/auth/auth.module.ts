@@ -5,7 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { EmployeeLoginModule } from 'src/employee-login/employee-login.module';
 import { FuncionarioLogin } from 'src/employee-login/models/entity/employee-login.entity';
 import { SECRET_KEY } from 'src/shared/utils/auth/auth.config';
-import { AuthController } from './auth.controller';
+import { AuthController, AuthLogout } from './auth.controller';
 import { AuthService } from './auth.service';
 import { LocalStrategy } from './local.strategy';
 import { JwtStrategy } from './jwt.strategy';
@@ -20,7 +20,7 @@ import { JwtStrategy } from './jwt.strategy';
       signOptions: { expiresIn: '7d' },
     }),
   ],
-  controllers: [AuthController],
+  controllers: [AuthController, AuthLogout],
   providers: [AuthService, LocalStrategy, JwtStrategy],
   exports: [AuthService],
 })
