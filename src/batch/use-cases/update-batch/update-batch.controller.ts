@@ -1,5 +1,5 @@
 import { UpdateBatchUseCase } from './update-batch.use-case';
-import { UpdateBatchDTO } from 'src/batch/models/dtos/update-lote.dto';
+import { UpdateBatchDTO } from 'src/batch/models/dtos/update-batch.dto';
 import { Lote } from 'src/batch/models/entity/batch.entity';
 import {
   ApiInternalServerErrorResponse,

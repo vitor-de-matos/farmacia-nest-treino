@@ -1,4 +1,4 @@
-import { CreateBatchDTO } from 'src/batch/models/dtos/create-lote.dto';
+import { CreateBatchDTO } from 'src/batch/models/dtos/create-batch.dto';
 import { CreateBatchController } from './create-batch.controller';
 import { CreateBatchUseCase } from './create-batch.use-case';
 import { BadRequestException } from '@nestjs/common';

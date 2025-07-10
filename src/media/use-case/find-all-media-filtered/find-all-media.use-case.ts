@@ -1,6 +1,6 @@
 import { ArchivesManagementJob } from 'src/shared/job/images-vids/archives-management.job';
 import { Inject, Injectable } from '@nestjs/common';
-import { FindMidiaDTO } from 'src/media/models/dtos/find-midia.dto';
+import { FindMidiaDTO } from 'src/media/models/dtos/find-media.dto';
 import { IMidiaRepo } from 'src/media/models/interface/midia-repo.interface';
 import { Midia } from 'src/media/models/entity/midia.entity';
 

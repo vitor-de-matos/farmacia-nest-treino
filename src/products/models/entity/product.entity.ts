@@ -1,4 +1,4 @@
-import { PromocaoLote } from '../../../batchPromotion/models/entity/batchPromotion.entity';
+import { PromocaoLote } from '../../../batchPromotion/models/entity/batch-promotion.entity';
 import { Fabricante } from '../../../manufacturer/models/entity/manufacturer.entity';
 import { Categoria } from '../../../category/models/entity/category.entity';
 import { ItemVenda } from '../../../itemSale/models/entity/item-sale.entity';

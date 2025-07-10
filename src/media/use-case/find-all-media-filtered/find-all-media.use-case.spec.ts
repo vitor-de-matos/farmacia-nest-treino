@@ -1,4 +1,4 @@
-import { FindMidiaDTO } from 'src/media/models/dtos/find-midia.dto';
+import { FindMidiaDTO } from 'src/media/models/dtos/find-media.dto';
 import { FindAllMidiaUseCase } from './find-all-media.use-case';
 
 describe('FindAllMidiaUseCase', () => {

@@ -10,6 +10,7 @@ import {
 } from './shared/config/swagger.config';
 import * as express from 'express';
 import { CustomLoggerService } from './shared/utils/logger/custom-logger.service';
+import helmet from 'helmet';
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule, {
@@ -25,6 +26,8 @@ async function bootstrap(): Promise<void> {
   app.useGlobalFilters(new GlobalExceptionFilter());
   app.useGlobalPipes(CONFIG_PIPES);
   app.enableCors();
+
+  app.use(helmet());
 
   app.use('/uploads', express.static(pathToPublicStorage));
 

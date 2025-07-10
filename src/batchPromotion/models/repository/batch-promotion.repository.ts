@@ -3,10 +3,10 @@ import { UpdateBatchPromotionDTO } from '../dtos/update-batch-promotion.dto';
 import { CreateBatchPromotionDTO } from '../dtos/create-batch-promotion.dto';
 import { FindBatchPromotionDTO } from '../dtos/find-batch-promotion.dto';
 import { endOfDay, startOfDay } from 'date-fns';
-import { IBatchPromotionRepo } from '../interface/lote-promocao-repo.interface';
+import { IBatchPromotionRepo } from '../interface/batch-promotion-repo.interface';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DB_PG_DATABASE } from 'src/shared/database/typeOrm/postgres.config';
-import { PromocaoLote } from '../entity/batchPromotion.entity';
+import { PromocaoLote } from '../entity/batch-promotion.entity';
 import {
   FindManyOptions,
   LessThanOrEqual,

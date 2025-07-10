@@ -1,6 +1,6 @@
 import { ArchivesManagementJob } from 'src/shared/job/images-vids/archives-management.job';
 import { CreateProdutoUseCase } from './create-product.use-case';
-import { CreateProductDTO } from 'src/products/models/dto/create-produto.dto';
+import { CreateProductDTO } from 'src/products/models/dto/create-product.dto';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import {
   ApiInternalServerErrorResponse,

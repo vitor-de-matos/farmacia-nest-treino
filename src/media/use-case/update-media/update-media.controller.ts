@@ -1,5 +1,5 @@
 import { UpdateMidiaUseCase } from './update-media.use-case';
-import { UpdateMidiaDTO } from 'src/media/models/dtos/update-midia.dto';
+import { UpdateMidiaDTO } from 'src/media/models/dtos/update-media.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
 import {
   ApiInternalServerErrorResponse,

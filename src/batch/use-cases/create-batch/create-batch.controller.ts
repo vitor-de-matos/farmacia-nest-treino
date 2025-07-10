@@ -1,6 +1,6 @@
 import { Body, Controller, Inject, Post, UseGuards } from '@nestjs/common';
 import { CreateBatchUseCase } from './create-batch.use-case';
-import { CreateBatchDTO } from 'src/batch/models/dtos/create-lote.dto';
+import { CreateBatchDTO } from 'src/batch/models/dtos/create-batch.dto';
 import {
   ApiInternalServerErrorResponse,
   ApiCreatedResponse,

@@ -1,4 +1,4 @@
-import { FindProductDTO } from 'src/products/models/dto/find-produto.dto';
+import { FindProductDTO } from 'src/products/models/dto/find-product.dto';
 import { FindAllProdutoController } from './find-all-product.controller';
 import { FindAllProdutosUseCase } from './find-all-product.use-case';
 import { Produto } from 'src/products/models/entity/product.entity';

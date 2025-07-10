@@ -1,6 +1,6 @@
 import { BadRequestException, Inject, Injectable } from '@nestjs/common';
 import { CreateBatchPromotionDTO } from 'src/batchPromotion/models/dtos/create-batch-promotion.dto';
-import { IBatchPromotionRepo } from 'src/batchPromotion/models/interface/lote-promocao-repo.interface';
+import { IBatchPromotionRepo } from 'src/batchPromotion/models/interface/batch-promotion-repo.interface';
 
 @Injectable()
 export class CreateBatchPromotionUseCase {

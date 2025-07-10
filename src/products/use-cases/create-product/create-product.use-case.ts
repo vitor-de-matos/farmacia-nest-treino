@@ -1,9 +1,9 @@
 import { CreateMidiaUseCase } from 'src/media/use-case/create-media/create-media.use-case';
 import { IManufacturerRepo } from 'src/manufacturer/models/interface/manufacturer-repo.interface';
-import { CreateProductDTO } from 'src/products/models/dto/create-produto.dto';
-import { CreateMidiaDTO } from 'src/media/models/dtos/create-midia.dto';
+import { CreateProductDTO } from 'src/products/models/dto/create-product.dto';
+import { CreateMidiaDTO } from 'src/media/models/dtos/create-media.dto';
 import { ICategoryRepo } from 'src/category/models/interface/category-repo.interface';
-import { IProductRepo } from 'src/products/models/interface/produto-repo.interface';
+import { IProductRepo } from 'src/products/models/interface/product-repo.interface';
 import {
   BadRequestException,
   NotFoundException,

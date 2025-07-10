@@ -1,6 +1,6 @@
 import { UpdateBatchPromotionUseCase } from './update-batch-promotion.use-case';
-import { UpdateBatchDTO } from 'src/batch/models/dtos/update-lote.dto';
-import { PromocaoLote } from 'src/batchPromotion/models/entity/batchPromotion.entity';
+import { UpdateBatchDTO } from 'src/batch/models/dtos/update-batch.dto';
+import { PromocaoLote } from 'src/batchPromotion/models/entity/batch-promotion.entity';
 import {
   ApiInternalServerErrorResponse,
   ApiNotAcceptableResponse,

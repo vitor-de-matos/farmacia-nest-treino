@@ -1,6 +1,6 @@
-import { CreateBatchDTO } from '../dtos/create-lote.dto';
-import { UpdateBatchDTO } from '../dtos/update-lote.dto';
-import { FindBatchDTO } from '../dtos/find-lote.dto';
+import { CreateBatchDTO } from '../dtos/create-batch.dto';
+import { UpdateBatchDTO } from '../dtos/update-batch.dto';
+import { FindBatchDTO } from '../dtos/find-batch.dto';
 import { Lote } from '../entity/batch.entity';
 
 export interface IBatchRepo {

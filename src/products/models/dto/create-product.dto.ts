@@ -1,5 +1,5 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { CreateMidiaJobDTO } from 'src/media/models/dtos/create-midia-others.dto';
+import { CreateMidiaJobDTO } from 'src/media/models/dtos/create-media-others.dto';
 import { TipoTarja } from '../entity/product.entity';
 import { Type } from 'class-transformer';
 import {

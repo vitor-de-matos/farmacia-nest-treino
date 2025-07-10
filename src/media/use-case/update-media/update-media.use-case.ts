@@ -1,6 +1,6 @@
 import { ArchivesManagementJob } from 'src/shared/job/images-vids/archives-management.job';
-import { UpdateMidiaDTO } from 'src/media/models/dtos/update-midia.dto';
-import { IProductRepo } from 'src/products/models/interface/produto-repo.interface';
+import { UpdateMidiaDTO } from 'src/media/models/dtos/update-media.dto';
+import { IProductRepo } from 'src/products/models/interface/product-repo.interface';
 import { IMidiaRepo } from 'src/media/models/interface/midia-repo.interface';
 import {
   InternalServerErrorException,

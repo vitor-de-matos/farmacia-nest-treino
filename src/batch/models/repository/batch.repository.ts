@@ -2,10 +2,10 @@ import { FindManyOptions, ILike, LessThanOrEqual, Repository } from 'typeorm';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DB_PG_DATABASE } from 'src/shared/database/typeOrm/postgres.config';
-import { UpdateBatchDTO } from '../dtos/update-lote.dto';
-import { CreateBatchDTO } from '../dtos/create-lote.dto';
-import { FindBatchDTO } from '../dtos/find-lote.dto';
-import { IBatchRepo } from '../interface/lote-repo.interface';
+import { UpdateBatchDTO } from '../dtos/update-batch.dto';
+import { CreateBatchDTO } from '../dtos/create-batch.dto';
+import { FindBatchDTO } from '../dtos/find-batch.dto';
+import { IBatchRepo } from '../interface/batch-repo.interface';
 import { endOfDay } from 'date-fns';
 import { Lote } from '../entity/batch.entity';
 

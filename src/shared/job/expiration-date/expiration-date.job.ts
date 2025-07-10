@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { GatewayService } from './expiration-date.gateway';
 import { Cron, CronExpression } from '@nestjs/schedule';
-import { IBatchRepo } from 'src/batch/models/interface/lote-repo.interface';
+import { IBatchRepo } from 'src/batch/models/interface/batch-repo.interface';
 
 @Injectable()
 export class ExpirationJob {

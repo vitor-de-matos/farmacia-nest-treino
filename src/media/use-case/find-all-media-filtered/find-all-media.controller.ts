@@ -1,6 +1,6 @@
 import { Controller, Get, Inject, Query, UseGuards } from '@nestjs/common';
 import { FindAllMidiaUseCase } from './find-all-media.use-case';
-import { FindMidiaDTO } from 'src/media/models/dtos/find-midia.dto';
+import { FindMidiaDTO } from 'src/media/models/dtos/find-media.dto';
 import { Midia } from 'src/media/models/entity/midia.entity';
 import {
   ApiInternalServerErrorResponse,

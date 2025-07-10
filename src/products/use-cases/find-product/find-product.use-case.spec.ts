@@ -1,4 +1,4 @@
-import { IProductRepo } from 'src/products/models/interface/produto-repo.interface';
+import { IProductRepo } from 'src/products/models/interface/product-repo.interface';
 import { FindProdutoUseCase } from './find-product.use-case';
 import { ArchivesManagementJob } from 'src/shared/job/images-vids/archives-management.job';
 import { Produto, TipoTarja } from 'src/products/models/entity/product.entity';

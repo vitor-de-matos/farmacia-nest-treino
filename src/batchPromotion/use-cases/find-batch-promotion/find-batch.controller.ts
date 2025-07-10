@@ -1,5 +1,5 @@
 import { FindBatchPromotionUseCase } from './find-batch.use-case';
-import { PromocaoLote } from 'src/batchPromotion/models/entity/batchPromotion.entity';
+import { PromocaoLote } from 'src/batchPromotion/models/entity/batch-promotion.entity';
 import {
   ApiInternalServerErrorResponse,
   ApiNotAcceptableResponse,

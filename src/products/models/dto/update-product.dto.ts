@@ -1,6 +1,6 @@
 import { IsISO8601, IsNumber, IsOptional, IsString } from 'class-validator';
 import { ApiPropertyOptional } from '@nestjs/swagger';
-import { UpdateMidiaJobDTO } from 'src/media/models/dtos/update-midia-others.dto';
+import { UpdateMidiaJobDTO } from 'src/media/models/dtos/update-media-others.dto';
 import { Type } from 'class-transformer';
 
 export class UpdateProductDTO extends UpdateMidiaJobDTO {

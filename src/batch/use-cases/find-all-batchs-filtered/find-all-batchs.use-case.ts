@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { FindBatchDTO } from 'src/batch/models/dtos/find-lote.dto';
-import { IBatchRepo } from 'src/batch/models/interface/lote-repo.interface';
+import { FindBatchDTO } from 'src/batch/models/dtos/find-batch.dto';
+import { IBatchRepo } from 'src/batch/models/interface/batch-repo.interface';
 import { Lote } from 'src/batch/models/entity/batch.entity';
 
 @Injectable()

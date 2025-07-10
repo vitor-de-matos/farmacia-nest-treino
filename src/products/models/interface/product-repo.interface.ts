@@ -1,6 +1,6 @@
-import { CreateProductDTO } from '../dto/create-produto.dto';
-import { UpdateProductDTO } from '../dto/update-produto.dto';
-import { FindProductDTO } from '../dto/find-produto.dto';
+import { CreateProductDTO } from '../dto/create-product.dto';
+import { UpdateProductDTO } from '../dto/update-product.dto';
+import { FindProductDTO } from '../dto/find-product.dto';
 import { Produto } from '../entity/product.entity';
 
 export interface IProductRepo {

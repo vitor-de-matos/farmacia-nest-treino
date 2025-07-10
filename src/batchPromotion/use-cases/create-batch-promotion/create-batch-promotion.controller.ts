@@ -1,6 +1,8 @@
 import { Body, Controller, Inject, Post, UseGuards } from '@nestjs/common';
 import { CreateBatchPromotionUseCase } from './create-batch-promotion.use-case';
 import { CreateBatchPromotionDTO } from 'src/batchPromotion/models/dtos/create-batch-promotion.dto';
+import { AdminGuard } from 'src/auth/guards/admin.guard';
+import { AuthGuard } from '@nestjs/passport';
 import {
   ApiInternalServerErrorResponse,
   ApiCreatedResponse,
@@ -9,8 +11,6 @@ import {
   ApiBody,
   ApiTags,
 } from '@nestjs/swagger';
-import { AuthGuard } from '@nestjs/passport';
-import { AdminGuard } from 'src/auth/guards/admin.guard';
 
 @ApiTags('Lote Promoção')
 @ApiBearerAuth('access-token')

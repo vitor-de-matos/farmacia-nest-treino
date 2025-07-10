@@ -1,7 +1,7 @@
 import { UpdateBatchPromotionDTO } from '../dtos/update-batch-promotion.dto';
 import { CreateBatchPromotionDTO } from '../dtos/create-batch-promotion.dto';
 import { FindBatchPromotionDTO } from '../dtos/find-batch-promotion.dto';
-import { PromocaoLote } from '../entity/batchPromotion.entity';
+import { PromocaoLote } from '../entity/batch-promotion.entity';
 
 export interface IBatchPromotionRepo {
   create(batchPromotionDTO: CreateBatchPromotionDTO): Promise<number>;

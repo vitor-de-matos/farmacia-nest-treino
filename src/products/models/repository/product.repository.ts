@@ -1,10 +1,10 @@
 import { endOfDay, isValid, parse, startOfDay } from 'date-fns';
-import { UpdateProductDTO } from '../dto/update-produto.dto';
-import { CreateProductDTO } from '../dto/create-produto.dto';
+import { UpdateProductDTO } from '../dto/update-product.dto';
+import { CreateProductDTO } from '../dto/create-product.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DB_PG_DATABASE } from 'src/shared/database/typeOrm/postgres.config';
-import { FindProductDTO } from '../dto/find-produto.dto';
-import { IProductRepo } from '../interface/produto-repo.interface';
+import { FindProductDTO } from '../dto/find-product.dto';
+import { IProductRepo } from '../interface/product-repo.interface';
 import { Produto } from '../entity/product.entity';
 import {
   FindManyOptions,

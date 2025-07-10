@@ -1,5 +1,5 @@
-import { UpdateBatchDTO } from 'src/batch/models/dtos/update-lote.dto';
-import { IBatchRepo } from 'src/batch/models/interface/lote-repo.interface';
+import { UpdateBatchDTO } from 'src/batch/models/dtos/update-batch.dto';
+import { IBatchRepo } from 'src/batch/models/interface/batch-repo.interface';
 import {
   InternalServerErrorException,
   NotFoundException,

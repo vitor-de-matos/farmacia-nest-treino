@@ -1,7 +1,7 @@
 import { ArchivesManagementJob } from 'src/shared/job/images-vids/archives-management.job';
 import { Inject, Injectable } from '@nestjs/common';
-import { FindProductDTO } from 'src/products/models/dto/find-produto.dto';
-import { IProductRepo } from 'src/products/models/interface/produto-repo.interface';
+import { FindProductDTO } from 'src/products/models/dto/find-product.dto';
+import { IProductRepo } from 'src/products/models/interface/product-repo.interface';
 import { Produto } from 'src/products/models/entity/product.entity';
 
 @Injectable()

@@ -1,4 +1,4 @@
-import { UpdateMidiaDTO } from 'src/media/models/dtos/update-midia.dto';
+import { UpdateMidiaDTO } from 'src/media/models/dtos/update-media.dto';
 import { UpdateMidiaController } from './update-media.controller';
 import { UpdateMidiaUseCase } from './update-media.use-case';
 import { NotAcceptableException } from '@nestjs/common';

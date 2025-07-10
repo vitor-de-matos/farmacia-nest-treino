@@ -1,5 +1,5 @@
 import { UpdateBatchPromotionDTO } from 'src/batchPromotion/models/dtos/update-batch-promotion.dto';
-import { IBatchPromotionRepo } from 'src/batchPromotion/models/interface/lote-promocao-repo.interface';
+import { IBatchPromotionRepo } from 'src/batchPromotion/models/interface/batch-promotion-repo.interface';
 import {
   InternalServerErrorException,
   NotFoundException,

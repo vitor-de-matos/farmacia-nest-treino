@@ -1,5 +1,5 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
-import { IBatchRepo } from 'src/batch/models/interface/lote-repo.interface';
+import { IBatchRepo } from 'src/batch/models/interface/batch-repo.interface';
 
 @Injectable()
 export class DeleteBatchUseCase {

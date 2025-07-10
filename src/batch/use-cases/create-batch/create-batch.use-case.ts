@@ -1,6 +1,6 @@
 import { BadRequestException, Inject, Injectable } from '@nestjs/common';
-import { CreateBatchDTO } from 'src/batch/models/dtos/create-lote.dto';
-import { IBatchRepo } from 'src/batch/models/interface/lote-repo.interface';
+import { CreateBatchDTO } from 'src/batch/models/dtos/create-batch.dto';
+import { IBatchRepo } from 'src/batch/models/interface/batch-repo.interface';
 
 @Injectable()
 export class CreateBatchUseCase {

@@ -1,5 +1,5 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
-import { IBatchPromotionRepo } from 'src/batchPromotion/models/interface/lote-promocao-repo.interface';
+import { IBatchPromotionRepo } from 'src/batchPromotion/models/interface/batch-promotion-repo.interface';
 
 @Injectable()
 export class DeleteBatchPromotionUseCase {

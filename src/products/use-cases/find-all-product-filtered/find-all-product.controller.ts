@@ -1,6 +1,6 @@
 import { Controller, Get, Inject, Query, UseGuards } from '@nestjs/common';
 import { FindAllProdutosUseCase } from './find-all-product.use-case';
-import { FindProductDTO } from 'src/products/models/dto/find-produto.dto';
+import { FindProductDTO } from 'src/products/models/dto/find-product.dto';
 import { Produto } from 'src/products/models/entity/product.entity';
 import {
   ApiInternalServerErrorResponse,

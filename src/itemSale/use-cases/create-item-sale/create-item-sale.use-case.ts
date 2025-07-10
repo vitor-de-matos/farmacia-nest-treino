@@ -2,7 +2,7 @@ import { CreateItemSaleDTO } from 'src/itemSale/models/dtos/create-item-sale.dto
 import { TipoMovimentacao } from 'src/stock/models/entity/stock.entity';
 import { UpdateStockDTO } from 'src/stock/models/dtos/update-stock.dto';
 import { IItemSaleRepo } from 'src/itemSale/models/interface/item-sale-repo.interface';
-import { IProductRepo } from 'src/products/models/interface/produto-repo.interface';
+import { IProductRepo } from 'src/products/models/interface/product-repo.interface';
 import { IStockRepo } from 'src/stock/models/interface/stock-repo.interface';
 import {
   BadRequestException,

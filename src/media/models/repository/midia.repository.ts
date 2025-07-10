@@ -2,9 +2,9 @@ import { FindManyOptions, ILike, Repository } from 'typeorm';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DB_PG_DATABASE } from 'src/shared/database/typeOrm/postgres.config';
-import { CreateMidiaDTO } from '../dtos/create-midia.dto';
-import { UpdateMidiaDTO } from '../dtos/update-midia.dto';
-import { FindMidiaDTO } from '../dtos/find-midia.dto';
+import { CreateMidiaDTO } from '../dtos/create-media.dto';
+import { UpdateMidiaDTO } from '../dtos/update-media.dto';
+import { FindMidiaDTO } from '../dtos/find-media.dto';
 import { IMidiaRepo } from '../interface/midia-repo.interface';
 import { Midia } from '../entity/midia.entity';
 

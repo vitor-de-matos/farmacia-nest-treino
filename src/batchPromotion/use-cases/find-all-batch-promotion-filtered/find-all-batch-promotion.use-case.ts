@@ -1,7 +1,7 @@
 import { FindBatchPromotionDTO } from 'src/batchPromotion/models/dtos/find-batch-promotion.dto';
-import { IBatchPromotionRepo } from 'src/batchPromotion/models/interface/lote-promocao-repo.interface';
+import { IBatchPromotionRepo } from 'src/batchPromotion/models/interface/batch-promotion-repo.interface';
 import { Inject, Injectable } from '@nestjs/common';
-import { PromocaoLote } from 'src/batchPromotion/models/entity/batchPromotion.entity';
+import { PromocaoLote } from 'src/batchPromotion/models/entity/batch-promotion.entity';
 
 @Injectable()
 export class FindAllBatchPromotionUseCase {

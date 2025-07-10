@@ -1,4 +1,4 @@
-import { IProductRepo } from 'src/products/models/interface/produto-repo.interface';
+import { IProductRepo } from 'src/products/models/interface/product-repo.interface';
 import { DeleteProdutoUseCase } from './delete-product.use-case';
 import { DeleteMidiaUseCase } from 'src/media/use-case/delete-media/delete-media.use-case';
 import { TipoTarja } from 'src/products/models/entity/product.entity';

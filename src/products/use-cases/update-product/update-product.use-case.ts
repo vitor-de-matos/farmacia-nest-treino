@@ -1,7 +1,7 @@
 import { CreateMidiaUseCase } from 'src/media/use-case/create-media/create-media.use-case';
-import { UpdateProductDTO } from 'src/products/models/dto/update-produto.dto';
-import { CreateMidiaDTO } from 'src/media/models/dtos/create-midia.dto';
-import { IProductRepo } from 'src/products/models/interface/produto-repo.interface';
+import { UpdateProductDTO } from 'src/products/models/dto/update-product.dto';
+import { CreateMidiaDTO } from 'src/media/models/dtos/create-media.dto';
+import { IProductRepo } from 'src/products/models/interface/product-repo.interface';
 import { Produto } from 'src/products/models/entity/product.entity';
 import {
   InternalServerErrorException,

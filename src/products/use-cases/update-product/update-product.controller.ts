@@ -1,6 +1,6 @@
 import { ArchivesManagementJob } from 'src/shared/job/images-vids/archives-management.job';
 import { UpdateProdutoUseCase } from './update-product.use-case';
-import { UpdateProductDTO } from 'src/products/models/dto/update-produto.dto';
+import { UpdateProductDTO } from 'src/products/models/dto/update-product.dto';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import { Produto } from 'src/products/models/entity/product.entity';
 import {

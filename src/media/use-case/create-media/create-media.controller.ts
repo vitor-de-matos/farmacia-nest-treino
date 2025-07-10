@@ -1,7 +1,7 @@
 import { ArchivesManagementJob } from 'src/shared/job/images-vids/archives-management.job';
 import { CreateMidiaUseCase } from './create-media.use-case';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { CreateMidiaDTO } from 'src/media/models/dtos/create-midia.dto';
+import { CreateMidiaDTO } from 'src/media/models/dtos/create-media.dto';
 import {
   ApiInternalServerErrorResponse,
   ApiCreatedResponse,

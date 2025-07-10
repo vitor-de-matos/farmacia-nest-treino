@@ -1,4 +1,4 @@
-import { CreateMidiaDTO } from 'src/media/models/dtos/create-midia.dto';
+import { CreateMidiaDTO } from 'src/media/models/dtos/create-media.dto';
 import { CreateMidiaUseCase } from './create-media.use-case';
 import { BadRequestException } from '@nestjs/common';
 

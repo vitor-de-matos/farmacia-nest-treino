@@ -1,6 +1,6 @@
 import { Controller, Get, Inject, Query, UseGuards } from '@nestjs/common';
 import { FindAllBatchUseCase } from './find-all-batchs.use-case';
-import { FindBatchDTO } from 'src/batch/models/dtos/find-lote.dto';
+import { FindBatchDTO } from 'src/batch/models/dtos/find-batch.dto';
 import { Lote } from 'src/batch/models/entity/batch.entity';
 import {
   ApiInternalServerErrorResponse,

@@ -1,6 +1,6 @@
-import { CreateMidiaDTO } from '../dtos/create-midia.dto';
-import { UpdateMidiaDTO } from '../dtos/update-midia.dto';
-import { FindMidiaDTO } from '../dtos/find-midia.dto';
+import { CreateMidiaDTO } from '../dtos/create-media.dto';
+import { UpdateMidiaDTO } from '../dtos/update-media.dto';
+import { FindMidiaDTO } from '../dtos/find-media.dto';
 import { Midia } from '../entity/midia.entity';
 
 export interface IMidiaRepo {

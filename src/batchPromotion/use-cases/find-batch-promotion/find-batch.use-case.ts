@@ -1,6 +1,6 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
-import { IBatchPromotionRepo } from 'src/batchPromotion/models/interface/lote-promocao-repo.interface';
-import { PromocaoLote } from 'src/batchPromotion/models/entity/batchPromotion.entity';
+import { IBatchPromotionRepo } from 'src/batchPromotion/models/interface/batch-promotion-repo.interface';
+import { PromocaoLote } from 'src/batchPromotion/models/entity/batch-promotion.entity';
 
 @Injectable()
 export class FindBatchPromotionUseCase {

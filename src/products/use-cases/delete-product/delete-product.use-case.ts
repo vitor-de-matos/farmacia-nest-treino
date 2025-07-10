@@ -1,6 +1,6 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { DeleteMidiaUseCase } from 'src/media/use-case/delete-media/delete-media.use-case';
-import { IProductRepo } from 'src/products/models/interface/produto-repo.interface';
+import { IProductRepo } from 'src/products/models/interface/product-repo.interface';
 
 @Injectable()
 export class DeleteProdutoUseCase {
