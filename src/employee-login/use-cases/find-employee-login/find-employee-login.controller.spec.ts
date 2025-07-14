@@ -1,9 +1,9 @@
+import { FindEmployeeLoginController } from './find-employee-login.controller';
 import {
   InternalServerErrorException,
   NotAcceptableException,
   NotFoundException,
 } from '@nestjs/common';
-import { FindEmployeeLoginController } from './find-employee-login.controller';
 
 describe('FindEmployeeLoginController', () => {
   let controller: FindEmployeeLoginController;

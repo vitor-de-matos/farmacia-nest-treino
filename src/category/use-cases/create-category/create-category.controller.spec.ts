@@ -1,6 +1,6 @@
-import { BadRequestException } from '@nestjs/common';
 import { CreateCategoryController } from './create-category.controller';
 import { CreateCategoryUseCase } from './create-category.use-case';
+import { BadRequestException } from '@nestjs/common';
 
 describe('CreateCategoryController', () => {
   let controller: CreateCategoryController;

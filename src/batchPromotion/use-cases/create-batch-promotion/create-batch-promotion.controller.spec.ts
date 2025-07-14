@@ -1,6 +1,6 @@
-import { BadRequestException } from '@nestjs/common';
 import { CreateBatchPromotionController } from './create-batch-promotion.controller';
 import { CreateBatchPromotionUseCase } from './create-batch-promotion.use-case';
+import { BadRequestException } from '@nestjs/common';
 
 describe('CreateBatchPromotionController', () => {
   let controller: CreateBatchPromotionController;

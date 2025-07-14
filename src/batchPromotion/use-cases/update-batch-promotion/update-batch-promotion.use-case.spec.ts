@@ -1,8 +1,8 @@
+import { UpdateBatchPromotionUseCase } from './update-batch-promotion.use-case';
 import {
   InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common';
-import { UpdateBatchPromotionUseCase } from './update-batch-promotion.use-case';
 
 describe('UpdateBatchPromotionUseCase', () => {
   let useCase: UpdateBatchPromotionUseCase;

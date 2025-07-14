@@ -35,7 +35,7 @@ export class AuthService {
     };
     return {
       access_token: this.jwtService.sign(payload, { expiresIn: '1d' }),
-      refresh_token: this.generateRefreshToken(user, remember),
+      refresh_token: await this.generateRefreshToken(user, remember),
     };
   }
 
@@ -44,17 +44,19 @@ export class AuthService {
     remember: boolean,
   ): Promise<string> {
     const payload = { id: user.id };
-    const expiresIn = remember ? '30d' : '7d';
+    const expiresIn = remember ? '7d' : '30d';
 
     const token = this.jwtService.sign(payload, {
       secret: process.env.REFRESH_TOKEN_SECRET_KEY,
       expiresIn,
     });
 
-    const expiresAt = new Date();
-    expiresAt.setDate(expiresAt.getDate() + (remember ? 30 : 7));
+    const hashedToken = await bcrypt.hash(token, 12);
 
-    user.refreshToken = token;
+    const expiresAt = new Date();
+    expiresAt.setDate(expiresAt.getDate() + (remember ? 7 : 30));
+
+    user.refreshToken = hashedToken;
     user.refreshTokenExpiresAt = expiresAt;
 
     await this.employeeLoginRepository.update(user.id, user);
@@ -67,13 +69,17 @@ export class AuthService {
       secret: process.env.REFRESH_TOKEN_SECRET_KEY,
     });
 
-    const user = await this.employeeLoginRepository.findById(decoded.id);
+    if (!decoded || !decoded.id) {
+      throw new UnauthorizedException('Token inválido ou expirado');
+    }
 
-    if (
-      !user ||
-      user.refreshToken !== refreshToken ||
-      new Date() > user.refreshTokenExpiresAt
-    ) {
+    const user = await this.employeeLoginRepository.findById(decoded.id);
+    if (!user) {
+      throw new UnauthorizedException('Token invalido ou expirado');
+    }
+
+    const isValid = await bcrypt.compare(refreshToken, user.refreshToken);
+    if (!isValid || new Date() > user.refreshTokenExpiresAt) {
       throw new UnauthorizedException('Token invalido ou expirado');
     }
 

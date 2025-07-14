@@ -1,9 +1,9 @@
-import { IStockRepo } from 'src/stock/models/interface/stock-repo.interface';
 import { FindAllStockUseCase } from './find-all-stock.use-case';
 import { FindStockDTO } from 'src/stock/models/dtos/find-stock.dto';
+import { IStockRepo } from 'src/stock/models/interface/stock-repo.interface';
 import {
-  Estoque,
   TipoMovimentacao,
+  Estoque,
 } from 'src/stock/models/entity/stock.entity';
 
 describe('FindAllStockUseCase', () => {

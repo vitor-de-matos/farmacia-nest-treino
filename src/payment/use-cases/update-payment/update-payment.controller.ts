@@ -1,6 +1,7 @@
 import { UpdatePaymentUseCase } from './update-payment.use-case';
 import { UpdatePaymentDTO } from 'src/payment/models/dtos/update-paymente.dto';
 import { Pagamento } from 'src/payment/models/entity/payment.entity';
+import { AuthGuard } from '@nestjs/passport';
 import {
   ApiInternalServerErrorResponse,
   ApiNotAcceptableResponse,
@@ -14,13 +15,12 @@ import {
 import {
   NotAcceptableException,
   Controller,
+  UseGuards,
   Inject,
   Param,
   Patch,
   Body,
-  UseGuards,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Pagamento')
 @ApiBearerAuth('access-token')

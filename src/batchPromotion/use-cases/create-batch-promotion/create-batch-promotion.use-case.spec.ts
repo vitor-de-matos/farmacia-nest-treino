@@ -1,5 +1,5 @@
-import { BadRequestException } from '@nestjs/common';
 import { CreateBatchPromotionUseCase } from './create-batch-promotion.use-case';
+import { BadRequestException } from '@nestjs/common';
 
 describe('CreateBatchPromotionUseCase', () => {
   let useCase: CreateBatchPromotionUseCase;

@@ -1,5 +1,5 @@
-import { NotFoundException } from '@nestjs/common';
 import { DeleteMidiaUseCase } from './delete-media.use-case';
+import { NotFoundException } from '@nestjs/common';
 
 describe('DeleteMidiaUseCase', () => {
   let useCase: DeleteMidiaUseCase;

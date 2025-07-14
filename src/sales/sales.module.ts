@@ -1,3 +1,5 @@
+import { GenerateInvoiceController } from './use-cases/generate-invoice/generate-invoice.controller';
+import { GenerateInvoiceUseCase } from './use-cases/generate-invoice/generate-invoice.use-case';
 import { FindAllSalesController } from './use-cases/find-all-sales-filtered/find-all-sales.controller';
 import { UpdateSalesController } from './use-cases/update-sales/update-sales.controller';
 import { DeleteSalesController } from './use-cases/delete-sales/delete-sales.controller';
@@ -13,8 +15,6 @@ import { DB_PG_DATABASE } from 'src/shared/database/typeOrm/postgres.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Module } from '@nestjs/common';
 import { Venda } from './models/entity/sales.entity';
-import { GenerateInvoiceController } from './use-cases/generate-invoice/generate-invoice.controller';
-import { GenerateInvoiceUseCase } from './use-cases/generate-invoice/generate-invoice.use-case';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Venda], DB_PG_DATABASE)],

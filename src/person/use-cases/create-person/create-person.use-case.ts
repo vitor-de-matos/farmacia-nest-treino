@@ -1,13 +1,13 @@
-import {
-  BadRequestException,
-  Inject,
-  Injectable,
-  UnauthorizedException,
-} from '@nestjs/common';
 import { CreatePersonDTO } from 'src/person/models/dtos/create-person.dto';
-import { TipoPessoa } from 'src/person/models/entity/person.entity';
 import { IPersonRepo } from 'src/person/models/interface/person-repo.interface';
+import { TipoPessoa } from 'src/person/models/entity/person.entity';
 import { Request } from 'express';
+import {
+  UnauthorizedException,
+  BadRequestException,
+  Injectable,
+  Inject,
+} from '@nestjs/common';
 
 @Injectable()
 export class CreatePersonUseCase {

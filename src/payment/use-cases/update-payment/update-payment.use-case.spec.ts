@@ -1,14 +1,14 @@
-import { IPaymentRepo } from 'src/payment/models/interface/payment-repo.interface';
 import { UpdatePaymentUseCase } from './update-payment.use-case';
 import { UpdatePaymentDTO } from 'src/payment/models/dtos/update-paymente.dto';
-import {
-  FormaPagamento,
-  StatusPagamento,
-} from 'src/payment/models/entity/payment.entity';
+import { IPaymentRepo } from 'src/payment/models/interface/payment-repo.interface';
 import {
   InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common';
+import {
+  StatusPagamento,
+  FormaPagamento,
+} from 'src/payment/models/entity/payment.entity';
 
 describe('UpdatePaymentUseCase', () => {
   let useCase: UpdatePaymentUseCase;

@@ -1,7 +1,7 @@
-import { CreateBatchDTO } from 'src/batch/models/dtos/create-batch.dto';
 import { CreateBatchController } from './create-batch.controller';
-import { CreateBatchUseCase } from './create-batch.use-case';
 import { BadRequestException } from '@nestjs/common';
+import { CreateBatchUseCase } from './create-batch.use-case';
+import { CreateBatchDTO } from 'src/batch/models/dtos/create-batch.dto';
 
 describe('CreateBatchController', () => {
   let controller: CreateBatchController;

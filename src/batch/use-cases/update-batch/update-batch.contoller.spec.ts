@@ -1,10 +1,10 @@
+import { UpdateBatchController } from './update-batch.controller';
+import { UpdateBatchUseCase } from './update-batch.use-case';
 import {
   InternalServerErrorException,
   NotAcceptableException,
   NotFoundException,
 } from '@nestjs/common';
-import { UpdateBatchController } from './update-batch.controller';
-import { UpdateBatchUseCase } from './update-batch.use-case';
 
 describe('UpdateBatchController', () => {
   let controller: UpdateBatchController;

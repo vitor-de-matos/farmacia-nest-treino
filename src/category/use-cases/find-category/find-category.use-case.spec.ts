@@ -1,5 +1,5 @@
-import { NotFoundException } from '@nestjs/common';
 import { FindCategoryUseCase } from './find-category.use-case';
+import { NotFoundException } from '@nestjs/common';
 
 describe('FindCategoryUseCase', () => {
   let useCase: FindCategoryUseCase;

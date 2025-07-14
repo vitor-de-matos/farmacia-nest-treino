@@ -1,6 +1,6 @@
-import { Venda } from '../../../sales/models/entity/sales.entity';
 import { FuncionarioLogin } from '../../../employee-login/models/entity/employee-login.entity';
-
+import { Exclude, Expose } from 'class-transformer';
+import { Venda } from '../../../sales/models/entity/sales.entity';
 import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
@@ -10,7 +10,6 @@ import {
   Column,
   Entity,
 } from 'typeorm';
-import { Exclude, Expose } from 'class-transformer';
 
 export enum TipoPessoa {
   CLIENTE = 'cliente',

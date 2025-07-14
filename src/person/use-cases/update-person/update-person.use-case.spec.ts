@@ -1,11 +1,12 @@
-import { IPersonRepo } from 'src/person/models/interface/person-repo.interface';
 import { UpdatePersonUseCase } from './update-person.use-case';
 import { UpdatePersonDTO } from 'src/person/models/dtos/update-person.dto';
+import { IPersonRepo } from 'src/person/models/interface/person-repo.interface';
+import { TipoPessoa } from 'src/person/models/entity/person.entity';
+import { getMockReq } from '@jest-mock/express';
 import {
   InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common';
-import { TipoPessoa } from 'src/person/models/entity/person.entity';
 
 describe('UpdatePersonUseCase', () => {
   let useCase: UpdatePersonUseCase;
@@ -47,7 +48,9 @@ describe('UpdatePersonUseCase', () => {
     mockRepo.findById.mockResolvedValue(existingPerson);
     mockRepo.update.mockResolvedValue(updatedPerson);
 
-    const result = await useCase.update(personId, dto);
+    const mockRequest = getMockReq({ user: { id: 1 } });
+
+    const result = await useCase.update(personId, dto, mockRequest);
 
     expect(result).toEqual(updatedPerson);
     expect(mockRepo.findById).toHaveBeenCalledWith(personId);
@@ -57,8 +60,11 @@ describe('UpdatePersonUseCase', () => {
   it('deve lançar NotFoundException se a pessoa não existir', async () => {
     mockRepo.findById.mockResolvedValue(null);
     const dto: UpdatePersonDTO = { nome: 'Teste' } as UpdatePersonDTO;
+    const mockRequest = getMockReq({ user: { id: 1 } });
 
-    await expect(useCase.update(999, dto)).rejects.toThrow(NotFoundException);
+    await expect(useCase.update(999, dto, mockRequest)).rejects.toThrow(
+      NotFoundException,
+    );
     expect(mockRepo.update).not.toHaveBeenCalled();
   });
 
@@ -78,8 +84,9 @@ describe('UpdatePersonUseCase', () => {
 
     mockRepo.findById.mockResolvedValue(existingPerson);
     mockRepo.update.mockResolvedValue(null);
+    const mockRequest = getMockReq({ user: { id: 1 } });
 
-    await expect(useCase.update(personId, dto)).rejects.toThrow(
+    await expect(useCase.update(personId, dto, mockRequest)).rejects.toThrow(
       InternalServerErrorException,
     );
   });

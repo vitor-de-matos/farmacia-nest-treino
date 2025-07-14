@@ -1,5 +1,5 @@
-import { CreateManufacturerDTO } from 'src/manufacturer/models/dtos/create-manufacturer.dto';
 import { CreateManufacturerUseCase } from './create-manufacturer.use-case';
+import { CreateManufacturerDTO } from 'src/manufacturer/models/dtos/create-manufacturer.dto';
 import { BadRequestException } from '@nestjs/common';
 
 describe('CreateManufacturerUseCase', () => {

@@ -1,14 +1,14 @@
-import { forwardRef, Module } from '@nestjs/common';
-import { JwtModule } from '@nestjs/jwt';
-import { PassportModule } from '@nestjs/passport';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { EmployeeLoginModule } from 'src/employee-login/employee-login.module';
-import { FuncionarioLogin } from 'src/employee-login/models/entity/employee-login.entity';
-import { SECRET_KEY } from 'src/shared/utils/auth/auth.config';
 import { AuthController, AuthLogout } from './auth.controller';
-import { AuthService } from './auth.service';
+import { EmployeeLoginModule } from 'src/employee-login/employee-login.module';
+import { forwardRef, Module } from '@nestjs/common';
+import { FuncionarioLogin } from 'src/employee-login/models/entity/employee-login.entity';
+import { PassportModule } from '@nestjs/passport';
 import { LocalStrategy } from './local.strategy';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { AuthService } from './auth.service';
 import { JwtStrategy } from './jwt.strategy';
+import { SECRET_KEY } from 'src/shared/utils/auth/auth.config';
+import { JwtModule } from '@nestjs/jwt';
 
 @Module({
   imports: [

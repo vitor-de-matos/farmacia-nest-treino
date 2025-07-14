@@ -1,8 +1,8 @@
-import { IStockRepo } from 'src/stock/models/interface/stock-repo.interface';
-import { CreateStockUseCase } from './create-stock.use-case';
-import { CreateStockDTO } from 'src/stock/models/dtos/create-stock.dto';
 import { BadRequestException } from '@nestjs/common';
+import { CreateStockUseCase } from './create-stock.use-case';
 import { TipoMovimentacao } from 'src/stock/models/entity/stock.entity';
+import { CreateStockDTO } from 'src/stock/models/dtos/create-stock.dto';
+import { IStockRepo } from 'src/stock/models/interface/stock-repo.interface';
 
 describe('CreateStockUseCase', () => {
   let useCase: CreateStockUseCase;

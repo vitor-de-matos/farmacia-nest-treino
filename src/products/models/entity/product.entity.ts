@@ -1,3 +1,4 @@
+import { Exclude, Expose } from 'class-transformer';
 import { PromocaoLote } from '../../../batchPromotion/models/entity/batch-promotion.entity';
 import { Fabricante } from '../../../manufacturer/models/entity/manufacturer.entity';
 import { Categoria } from '../../../category/models/entity/category.entity';
@@ -14,7 +15,6 @@ import {
   Column,
   Entity,
 } from 'typeorm';
-import { Exclude, Expose } from 'class-transformer';
 
 export enum TipoTarja {
   SEM_TARJA = 'sem_tarja',

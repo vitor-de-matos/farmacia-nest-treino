@@ -1,7 +1,7 @@
-import { IPaymentRepo } from 'src/payment/models/interface/payment-repo.interface';
 import { FindPaymentUseCase } from './find-payment.use-case';
-import { Pagamento } from 'src/payment/models/entity/payment.entity';
 import { NotFoundException } from '@nestjs/common';
+import { IPaymentRepo } from 'src/payment/models/interface/payment-repo.interface';
+import { Pagamento } from 'src/payment/models/entity/payment.entity';
 
 describe('FindPaymentUseCase', () => {
   let useCase: FindPaymentUseCase;

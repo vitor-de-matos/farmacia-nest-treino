@@ -1,4 +1,5 @@
 import { FindSalesUseCase } from './find-sales.use-case';
+import { AuthGuard } from '@nestjs/passport';
 import { Venda } from 'src/sales/models/entity/sales.entity';
 import {
   ApiInternalServerErrorResponse,
@@ -12,12 +13,11 @@ import {
 import {
   NotAcceptableException,
   Controller,
+  UseGuards,
   Inject,
   Param,
   Get,
-  UseGuards,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Vendas')
 @ApiBearerAuth('access-token')

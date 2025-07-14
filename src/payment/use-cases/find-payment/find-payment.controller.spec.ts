@@ -1,7 +1,7 @@
-import { Pagamento } from 'src/payment/models/entity/payment.entity';
+import { NotAcceptableException, NotFoundException } from '@nestjs/common';
 import { FindPaymentController } from './find-payment.controller';
 import { FindPaymentUseCase } from './find-payment.use-case';
-import { NotAcceptableException, NotFoundException } from '@nestjs/common';
+import { Pagamento } from 'src/payment/models/entity/payment.entity';
 
 describe('FindPaymentController', () => {
   let controller: FindPaymentController;

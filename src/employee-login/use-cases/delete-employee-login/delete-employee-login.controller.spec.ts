@@ -1,9 +1,9 @@
+import { DeleteEmployeeLoginController } from './delete-employee-login.controller';
 import {
   InternalServerErrorException,
   NotAcceptableException,
   NotFoundException,
 } from '@nestjs/common';
-import { DeleteEmployeeLoginController } from './delete-employee-login.controller';
 
 describe('DeleteEmployeeLoginController', () => {
   let controller: DeleteEmployeeLoginController;

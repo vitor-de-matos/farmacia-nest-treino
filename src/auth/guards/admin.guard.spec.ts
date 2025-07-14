@@ -1,5 +1,5 @@
-import { AdminGuard } from './admin.guard';
 import { ForbiddenException } from '@nestjs/common';
+import { AdminGuard } from './admin.guard';
 
 describe('AdminGuard', () => {
   let guard: AdminGuard;

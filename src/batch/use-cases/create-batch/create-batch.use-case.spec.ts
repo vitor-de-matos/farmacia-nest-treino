@@ -1,5 +1,5 @@
-import { CreateBatchUseCase } from './create-batch.use-case';
 import { BadRequestException } from '@nestjs/common';
+import { CreateBatchUseCase } from './create-batch.use-case';
 
 describe('CreateBatchUseCase', () => {
   let useCase: CreateBatchUseCase;

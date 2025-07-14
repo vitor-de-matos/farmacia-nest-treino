@@ -1,6 +1,7 @@
 import { UpdateMidiaUseCase } from './update-media.use-case';
-import { UpdateMidiaDTO } from 'src/media/models/dtos/update-media.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
+import { UpdateMidiaDTO } from 'src/media/models/dtos/update-media.dto';
+import { AuthGuard } from '@nestjs/passport';
 import {
   ApiInternalServerErrorResponse,
   ApiNotAcceptableResponse,
@@ -17,13 +18,12 @@ import {
   UseInterceptors,
   UploadedFile,
   Controller,
+  UseGuards,
   Inject,
   Param,
   Patch,
   Body,
-  UseGuards,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Midia')
 @ApiBearerAuth('access-token')

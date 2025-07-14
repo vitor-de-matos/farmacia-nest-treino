@@ -1,5 +1,5 @@
-import { NotFoundException } from '@nestjs/common';
 import { DeleteManufacturerUseCase } from './delete-manufacturer.use-case';
+import { NotFoundException } from '@nestjs/common';
 
 describe('DeleteManufacturerUseCase', () => {
   let useCase: DeleteManufacturerUseCase;

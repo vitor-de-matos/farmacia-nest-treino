@@ -1,7 +1,7 @@
-import { UpdateMidiaDTO } from 'src/media/models/dtos/update-media.dto';
+import { NotAcceptableException } from '@nestjs/common';
 import { UpdateMidiaController } from './update-media.controller';
 import { UpdateMidiaUseCase } from './update-media.use-case';
-import { NotAcceptableException } from '@nestjs/common';
+import { UpdateMidiaDTO } from 'src/media/models/dtos/update-media.dto';
 
 describe('UpdateMidiaController', () => {
   let controller: UpdateMidiaController;

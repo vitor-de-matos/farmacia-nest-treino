@@ -1,6 +1,6 @@
+import { UnauthorizedException } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { JwtService } from '@nestjs/jwt';
-import { UnauthorizedException } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 
 describe('AuthService', () => {
@@ -12,6 +12,7 @@ describe('AuthService', () => {
     mockRepo = {
       findByDocument: jest.fn(),
       findById: jest.fn(),
+      update: jest.fn(),
     };
 
     mockJwtService = {
@@ -98,10 +99,14 @@ describe('AuthService', () => {
 
   describe('refreshAccessToken', () => {
     it('deve gerar novo access token se refresh token for válido', async () => {
+      const hashedRefreshToken = await bcrypt.hash('valid-token', 10);
+
       const mockUser = {
         id: 1,
         person: { name: 'John Doe' },
         permissionLevel: [1],
+        refreshToken: hashedRefreshToken,
+        refreshTokenExpiresAt: new Date(Date.now() + 1000 * 60 * 60),
       };
 
       mockJwtService.verify.mockReturnValue({ id: 1 });
@@ -117,13 +122,11 @@ describe('AuthService', () => {
     });
 
     it('deve lançar UnauthorizedException se o token for inválido', async () => {
-      mockJwtService.verify.mockImplementation(() => {
-        throw new UnauthorizedException('invalid token');
-      });
+      mockJwtService.verify.mockReturnValue(undefined);
 
-      await expect(authService.refreshAccessToken('invalid')).rejects.toThrow(
-        UnauthorizedException,
-      );
+      await expect(
+        authService.refreshAccessToken('invalid-token'),
+      ).rejects.toThrow(UnauthorizedException);
     });
 
     it('deve lançar UnauthorizedException se o token for undefined após verify', async () => {

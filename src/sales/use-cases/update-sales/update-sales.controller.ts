@@ -1,5 +1,6 @@
 import { UpdateSalesUseCase } from './update-sales.use-case';
 import { UpdateSalesDTO } from 'src/sales/models/dtos/update-sales.dto';
+import { AuthGuard } from '@nestjs/passport';
 import { Venda } from 'src/sales/models/entity/sales.entity';
 import {
   ApiInternalServerErrorResponse,
@@ -14,13 +15,12 @@ import {
 import {
   NotAcceptableException,
   Controller,
+  UseGuards,
   Inject,
   Param,
   Patch,
   Body,
-  UseGuards,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Vendas')
 @ApiBearerAuth('access-token')

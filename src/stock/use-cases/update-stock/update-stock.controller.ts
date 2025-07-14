@@ -1,5 +1,6 @@
 import { UpdateStockUseCase } from './update-stock.use-case';
 import { UpdateStockDTO } from 'src/stock/models/dtos/update-stock.dto';
+import { AuthGuard } from '@nestjs/passport';
 import { Estoque } from 'src/stock/models/entity/stock.entity';
 import {
   ApiInternalServerErrorResponse,
@@ -14,13 +15,12 @@ import {
 import {
   NotAcceptableException,
   Controller,
+  UseGuards,
   Inject,
   Param,
   Patch,
   Body,
-  UseGuards,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Estoque')
 @ApiBearerAuth('access-token')

@@ -1,5 +1,5 @@
-import { FindManufacturerDTO } from 'src/manufacturer/models/dtos/find-manufacturer.dto';
 import { FindAllManufacturerController } from './find-all-manufacturer.controller';
+import { FindManufacturerDTO } from 'src/manufacturer/models/dtos/find-manufacturer.dto';
 import { Fabricante } from 'src/manufacturer/models/entity/manufacturer.entity';
 
 describe('FindAllManufacturerController', () => {

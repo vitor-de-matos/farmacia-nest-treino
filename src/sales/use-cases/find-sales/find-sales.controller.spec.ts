@@ -1,7 +1,7 @@
-import { Venda } from 'src/sales/models/entity/sales.entity';
+import { NotAcceptableException, NotFoundException } from '@nestjs/common';
 import { FindsalesController } from '../find-sales/find-sales.controller';
 import { FindSalesUseCase } from '../find-sales/find-sales.use-case';
-import { NotAcceptableException, NotFoundException } from '@nestjs/common';
+import { Venda } from 'src/sales/models/entity/sales.entity';
 
 describe('FindsalesController', () => {
   let controller: FindsalesController;

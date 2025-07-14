@@ -1,6 +1,6 @@
-import { ISalesRepo } from 'src/sales/models/interface/sales-repo.interface';
 import { UpdateSalesUseCase } from './update-sales.use-case';
 import { UpdateSalesDTO } from 'src/sales/models/dtos/update-sales.dto';
+import { ISalesRepo } from 'src/sales/models/interface/sales-repo.interface';
 import { Venda } from 'src/sales/models/entity/sales.entity';
 import {
   InternalServerErrorException,

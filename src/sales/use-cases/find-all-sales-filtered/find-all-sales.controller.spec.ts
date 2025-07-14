@@ -1,6 +1,6 @@
-import { FindSalesDTO } from 'src/sales/models/dtos/find-sales.dto';
 import { FindAllSalesController } from './find-all-sales.controller';
 import { FindAllSalesUseCase } from './find-all-sales.use-case';
+import { FindSalesDTO } from 'src/sales/models/dtos/find-sales.dto';
 import { Venda } from 'src/sales/models/entity/sales.entity';
 
 describe('FindAllSalesController', () => {

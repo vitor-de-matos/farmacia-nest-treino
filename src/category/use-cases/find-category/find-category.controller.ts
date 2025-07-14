@@ -1,5 +1,6 @@
 import { FindCategoryUseCase } from './find-category.use-case';
 import { Categoria } from 'src/category/models/entity/category.entity';
+import { AuthGuard } from '@nestjs/passport';
 import {
   ApiInternalServerErrorResponse,
   ApiNotAcceptableResponse,
@@ -12,12 +13,11 @@ import {
 import {
   NotAcceptableException,
   Controller,
+  UseGuards,
   Inject,
   Param,
   Get,
-  UseGuards,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Categoria')
 @ApiBearerAuth('access-token')

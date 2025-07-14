@@ -1,5 +1,5 @@
-import { Midia } from 'src/media/models/entity/midia.entity';
 import { FindMidiaUseCase } from './find-media.use-case';
+import { Midia } from 'src/media/models/entity/midia.entity';
 
 describe('FindMediaUseCase', () => {
   let useCase: FindMidiaUseCase;

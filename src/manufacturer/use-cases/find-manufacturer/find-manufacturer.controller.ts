@@ -1,5 +1,6 @@
 import { FindManufacturerUseCase } from './find-manufacturer.use-case';
 import { Fabricante } from 'src/manufacturer/models/entity/manufacturer.entity';
+import { AuthGuard } from '@nestjs/passport';
 import {
   ApiInternalServerErrorResponse,
   ApiNotAcceptableResponse,
@@ -12,12 +13,11 @@ import {
 import {
   NotAcceptableException,
   Controller,
+  UseGuards,
   Inject,
   Param,
   Get,
-  UseGuards,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Fabricante')
 @ApiBearerAuth('access-token')

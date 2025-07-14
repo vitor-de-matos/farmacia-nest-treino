@@ -1,7 +1,7 @@
-import { ISalesRepo } from 'src/sales/models/interface/sales-repo.interface';
+import { BadRequestException } from '@nestjs/common';
 import { CreateSalesUseCase } from './create-sales.use-case';
 import { CreateSalesDTO } from 'src/sales/models/dtos/create-sales.dto';
-import { BadRequestException } from '@nestjs/common';
+import { ISalesRepo } from 'src/sales/models/interface/sales-repo.interface';
 
 describe('CreateSalesUseCase', () => {
   let useCase: CreateSalesUseCase;

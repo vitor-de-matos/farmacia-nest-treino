@@ -1,4 +1,5 @@
 import { FindPersonUseCase } from './find-person.use-case';
+import { AuthGuard } from '@nestjs/passport';
 import { Pessoa } from 'src/person/models/entity/person.entity';
 import {
   ApiInternalServerErrorResponse,
@@ -12,12 +13,11 @@ import {
 import {
   NotAcceptableException,
   Controller,
+  UseGuards,
   Inject,
   Param,
   Get,
-  UseGuards,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Pessoa')
 @ApiBearerAuth('access-token')

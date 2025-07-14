@@ -1,9 +1,9 @@
-import { FindStockDTO } from 'src/stock/models/dtos/find-stock.dto';
 import { FindAllStockController } from './find-all-stock.controller';
 import { FindAllStockUseCase } from './find-all-stock.use-case';
+import { FindStockDTO } from 'src/stock/models/dtos/find-stock.dto';
 import {
-  Estoque,
   TipoMovimentacao,
+  Estoque,
 } from 'src/stock/models/entity/stock.entity';
 
 describe('FindAllStockController', () => {

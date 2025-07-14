@@ -1,6 +1,8 @@
 import { UpdateCategoryUseCase } from './update-category.use-case';
 import { UpdateCategoryDTO } from 'src/category/models/dtos/update-category.dto';
+import { AdminGuard } from 'src/auth/guards/admin.guard';
 import { Categoria } from 'src/category/models/entity/category.entity';
+import { AuthGuard } from '@nestjs/passport';
 import {
   ApiInternalServerErrorResponse,
   ApiNotAcceptableResponse,
@@ -14,14 +16,12 @@ import {
 import {
   NotAcceptableException,
   Controller,
+  UseGuards,
   Inject,
   Param,
   Patch,
   Body,
-  UseGuards,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
-import { AdminGuard } from 'src/auth/guards/admin.guard';
 
 @ApiTags('Categoria')
 @ApiBearerAuth('access-token')

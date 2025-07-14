@@ -1,9 +1,9 @@
+import { DeleteManufacturerController } from './delete-manufacturer.controller';
 import {
   InternalServerErrorException,
   NotAcceptableException,
   NotFoundException,
 } from '@nestjs/common';
-import { DeleteManufacturerController } from './delete-manufacturer.controller';
 
 describe('DeleteManufacturerController', () => {
   let controller: DeleteManufacturerController;

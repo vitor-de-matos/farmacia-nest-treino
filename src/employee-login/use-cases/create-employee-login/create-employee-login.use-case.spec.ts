@@ -1,5 +1,5 @@
-import { BadRequestException } from '@nestjs/common';
 import { CreateEmployeeLoginUseCase } from './create-employee-login.use-case';
+import { BadRequestException } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 
 describe('CreateEmployeeLoginUseCase', () => {

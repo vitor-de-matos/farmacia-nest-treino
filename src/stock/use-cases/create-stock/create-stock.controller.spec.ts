@@ -1,7 +1,7 @@
-import { CreateStockDTO } from 'src/stock/models/dtos/create-stock.dto';
 import { CreateStockController } from './create-stock.controller';
 import { CreateStockUseCase } from './create-stock.use-case';
 import { TipoMovimentacao } from 'src/stock/models/entity/stock.entity';
+import { CreateStockDTO } from 'src/stock/models/dtos/create-stock.dto';
 
 describe('CreateStockController', () => {
   let controller: CreateStockController;

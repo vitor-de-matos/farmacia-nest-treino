@@ -1,9 +1,9 @@
+import { CreateItemSaleUseCase } from './create-item-sale.use-case';
 import {
-  BadRequestException,
   InternalServerErrorException,
+  BadRequestException,
   NotFoundException,
 } from '@nestjs/common';
-import { CreateItemSaleUseCase } from './create-item-sale.use-case';
 
 describe('CreateItemSaleUseCase', () => {
   let useCase: CreateItemSaleUseCase;

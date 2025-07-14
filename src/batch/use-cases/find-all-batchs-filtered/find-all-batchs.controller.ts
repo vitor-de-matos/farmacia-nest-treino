@@ -1,6 +1,7 @@
 import { Controller, Get, Inject, Query, UseGuards } from '@nestjs/common';
 import { FindAllBatchUseCase } from './find-all-batchs.use-case';
 import { FindBatchDTO } from 'src/batch/models/dtos/find-batch.dto';
+import { AuthGuard } from '@nestjs/passport';
 import { Lote } from 'src/batch/models/entity/batch.entity';
 import {
   ApiInternalServerErrorResponse,
@@ -10,7 +11,6 @@ import {
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
-import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Lote')
 @ApiBearerAuth('access-token')

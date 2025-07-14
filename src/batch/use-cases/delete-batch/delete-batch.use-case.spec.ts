@@ -1,5 +1,5 @@
-import { NotFoundException } from '@nestjs/common';
 import { DeleteBatchUseCase } from './delete-batch.use-case';
+import { NotFoundException } from '@nestjs/common';
 
 describe('DeleteBatchUseCase', () => {
   let useCase: DeleteBatchUseCase;

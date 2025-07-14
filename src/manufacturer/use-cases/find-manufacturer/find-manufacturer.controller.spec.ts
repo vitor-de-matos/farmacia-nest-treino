@@ -1,6 +1,6 @@
-import { Fabricante } from 'src/manufacturer/models/entity/manufacturer.entity';
-import { FindManufacturerController } from './find-manufacturer.controller';
 import { NotAcceptableException, NotFoundException } from '@nestjs/common';
+import { FindManufacturerController } from './find-manufacturer.controller';
+import { Fabricante } from 'src/manufacturer/models/entity/manufacturer.entity';
 
 describe('FindManufacturerController', () => {
   let controller: FindManufacturerController;

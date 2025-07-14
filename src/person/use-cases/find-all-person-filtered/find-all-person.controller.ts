@@ -1,6 +1,7 @@
 import { Controller, Get, Inject, Query, UseGuards } from '@nestjs/common';
 import { FindAllPersonUseCase } from './find-all-person.use-case';
 import { FindPersonDTO } from 'src/person/models/dtos/find-person.dto';
+import { AuthGuard } from '@nestjs/passport';
 import { Pessoa } from 'src/person/models/entity/person.entity';
 import {
   ApiInternalServerErrorResponse,
@@ -10,7 +11,6 @@ import {
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
-import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Pessoa')
 @ApiBearerAuth('access-token')

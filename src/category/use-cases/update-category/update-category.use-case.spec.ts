@@ -1,8 +1,8 @@
+import { UpdateCategoryUseCase } from './update-category.use-case';
 import {
   InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common';
-import { UpdateCategoryUseCase } from './update-category.use-case';
 
 describe('UpdateCategoryUseCase', () => {
   let useCase: UpdateCategoryUseCase;

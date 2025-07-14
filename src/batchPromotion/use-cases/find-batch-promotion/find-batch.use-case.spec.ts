@@ -1,5 +1,5 @@
-import { NotFoundException } from '@nestjs/common';
 import { FindBatchPromotionUseCase } from './find-batch.use-case';
+import { NotFoundException } from '@nestjs/common';
 
 describe('FindBatchPromotionUseCase', () => {
   let useCase: FindBatchPromotionUseCase;

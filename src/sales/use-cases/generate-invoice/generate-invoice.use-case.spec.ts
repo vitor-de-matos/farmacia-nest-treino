@@ -1,7 +1,7 @@
-import { ISalesRepo } from 'src/sales/models/interface/sales-repo.interface';
 import { GenerateInvoiceUseCase } from './generate-invoice.use-case';
-import { Venda } from 'src/sales/models/entity/sales.entity';
 import { NotFoundException } from '@nestjs/common';
+import { ISalesRepo } from 'src/sales/models/interface/sales-repo.interface';
+import { Venda } from 'src/sales/models/entity/sales.entity';
 
 describe('GenerateInvoiceUseCase', () => {
   let useCase: GenerateInvoiceUseCase;

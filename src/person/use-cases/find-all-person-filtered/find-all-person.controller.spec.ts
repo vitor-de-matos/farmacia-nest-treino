@@ -1,6 +1,6 @@
-import { FindPersonDTO } from 'src/person/models/dtos/find-person.dto';
 import { FindAllPersonController } from './find-all-person.controller';
 import { FindAllPersonUseCase } from './find-all-person.use-case';
+import { FindPersonDTO } from 'src/person/models/dtos/find-person.dto';
 import { Pessoa } from 'src/person/models/entity/person.entity';
 
 describe('FindAllPersonController', () => {

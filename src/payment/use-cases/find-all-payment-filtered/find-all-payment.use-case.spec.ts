@@ -1,6 +1,6 @@
-import { IPaymentRepo } from 'src/payment/models/interface/payment-repo.interface';
 import { FindAllPaymentUseCase } from './find-all-payment.use-case';
 import { FindPaymentDTO } from 'src/payment/models/dtos/find-payment.dto';
+import { IPaymentRepo } from 'src/payment/models/interface/payment-repo.interface';
 import { Pagamento } from 'src/payment/models/entity/payment.entity';
 
 describe('FindAllPaymentUseCase', () => {

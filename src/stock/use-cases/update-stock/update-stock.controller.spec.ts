@@ -1,6 +1,6 @@
-import { UpdateStockDTO } from 'src/stock/models/dtos/update-stock.dto';
 import { UpdateStockController } from './update-stock.controller';
 import { UpdateStockUseCase } from './update-stock.use-case';
+import { UpdateStockDTO } from 'src/stock/models/dtos/update-stock.dto';
 
 describe('UpdateStockController', () => {
   let controller: UpdateStockController;

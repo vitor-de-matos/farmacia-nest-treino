@@ -1,6 +1,6 @@
-import { UpdateSalesDTO } from 'src/sales/models/dtos/update-sales.dto';
 import { UpdateSalesController } from './update-sales.controller';
 import { UpdateSalesUseCase } from './update-sales.use-case';
+import { UpdateSalesDTO } from 'src/sales/models/dtos/update-sales.dto';
 import { Venda } from 'src/sales/models/entity/sales.entity';
 import {
   InternalServerErrorException,

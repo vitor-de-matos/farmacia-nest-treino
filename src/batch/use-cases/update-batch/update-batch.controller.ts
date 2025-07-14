@@ -1,5 +1,6 @@
 import { UpdateBatchUseCase } from './update-batch.use-case';
 import { UpdateBatchDTO } from 'src/batch/models/dtos/update-batch.dto';
+import { AuthGuard } from '@nestjs/passport';
 import { Lote } from 'src/batch/models/entity/batch.entity';
 import {
   ApiInternalServerErrorResponse,
@@ -14,13 +15,12 @@ import {
 import {
   NotAcceptableException,
   Controller,
+  UseGuards,
   Inject,
   Param,
   Patch,
   Body,
-  UseGuards,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Lote')
 @ApiBearerAuth('access-token')

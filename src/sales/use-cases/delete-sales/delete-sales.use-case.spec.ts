@@ -1,6 +1,6 @@
-import { ISalesRepo } from 'src/sales/models/interface/sales-repo.interface';
 import { DeleteSalesUseCase } from './delete-sales.use-case';
 import { NotFoundException } from '@nestjs/common';
+import { ISalesRepo } from 'src/sales/models/interface/sales-repo.interface';
 
 describe('DeleteSalesUseCase', () => {
   let useCase: DeleteSalesUseCase;

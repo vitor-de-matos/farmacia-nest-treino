@@ -1,5 +1,5 @@
-import { ItemVenda } from 'src/itemSale/models/entity/item-sale.entity';
 import { FindItemSaleController } from './find-item-sale.controller';
+import { ItemVenda } from 'src/itemSale/models/entity/item-sale.entity';
 import {
   InternalServerErrorException,
   NotAcceptableException,

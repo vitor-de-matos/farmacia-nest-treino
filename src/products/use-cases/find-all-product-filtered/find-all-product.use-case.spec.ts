@@ -1,8 +1,8 @@
-import { IProductRepo } from 'src/products/models/interface/product-repo.interface';
 import { FindAllProdutosUseCase } from './find-all-product.use-case';
 import { ArchivesManagementJob } from 'src/shared/job/images-vids/archives-management.job';
-import { FindProductDTO } from 'src/products/models/dto/find-product.dto';
 import { Produto, TipoTarja } from 'src/products/models/entity/product.entity';
+import { FindProductDTO } from 'src/products/models/dto/find-product.dto';
+import { IProductRepo } from 'src/products/models/interface/product-repo.interface';
 
 describe('FindAllProdutosUseCase', () => {
   let useCase: FindAllProdutosUseCase;

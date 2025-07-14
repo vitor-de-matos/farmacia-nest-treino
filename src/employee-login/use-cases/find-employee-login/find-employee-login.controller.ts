@@ -1,5 +1,7 @@
 import { FindEmployeeLoginUseCase } from './find-employee-login.use-case';
 import { FuncionarioLogin } from 'src/employee-login/models/entity/employee-login.entity';
+import { AdminGuard } from 'src/auth/guards/admin.guard';
+import { AuthGuard } from '@nestjs/passport';
 import {
   ApiInternalServerErrorResponse,
   ApiNotAcceptableResponse,
@@ -12,13 +14,11 @@ import {
 import {
   NotAcceptableException,
   Controller,
+  UseGuards,
   Inject,
   Param,
   Get,
-  UseGuards,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
-import { AdminGuard } from 'src/auth/guards/admin.guard';
 
 @ApiTags('Login Funcionarios')
 @ApiBearerAuth('access-token')

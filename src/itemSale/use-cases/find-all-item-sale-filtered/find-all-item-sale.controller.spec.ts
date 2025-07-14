@@ -1,5 +1,5 @@
-import { FindItemSaleDTO } from 'src/itemSale/models/dtos/find-item-sale.dto';
 import { FindAllItemSaleController } from './find-all-item-sale.controller';
+import { FindItemSaleDTO } from 'src/itemSale/models/dtos/find-item-sale.dto';
 import { ItemVenda } from 'src/itemSale/models/entity/item-sale.entity';
 
 describe('FindAllItemSaleController', () => {

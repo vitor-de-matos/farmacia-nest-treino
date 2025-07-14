@@ -1,5 +1,5 @@
-import { NotFoundException } from '@nestjs/common';
 import { DeleteCategoryUseCase } from './delete-category.use-case';
+import { NotFoundException } from '@nestjs/common';
 
 describe('DeleteCategoryUseCase', () => {
   let useCase: DeleteCategoryUseCase;

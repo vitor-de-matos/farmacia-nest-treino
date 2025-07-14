@@ -1,6 +1,6 @@
-import { CreateMidiaDTO } from 'src/media/models/dtos/create-media.dto';
-import { CreateMidiaUseCase } from './create-media.use-case';
 import { BadRequestException } from '@nestjs/common';
+import { CreateMidiaUseCase } from './create-media.use-case';
+import { CreateMidiaDTO } from 'src/media/models/dtos/create-media.dto';
 
 describe('CreateMidiaUseCase', () => {
   let useCase: CreateMidiaUseCase;

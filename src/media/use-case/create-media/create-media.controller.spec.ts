@@ -1,7 +1,7 @@
-import { CreateMidiaController } from './create-media.controller';
-import { CreateMidiaUseCase } from './create-media.use-case';
 import { ArchivesManagementJob } from 'src/shared/job/images-vids/archives-management.job';
+import { CreateMidiaController } from './create-media.controller';
 import { BadRequestException } from '@nestjs/common';
+import { CreateMidiaUseCase } from './create-media.use-case';
 
 describe('CreateMidiaController', () => {
   let controller: CreateMidiaController;

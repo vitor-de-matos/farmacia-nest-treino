@@ -1,5 +1,5 @@
-import { NotFoundException } from '@nestjs/common';
 import { DeleteBatchPromotionUseCase } from './delete-batch-promotion.use-case';
+import { NotFoundException } from '@nestjs/common';
 
 describe('DeleteBatchPromotionUseCase', () => {
   let useCase: DeleteBatchPromotionUseCase;

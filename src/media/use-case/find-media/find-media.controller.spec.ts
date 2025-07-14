@@ -1,7 +1,7 @@
-import { Midia } from 'src/media/models/entity/midia.entity';
+import { NotAcceptableException } from '@nestjs/common';
 import { FindMidiaController } from './find-media.controller';
 import { FindMidiaUseCase } from './find-media.use-case';
-import { NotAcceptableException } from '@nestjs/common';
+import { Midia } from 'src/media/models/entity/midia.entity';
 
 describe('FindMidiaController', () => {
   let controller: FindMidiaController;

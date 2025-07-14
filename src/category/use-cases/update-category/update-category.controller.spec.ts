@@ -1,9 +1,9 @@
+import { UpdateCategoryController } from './update-category.controller';
 import {
   InternalServerErrorException,
   NotAcceptableException,
   NotFoundException,
 } from '@nestjs/common';
-import { UpdateCategoryController } from './update-category.controller';
 
 describe('UpdateCategoryController', () => {
   let controller: UpdateCategoryController;

@@ -1,5 +1,5 @@
-import { UpdateManufacturerDTO } from 'src/manufacturer/models/dtos/update-manufacturer.dto';
 import { UpdateManufacturerUseCase } from './update-manufacturer.use-case';
+import { UpdateManufacturerDTO } from 'src/manufacturer/models/dtos/update-manufacturer.dto';
 import {
   InternalServerErrorException,
   NotFoundException,

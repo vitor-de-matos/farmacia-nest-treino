@@ -1,6 +1,6 @@
-import { CreateSalesDTO } from 'src/sales/models/dtos/create-sales.dto';
 import { CreateSalesController } from './create-sales.controller';
 import { CreateSalesUseCase } from './create-sales.use-case';
+import { CreateSalesDTO } from 'src/sales/models/dtos/create-sales.dto';
 
 describe('CreateSalesController', () => {
   let controller: CreateSalesController;

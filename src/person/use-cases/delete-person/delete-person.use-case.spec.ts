@@ -1,6 +1,6 @@
-import { IPersonRepo } from 'src/person/models/interface/person-repo.interface';
 import { DeletePersonUseCase } from './delete-person.use-case';
 import { NotFoundException } from '@nestjs/common';
+import { IPersonRepo } from 'src/person/models/interface/person-repo.interface';
 import { TipoPessoa } from 'src/person/models/entity/person.entity';
 
 describe('DeletePersonUseCase', () => {

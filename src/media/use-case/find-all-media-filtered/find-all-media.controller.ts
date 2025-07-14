@@ -1,6 +1,7 @@
 import { Controller, Get, Inject, Query, UseGuards } from '@nestjs/common';
 import { FindAllMidiaUseCase } from './find-all-media.use-case';
 import { FindMidiaDTO } from 'src/media/models/dtos/find-media.dto';
+import { AuthGuard } from '@nestjs/passport';
 import { Midia } from 'src/media/models/entity/midia.entity';
 import {
   ApiInternalServerErrorResponse,
@@ -10,7 +11,6 @@ import {
   ApiResponse,
   ApiTags,
 } from '@nestjs/swagger';
-import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Midia')
 @ApiBearerAuth('access-token')

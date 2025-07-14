@@ -1,5 +1,5 @@
-import { UpdateItemSaleDTO } from 'src/itemSale/models/dtos/update-item-sale.dto';
 import { UpdateItemSaleController } from './update-item-sale.controller';
+import { UpdateItemSaleDTO } from 'src/itemSale/models/dtos/update-item-sale.dto';
 import { ItemVenda } from 'src/itemSale/models/entity/item-sale.entity';
 import {
   InternalServerErrorException,

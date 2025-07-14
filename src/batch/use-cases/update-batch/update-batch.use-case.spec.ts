@@ -1,8 +1,8 @@
+import { UpdateBatchUseCase } from './update-batch.use-case';
 import {
   InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common';
-import { UpdateBatchUseCase } from './update-batch.use-case';
 
 describe('UpdateBatchUseCase', () => {
   let useCase: UpdateBatchUseCase;

@@ -1,5 +1,5 @@
-import { FindMidiaDTO } from 'src/media/models/dtos/find-media.dto';
 import { FindAllMidiaUseCase } from './find-all-media.use-case';
+import { FindMidiaDTO } from 'src/media/models/dtos/find-media.dto';
 
 describe('FindAllMidiaUseCase', () => {
   let useCase: FindAllMidiaUseCase;

@@ -1,26 +1,26 @@
+import { AuthService } from './auth.service';
+import { RefreshDTO } from './models/dto/refresh.dto';
+import { AuthGuard } from '@nestjs/passport';
+import { LoginDTO } from './models/dto/login.dto';
+import { Throttle } from '@nestjs/throttler';
+import { Public } from './public.decorator';
 import {
   BadRequestException,
-  Body,
   Controller,
+  UseGuards,
   Delete,
   Post,
+  Body,
   Req,
-  UseGuards,
 } from '@nestjs/common';
 import {
   ApiBearerAuth,
-  ApiBody,
-  ApiConsumes,
   ApiOperation,
+  ApiConsumes,
   ApiResponse,
+  ApiBody,
   ApiTags,
 } from '@nestjs/swagger';
-import { LoginDTO } from './models/dto/login.dto';
-import { RefreshDTO } from './models/dto/refresh.dto';
-import { Public } from './public.decorator';
-import { AuthService } from './auth.service';
-import { Throttle } from '@nestjs/throttler';
-import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Autenticação')
 @Controller('auth')

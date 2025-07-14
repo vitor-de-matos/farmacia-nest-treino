@@ -1,4 +1,5 @@
 import { DeleteMidiaUseCase } from './delete-media.use-case';
+import { AuthGuard } from '@nestjs/passport';
 import {
   ApiInternalServerErrorResponse,
   ApiNotFoundResponse,
@@ -10,12 +11,11 @@ import {
 import {
   NotAcceptableException,
   Controller,
+  UseGuards,
   Delete,
   Inject,
   Param,
-  UseGuards,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Midia')
 @ApiBearerAuth('access-token')

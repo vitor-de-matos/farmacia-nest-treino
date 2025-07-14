@@ -1,5 +1,6 @@
 import { FindBatchPromotionUseCase } from './find-batch.use-case';
 import { PromocaoLote } from 'src/batchPromotion/models/entity/batch-promotion.entity';
+import { AuthGuard } from '@nestjs/passport';
 import {
   ApiInternalServerErrorResponse,
   ApiNotAcceptableResponse,
@@ -12,12 +13,11 @@ import {
 import {
   NotAcceptableException,
   Controller,
+  UseGuards,
   Inject,
   Param,
   Get,
-  UseGuards,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Lote Promoção')
 @ApiBearerAuth('access-token')

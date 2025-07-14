@@ -1,13 +1,13 @@
 import { UpdatePersonDTO } from 'src/person/models/dtos/update-person.dto';
 import { IPersonRepo } from 'src/person/models/interface/person-repo.interface';
+import { Request } from 'express';
 import {
   InternalServerErrorException,
+  UnauthorizedException,
   NotFoundException,
   Injectable,
   Inject,
-  UnauthorizedException,
 } from '@nestjs/common';
-import { Request } from 'express';
 
 @Injectable()
 export class UpdatePersonUseCase {

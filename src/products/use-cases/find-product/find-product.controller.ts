@@ -1,4 +1,5 @@
 import { FindProdutoUseCase } from './find-product.use-case';
+import { AuthGuard } from '@nestjs/passport';
 import { Produto } from 'src/products/models/entity/product.entity';
 import {
   ApiInternalServerErrorResponse,
@@ -12,12 +13,11 @@ import {
 import {
   NotAcceptableException,
   Controller,
+  UseGuards,
   Inject,
   Param,
   Get,
-  UseGuards,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Produto')
 @ApiBearerAuth('access-token')

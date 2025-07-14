@@ -1,6 +1,7 @@
 import { Body, Controller, Inject, Post, UseGuards } from '@nestjs/common';
 import { CreateEmployeeLoginUseCase } from './create-employee-login.use-case';
 import { CreateEmployeeLoginDTO } from 'src/employee-login/models/dtos/create-employee-login.dto';
+import { AdminGuard } from 'src/auth/guards/admin.guard';
 import { AuthGuard } from '@nestjs/passport';
 import {
   ApiInternalServerErrorResponse,
@@ -10,7 +11,6 @@ import {
   ApiBody,
   ApiTags,
 } from '@nestjs/swagger';
-import { AdminGuard } from 'src/auth/guards/admin.guard';
 
 @ApiTags('Login Funcionarios')
 @ApiBearerAuth('access-token')

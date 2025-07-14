@@ -1,4 +1,6 @@
 import { DeleteBatchUseCase } from './delete-batch.use-case';
+import { AdminGuard } from 'src/auth/guards/admin.guard';
+import { AuthGuard } from '@nestjs/passport';
 import {
   ApiInternalServerErrorResponse,
   ApiNotAcceptableResponse,
@@ -11,13 +13,11 @@ import {
 import {
   NotAcceptableException,
   Controller,
+  UseGuards,
   Delete,
   Inject,
   Param,
-  UseGuards,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
-import { AdminGuard } from 'src/auth/guards/admin.guard';
 
 @ApiTags('Lote')
 @ApiBearerAuth('access-token')

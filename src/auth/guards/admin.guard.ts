@@ -1,7 +1,7 @@
 import {
-  CanActivate,
-  ExecutionContext,
   ForbiddenException,
+  ExecutionContext,
+  CanActivate,
   Injectable,
 } from '@nestjs/common';
 
@@ -11,7 +11,7 @@ export class AdminGuard implements CanActivate {
     const request = context.switchToHttp().getRequest();
     const user = request.user;
 
-    if (user?.permissions === 1) {
+    if (Array.isArray(user?.permissions) && user.permissions.includes(1)) {
       return true;
     }
 

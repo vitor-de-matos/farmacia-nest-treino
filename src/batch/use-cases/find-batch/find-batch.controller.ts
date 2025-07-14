@@ -1,4 +1,5 @@
 import { FindBatchUseCase } from './find-batch.use-case';
+import { AuthGuard } from '@nestjs/passport';
 import { Lote } from 'src/batch/models/entity/batch.entity';
 import {
   ApiInternalServerErrorResponse,
@@ -12,12 +13,11 @@ import {
 import {
   NotAcceptableException,
   Controller,
+  UseGuards,
   Inject,
   Param,
   Get,
-  UseGuards,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Lote')
 @ApiBearerAuth('access-token')

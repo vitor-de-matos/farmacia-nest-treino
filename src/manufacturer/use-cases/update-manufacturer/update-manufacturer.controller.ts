@@ -1,6 +1,7 @@
 import { UpdateManufacturerUseCase } from './update-manufacturer.use-case';
 import { UpdateManufacturerDTO } from 'src/manufacturer/models/dtos/update-manufacturer.dto';
 import { Fabricante } from 'src/manufacturer/models/entity/manufacturer.entity';
+import { AuthGuard } from '@nestjs/passport';
 import {
   ApiInternalServerErrorResponse,
   ApiNotAcceptableResponse,
@@ -14,13 +15,12 @@ import {
 import {
   NotAcceptableException,
   Controller,
+  UseGuards,
   Inject,
   Param,
   Patch,
   Body,
-  UseGuards,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Fabricante')
 @ApiBearerAuth('access-token')

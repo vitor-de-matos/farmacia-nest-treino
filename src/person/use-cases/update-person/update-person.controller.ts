@@ -1,5 +1,7 @@
 import { UpdatePersonUseCase } from './update-person.use-case';
 import { UpdatePersonDTO } from 'src/person/models/dtos/update-person.dto';
+import { AuthGuard } from '@nestjs/passport';
+import { Request } from 'express';
 import { Pessoa } from 'src/person/models/entity/person.entity';
 import {
   ApiInternalServerErrorResponse,
@@ -14,15 +16,13 @@ import {
 import {
   NotAcceptableException,
   Controller,
+  UseGuards,
   Inject,
   Param,
   Patch,
   Body,
-  UseGuards,
   Req,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
-import { Request } from 'express';
 
 @ApiTags('Pessoa')
 @ApiBearerAuth('access-token')

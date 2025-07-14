@@ -1,9 +1,9 @@
+import { UpdateEmployeeLoginController } from './update-employee-login.controller';
 import {
   InternalServerErrorException,
   NotAcceptableException,
   NotFoundException,
 } from '@nestjs/common';
-import { UpdateEmployeeLoginController } from './update-employee-login.controller';
 
 describe('UpdateEmployeeLoginController', () => {
   let controller: UpdateEmployeeLoginController;

@@ -2,6 +2,7 @@ import { Controller, Get, Inject, Query, UseGuards } from '@nestjs/common';
 import { FindAllPaymentUseCase } from './find-all-payment.use-case';
 import { FindPaymentDTO } from 'src/payment/models/dtos/find-payment.dto';
 import { Pagamento } from 'src/payment/models/entity/payment.entity';
+import { AuthGuard } from '@nestjs/passport';
 import {
   ApiInternalServerErrorResponse,
   ApiNotAcceptableResponse,
@@ -10,7 +11,6 @@ import {
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
-import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Pagamento')
 @ApiBearerAuth('access-token')

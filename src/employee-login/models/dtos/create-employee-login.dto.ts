@@ -1,11 +1,11 @@
+import { ApiProperty } from '@nestjs/swagger';
 import {
   IsNotEmpty,
-  IsNumber,
-  IsString,
   MaxLength,
   MinLength,
+  IsNumber,
+  IsString,
 } from 'class-validator';
-import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateEmployeeLoginDTO {
   @ApiProperty({ description: 'ID da pessoa funcionário' })

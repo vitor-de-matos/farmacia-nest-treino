@@ -1,11 +1,11 @@
-import { IMidiaRepo } from 'src/media/models/interface/midia-repo.interface';
+import { ArchivesManagementJob } from 'src/shared/job/images-vids/archives-management.job';
 import { UpdateMidiaUseCase } from './update-media.use-case';
 import { IProductRepo } from 'src/products/models/interface/product-repo.interface';
-import { ArchivesManagementJob } from 'src/shared/job/images-vids/archives-management.job';
+import { IMidiaRepo } from 'src/media/models/interface/midia-repo.interface';
 import { TipoTarja } from 'src/products/models/entity/product.entity';
 import {
-  BadRequestException,
   InternalServerErrorException,
+  BadRequestException,
   NotFoundException,
 } from '@nestjs/common';
 

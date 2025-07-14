@@ -1,5 +1,5 @@
-import { NotAcceptableException } from '@nestjs/common';
 import { DeleteProdutoController } from './delete-product.controller';
+import { NotAcceptableException } from '@nestjs/common';
 import { DeleteProdutoUseCase } from './delete-product.use-case';
 
 describe('DeleteProdutoController', () => {

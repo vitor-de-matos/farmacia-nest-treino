@@ -1,7 +1,7 @@
-import { Pessoa } from 'src/person/models/entity/person.entity';
+import { NotAcceptableException, NotFoundException } from '@nestjs/common';
 import { FindPersonController } from './find-person.controller';
 import { FindPersonUseCase } from './find-person.use-case';
-import { NotAcceptableException, NotFoundException } from '@nestjs/common';
+import { Pessoa } from 'src/person/models/entity/person.entity';
 
 describe('FindPersonController', () => {
   let controller: FindPersonController;

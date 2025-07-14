@@ -1,8 +1,8 @@
+import { UpdateEmployeeLoginUseCase } from './update-employee-login.use-case';
 import {
   InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common';
-import { UpdateEmployeeLoginUseCase } from './update-employee-login.use-case';
 
 describe('UpdateEmployeeLoginUseCase', () => {
   let useCase: UpdateEmployeeLoginUseCase;

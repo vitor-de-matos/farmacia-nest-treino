@@ -2,6 +2,7 @@ import { Controller, Get, Inject, Query, UseGuards } from '@nestjs/common';
 import { FindAllBatchPromotionUseCase } from './find-all-batch-promotion.use-case';
 import { FindBatchPromotionDTO } from 'src/batchPromotion/models/dtos/find-batch-promotion.dto';
 import { PromocaoLote } from 'src/batchPromotion/models/entity/batch-promotion.entity';
+import { AuthGuard } from '@nestjs/passport';
 import {
   ApiInternalServerErrorResponse,
   ApiNotAcceptableResponse,
@@ -10,7 +11,6 @@ import {
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
-import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Lote Promoção')
 @ApiBearerAuth('access-token')

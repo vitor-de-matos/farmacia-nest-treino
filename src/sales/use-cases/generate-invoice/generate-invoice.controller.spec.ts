@@ -1,7 +1,7 @@
-import { Venda } from 'src/sales/models/entity/sales.entity';
+import { NotAcceptableException, NotFoundException } from '@nestjs/common';
 import { GenerateInvoiceController } from './generate-invoice.controller';
 import { GenerateInvoiceUseCase } from './generate-invoice.use-case';
-import { NotAcceptableException, NotFoundException } from '@nestjs/common';
+import { Venda } from 'src/sales/models/entity/sales.entity';
 
 describe('GenerateInvoiceController', () => {
   let controller: GenerateInvoiceController;

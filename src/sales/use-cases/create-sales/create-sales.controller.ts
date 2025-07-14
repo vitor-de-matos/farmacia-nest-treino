@@ -1,6 +1,7 @@
 import { Body, Controller, Inject, Post, UseGuards } from '@nestjs/common';
 import { CreateSalesUseCase } from './create-sales.use-case';
 import { CreateSalesDTO } from 'src/sales/models/dtos/create-sales.dto';
+import { AuthGuard } from '@nestjs/passport';
 import {
   ApiInternalServerErrorResponse,
   ApiCreatedResponse,
@@ -9,7 +10,6 @@ import {
   ApiBody,
   ApiTags,
 } from '@nestjs/swagger';
-import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Vendas')
 @ApiBearerAuth('access-token')

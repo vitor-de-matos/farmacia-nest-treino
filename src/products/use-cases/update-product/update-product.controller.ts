@@ -2,6 +2,8 @@ import { ArchivesManagementJob } from 'src/shared/job/images-vids/archives-manag
 import { UpdateProdutoUseCase } from './update-product.use-case';
 import { UpdateProductDTO } from 'src/products/models/dto/update-product.dto';
 import { FilesInterceptor } from '@nestjs/platform-express';
+import { AdminGuard } from 'src/auth/guards/admin.guard';
+import { AuthGuard } from '@nestjs/passport';
 import { Produto } from 'src/products/models/entity/product.entity';
 import {
   ApiInternalServerErrorResponse,
@@ -19,14 +21,12 @@ import {
   UseInterceptors,
   UploadedFiles,
   Controller,
+  UseGuards,
   Inject,
   Param,
   Patch,
   Body,
-  UseGuards,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
-import { AdminGuard } from 'src/auth/guards/admin.guard';
 
 @ApiTags('Produto')
 @ApiBearerAuth('access-token')

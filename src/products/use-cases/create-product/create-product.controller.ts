@@ -2,6 +2,18 @@ import { ArchivesManagementJob } from 'src/shared/job/images-vids/archives-manag
 import { CreateProdutoUseCase } from './create-product.use-case';
 import { CreateProductDTO } from 'src/products/models/dto/create-product.dto';
 import { FilesInterceptor } from '@nestjs/platform-express';
+import { AdminGuard } from 'src/auth/guards/admin.guard';
+import { AuthGuard } from '@nestjs/passport';
+import {
+  BadRequestException,
+  UseInterceptors,
+  UploadedFiles,
+  Controller,
+  UseGuards,
+  Inject,
+  Body,
+  Post,
+} from '@nestjs/common';
 import {
   ApiInternalServerErrorResponse,
   ApiCreatedResponse,
@@ -11,18 +23,6 @@ import {
   ApiBody,
   ApiTags,
 } from '@nestjs/swagger';
-import {
-  BadRequestException,
-  UseInterceptors,
-  UploadedFiles,
-  Controller,
-  Inject,
-  Body,
-  Post,
-  UseGuards,
-} from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
-import { AdminGuard } from 'src/auth/guards/admin.guard';
 
 @ApiTags('Produto')
 @ApiBearerAuth('access-token')

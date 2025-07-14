@@ -1,6 +1,8 @@
 import { Body, Controller, Inject, Post, UseGuards } from '@nestjs/common';
 import { CreateCategoryUseCase } from './create-category.use-case';
 import { CreateCategoryDTO } from 'src/category/models/dtos/create-category.dto';
+import { AdminGuard } from 'src/auth/guards/admin.guard';
+import { AuthGuard } from '@nestjs/passport';
 import {
   ApiInternalServerErrorResponse,
   ApiCreatedResponse,
@@ -9,8 +11,6 @@ import {
   ApiBody,
   ApiTags,
 } from '@nestjs/swagger';
-import { AuthGuard } from '@nestjs/passport';
-import { AdminGuard } from 'src/auth/guards/admin.guard';
 
 @ApiTags('Categoria')
 @ApiBearerAuth('access-token')

@@ -1,8 +1,8 @@
-import {
-  BadRequestException,
-  InternalServerErrorException,
-} from '@nestjs/common';
 import { CreateEmployeeLoginController } from './create-employee-login.controller';
+import {
+  InternalServerErrorException,
+  BadRequestException,
+} from '@nestjs/common';
 
 describe('CreateEmployeeLoginController', () => {
   let controller: CreateEmployeeLoginController;

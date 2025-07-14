@@ -1,7 +1,7 @@
-import { IStockRepo } from 'src/stock/models/interface/stock-repo.interface';
 import { DeleteStockUseCase } from './delete-stock.use-case';
 import { NotFoundException } from '@nestjs/common';
 import { TipoMovimentacao } from 'src/stock/models/entity/stock.entity';
+import { IStockRepo } from 'src/stock/models/interface/stock-repo.interface';
 
 describe('DeleteStockUseCase', () => {
   let useCase: DeleteStockUseCase;

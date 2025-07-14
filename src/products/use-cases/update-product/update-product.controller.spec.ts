@@ -1,9 +1,9 @@
-import { ArchivesManagementJob } from 'src/shared/job/images-vids/archives-management.job';
 import { UpdateProdutoController } from './update-product.controller';
+import { NotAcceptableException } from '@nestjs/common';
+import { ArchivesManagementJob } from 'src/shared/job/images-vids/archives-management.job';
 import { UpdateProdutoUseCase } from './update-product.use-case';
 import { UpdateProductDTO } from 'src/products/models/dto/update-product.dto';
 import { Produto } from 'src/products/models/entity/product.entity';
-import { NotAcceptableException } from '@nestjs/common';
 
 describe('UpdateProdutoController', () => {
   let controller: UpdateProdutoController;

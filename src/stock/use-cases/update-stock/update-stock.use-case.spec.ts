@@ -1,11 +1,11 @@
-import { IStockRepo } from 'src/stock/models/interface/stock-repo.interface';
 import { UpdateStockUseCase } from './update-stock.use-case';
+import { TipoMovimentacao } from 'src/stock/models/entity/stock.entity';
 import { UpdateStockDTO } from 'src/stock/models/dtos/update-stock.dto';
+import { IStockRepo } from 'src/stock/models/interface/stock-repo.interface';
 import {
   InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common';
-import { TipoMovimentacao } from 'src/stock/models/entity/stock.entity';
 
 describe('UpdateStockUseCase', () => {
   let useCase: UpdateStockUseCase;

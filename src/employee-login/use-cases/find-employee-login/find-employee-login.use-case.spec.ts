@@ -1,5 +1,5 @@
-import { NotFoundException } from '@nestjs/common';
 import { FindEmployeeLoginUseCase } from './find-employee-login.use-case';
+import { NotFoundException } from '@nestjs/common';
 
 describe('FindEmployeeLoginUseCase', () => {
   let useCase: FindEmployeeLoginUseCase;

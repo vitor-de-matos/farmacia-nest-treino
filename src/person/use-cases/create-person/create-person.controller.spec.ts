@@ -1,7 +1,8 @@
-import { CreatePersonDTO } from 'src/person/models/dtos/create-person.dto';
 import { CreatePersonController } from './create-person.controller';
-import { CreatePersonUseCase } from './create-person.use-case';
 import { NotAcceptableException } from '@nestjs/common';
+import { CreatePersonUseCase } from './create-person.use-case';
+import { CreatePersonDTO } from 'src/person/models/dtos/create-person.dto';
+import { getMockReq } from '@jest-mock/express';
 
 describe('CreatePersonController', () => {
   let controller: CreatePersonController;
@@ -21,12 +22,14 @@ describe('CreatePersonController', () => {
       document: '12345678901',
     } as CreatePersonDTO;
 
+    const mockRequest = getMockReq({ user: { id: 1 } });
+
     (mockUseCase.create as jest.Mock).mockResolvedValue(1);
 
-    const result = await controller.create(dto);
+    const result = await controller.create(dto, mockRequest);
 
     expect(result).toBe(1);
-    expect(mockUseCase.create).toHaveBeenCalledWith(dto);
+    expect(mockUseCase.create).toHaveBeenCalledWith(dto, mockRequest);
   });
 
   it('deve lançar NotAcceptableException se o documento tiver tamanho inválido', async () => {
@@ -34,8 +37,9 @@ describe('CreatePersonController', () => {
       name: 'Maria',
       document: '12345',
     } as CreatePersonDTO;
+    const mockRequest = getMockReq({ user: { id: 1 } });
 
-    await expect(controller.create(dto)).rejects.toThrow(
+    await expect(controller.create(dto, mockRequest)).rejects.toThrow(
       NotAcceptableException,
     );
     expect(mockUseCase.create).not.toHaveBeenCalled();

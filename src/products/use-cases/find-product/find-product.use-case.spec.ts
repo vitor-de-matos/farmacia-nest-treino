@@ -1,8 +1,8 @@
-import { IProductRepo } from 'src/products/models/interface/product-repo.interface';
-import { FindProdutoUseCase } from './find-product.use-case';
 import { ArchivesManagementJob } from 'src/shared/job/images-vids/archives-management.job';
 import { Produto, TipoTarja } from 'src/products/models/entity/product.entity';
+import { FindProdutoUseCase } from './find-product.use-case';
 import { NotFoundException } from '@nestjs/common';
+import { IProductRepo } from 'src/products/models/interface/product-repo.interface';
 
 describe('FindProdutoUseCase', () => {
   let useCase: FindProdutoUseCase;

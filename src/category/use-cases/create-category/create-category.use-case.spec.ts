@@ -1,5 +1,5 @@
-import { BadRequestException } from '@nestjs/common';
 import { CreateCategoryUseCase } from './create-category.use-case';
+import { BadRequestException } from '@nestjs/common';
 
 describe('CreateCategoryUseCase', () => {
   let useCase: CreateCategoryUseCase;

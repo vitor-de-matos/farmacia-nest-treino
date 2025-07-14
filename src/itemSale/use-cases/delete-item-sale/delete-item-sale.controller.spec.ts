@@ -1,9 +1,9 @@
+import { DeleteItemSaleController } from './delete-item-sale.controller';
 import {
   InternalServerErrorException,
   NotAcceptableException,
   NotFoundException,
 } from '@nestjs/common';
-import { DeleteItemSaleController } from './delete-item-sale.controller';
 
 describe('DeleteItemSaleController', () => {
   let controller: DeleteItemSaleController;

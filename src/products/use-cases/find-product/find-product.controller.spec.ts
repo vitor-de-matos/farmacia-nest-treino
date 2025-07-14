@@ -1,7 +1,7 @@
-import { Produto, TipoTarja } from 'src/products/models/entity/product.entity';
-import { FindProdutoController } from './find-product.controller';
-import { FindProdutoUseCase } from './find-product.use-case';
 import { NotAcceptableException } from '@nestjs/common';
+import { FindProdutoController } from './find-product.controller';
+import { Produto, TipoTarja } from 'src/products/models/entity/product.entity';
+import { FindProdutoUseCase } from './find-product.use-case';
 
 describe('FindProdutoController', () => {
   let controller: FindProdutoController;

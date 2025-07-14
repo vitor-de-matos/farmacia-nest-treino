@@ -1,10 +1,10 @@
-import { IStockRepo } from 'src/stock/models/interface/stock-repo.interface';
-import { FindStockUseCase } from './find-stock.use-case';
-import {
-  Estoque,
-  TipoMovimentacao,
-} from 'src/stock/models/entity/stock.entity';
 import { NotFoundException } from '@nestjs/common';
+import { FindStockUseCase } from './find-stock.use-case';
+import { IStockRepo } from 'src/stock/models/interface/stock-repo.interface';
+import {
+  TipoMovimentacao,
+  Estoque,
+} from 'src/stock/models/entity/stock.entity';
 
 describe('FindStockUseCase', () => {
   let useCase: FindStockUseCase;

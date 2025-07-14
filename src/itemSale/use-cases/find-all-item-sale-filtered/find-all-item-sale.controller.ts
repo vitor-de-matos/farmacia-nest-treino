@@ -2,6 +2,7 @@ import { Controller, Get, Inject, Query, UseGuards } from '@nestjs/common';
 import { FindAllItemSaleUseCase } from './find-all-item-sale.use-case';
 import { FindItemSaleDTO } from 'src/itemSale/models/dtos/find-item-sale.dto';
 import { ItemVenda } from 'src/itemSale/models/entity/item-sale.entity';
+import { AuthGuard } from '@nestjs/passport';
 import {
   ApiInternalServerErrorResponse,
   ApiNotAcceptableResponse,
@@ -10,7 +11,6 @@ import {
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
-import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Item Venda')
 @ApiBearerAuth('access-token')

@@ -1,9 +1,9 @@
-import {
-  Estoque,
-  TipoMovimentacao,
-} from 'src/stock/models/entity/stock.entity';
 import { FindStockController } from './find-stock.controller';
 import { FindStockUseCase } from './find-stock.use-case';
+import {
+  TipoMovimentacao,
+  Estoque,
+} from 'src/stock/models/entity/stock.entity';
 
 describe('FindStockController', () => {
   let controller: FindStockController;

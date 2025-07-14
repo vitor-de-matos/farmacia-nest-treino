@@ -1,6 +1,6 @@
-import { ItemVenda } from 'src/itemSale/models/entity/item-sale.entity';
 import { FindItemSaleUseCase } from './find-item-sale.use-case';
 import { NotFoundException } from '@nestjs/common';
+import { ItemVenda } from 'src/itemSale/models/entity/item-sale.entity';
 
 describe('FindItemSaleUseCase', () => {
   let useCase: FindItemSaleUseCase;

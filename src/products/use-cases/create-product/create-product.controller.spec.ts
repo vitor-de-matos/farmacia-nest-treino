@@ -1,8 +1,8 @@
-import { ArchivesManagementJob } from 'src/shared/job/images-vids/archives-management.job';
 import { CreateProdutoController } from './create-product.controller';
+import { ArchivesManagementJob } from 'src/shared/job/images-vids/archives-management.job';
 import { CreateProdutoUseCase } from './create-product.use-case';
-import { CreateProductDTO } from 'src/products/models/dto/create-product.dto';
 import { BadRequestException } from '@nestjs/common';
+import { CreateProductDTO } from 'src/products/models/dto/create-product.dto';
 
 describe('CreateProdutoController', () => {
   let controller: CreateProdutoController;

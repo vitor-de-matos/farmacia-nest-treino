@@ -2,6 +2,17 @@ import { ArchivesManagementJob } from 'src/shared/job/images-vids/archives-manag
 import { CreateMidiaUseCase } from './create-media.use-case';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { CreateMidiaDTO } from 'src/media/models/dtos/create-media.dto';
+import { AuthGuard } from '@nestjs/passport';
+import {
+  BadRequestException,
+  UseInterceptors,
+  UploadedFile,
+  Controller,
+  UseGuards,
+  Inject,
+  Post,
+  Body,
+} from '@nestjs/common';
 import {
   ApiInternalServerErrorResponse,
   ApiCreatedResponse,
@@ -11,17 +22,6 @@ import {
   ApiBody,
   ApiTags,
 } from '@nestjs/swagger';
-import {
-  BadRequestException,
-  UseInterceptors,
-  UploadedFile,
-  Controller,
-  Inject,
-  Post,
-  Body,
-  UseGuards,
-} from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Midia')
 @ApiBearerAuth('access-token')

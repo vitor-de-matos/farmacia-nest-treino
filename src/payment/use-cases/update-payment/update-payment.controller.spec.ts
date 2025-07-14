@@ -1,6 +1,6 @@
-import { UpdatePaymentDTO } from 'src/payment/models/dtos/update-paymente.dto';
 import { UpdatePaymentController } from './update-payment.controller';
 import { UpdatePaymentUseCase } from './update-payment.use-case';
+import { UpdatePaymentDTO } from 'src/payment/models/dtos/update-paymente.dto';
 import { Pagamento } from 'src/payment/models/entity/payment.entity';
 import {
   InternalServerErrorException,

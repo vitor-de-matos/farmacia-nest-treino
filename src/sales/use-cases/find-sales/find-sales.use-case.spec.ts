@@ -1,6 +1,6 @@
-import { ISalesRepo } from 'src/sales/models/interface/sales-repo.interface';
-import { FindSalesUseCase } from '../find-sales/find-sales.use-case';
 import { NotFoundException } from '@nestjs/common';
+import { FindSalesUseCase } from '../find-sales/find-sales.use-case';
+import { ISalesRepo } from 'src/sales/models/interface/sales-repo.interface';
 
 describe('FindSalesUseCase', () => {
   let useCase: FindSalesUseCase;

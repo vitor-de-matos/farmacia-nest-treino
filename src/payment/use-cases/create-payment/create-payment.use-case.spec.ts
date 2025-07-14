@@ -1,10 +1,10 @@
-import { IPaymentRepo } from 'src/payment/models/interface/payment-repo.interface';
 import { CreatePaymentUseCase } from './create-payment.use-case';
-import { CreatePaymentDTO } from 'src/payment/models/dtos/create-payment.dto';
 import { BadRequestException } from '@nestjs/common';
+import { CreatePaymentDTO } from 'src/payment/models/dtos/create-payment.dto';
+import { IPaymentRepo } from 'src/payment/models/interface/payment-repo.interface';
 import {
-  FormaPagamento,
   StatusPagamento,
+  FormaPagamento,
 } from 'src/payment/models/entity/payment.entity';
 
 describe('CreatePaymentUseCase', () => {

@@ -1,6 +1,6 @@
-import { Fabricante } from 'src/manufacturer/models/entity/manufacturer.entity';
 import { FindManufacturerUseCase } from './find-manufacturer.use-case';
 import { NotFoundException } from '@nestjs/common';
+import { Fabricante } from 'src/manufacturer/models/entity/manufacturer.entity';
 
 describe('FindManufacturerUseCase', () => {
   let useCase: FindManufacturerUseCase;

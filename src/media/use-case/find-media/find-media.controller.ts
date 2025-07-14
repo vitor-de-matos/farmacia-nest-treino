@@ -1,4 +1,5 @@
 import { FindMidiaUseCase } from './find-media.use-case';
+import { AuthGuard } from '@nestjs/passport';
 import { Midia } from 'src/media/models/entity/midia.entity';
 import {
   ApiInternalServerErrorResponse,
@@ -12,12 +13,11 @@ import {
 import {
   NotAcceptableException,
   Controller,
+  UseGuards,
   Inject,
   Param,
   Get,
-  UseGuards,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Midia')
 @ApiBearerAuth('access-token')

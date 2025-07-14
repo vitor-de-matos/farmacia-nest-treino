@@ -1,11 +1,11 @@
-import { CreatePaymentDTO } from 'src/payment/models/dtos/create-payment.dto';
 import { CreatePaymentController } from './create-payment.controller';
 import { CreatePaymentUseCase } from './create-payment.use-case';
-import {
-  FormaPagamento,
-  StatusPagamento,
-} from 'src/payment/models/entity/payment.entity';
 import { BadRequestException } from '@nestjs/common';
+import { CreatePaymentDTO } from 'src/payment/models/dtos/create-payment.dto';
+import {
+  StatusPagamento,
+  FormaPagamento,
+} from 'src/payment/models/entity/payment.entity';
 
 describe('CreatePaymentController', () => {
   let controller: CreatePaymentController;

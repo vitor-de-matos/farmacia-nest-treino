@@ -1,9 +1,9 @@
-import { IPaymentRepo } from 'src/payment/models/interface/payment-repo.interface';
 import { DeletePaymentUseCase } from './delete-payment.use-case';
 import { NotFoundException } from '@nestjs/common';
+import { IPaymentRepo } from 'src/payment/models/interface/payment-repo.interface';
 import {
-  FormaPagamento,
   StatusPagamento,
+  FormaPagamento,
 } from 'src/payment/models/entity/payment.entity';
 
 describe('DeletePaymentUseCase', () => {

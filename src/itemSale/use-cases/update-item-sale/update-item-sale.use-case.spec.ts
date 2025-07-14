@@ -1,5 +1,5 @@
-import { UpdateItemSaleDTO } from 'src/itemSale/models/dtos/update-item-sale.dto';
 import { UpdateItemSaleUseCase } from './update-item-sale.use-case';
+import { UpdateItemSaleDTO } from 'src/itemSale/models/dtos/update-item-sale.dto';
 import { ItemVenda } from 'src/itemSale/models/entity/item-sale.entity';
 import {
   InternalServerErrorException,

@@ -3,6 +3,15 @@ import { CreatePersonDTO } from 'src/person/models/dtos/create-person.dto';
 import { AuthGuard } from '@nestjs/passport';
 import { Request } from 'express';
 import {
+  NotAcceptableException,
+  Controller,
+  UseGuards,
+  Inject,
+  Post,
+  Body,
+  Req,
+} from '@nestjs/common';
+import {
   ApiInternalServerErrorResponse,
   ApiCreatedResponse,
   ApiBearerAuth,
@@ -10,15 +19,6 @@ import {
   ApiBody,
   ApiTags,
 } from '@nestjs/swagger';
-import {
-  NotAcceptableException,
-  Controller,
-  Inject,
-  Post,
-  Body,
-  UseGuards,
-  Req,
-} from '@nestjs/common';
 
 @ApiTags('Pessoa')
 @ApiBearerAuth('access-token')

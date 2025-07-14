@@ -1,6 +1,6 @@
-import { ISalesRepo } from 'src/sales/models/interface/sales-repo.interface';
 import { FindAllSalesUseCase } from './find-all-sales.use-case';
 import { FindSalesDTO } from 'src/sales/models/dtos/find-sales.dto';
+import { ISalesRepo } from 'src/sales/models/interface/sales-repo.interface';
 import { Venda } from 'src/sales/models/entity/sales.entity';
 
 describe('FindAllSalesUseCase', () => {

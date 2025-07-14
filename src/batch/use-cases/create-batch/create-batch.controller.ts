@@ -1,6 +1,8 @@
 import { Body, Controller, Inject, Post, UseGuards } from '@nestjs/common';
 import { CreateBatchUseCase } from './create-batch.use-case';
 import { CreateBatchDTO } from 'src/batch/models/dtos/create-batch.dto';
+import { AdminGuard } from 'src/auth/guards/admin.guard';
+import { AuthGuard } from '@nestjs/passport';
 import {
   ApiInternalServerErrorResponse,
   ApiCreatedResponse,
@@ -9,8 +11,6 @@ import {
   ApiBody,
   ApiTags,
 } from '@nestjs/swagger';
-import { AuthGuard } from '@nestjs/passport';
-import { AdminGuard } from 'src/auth/guards/admin.guard';
 
 @ApiTags('Lote')
 @ApiBearerAuth('access-token')

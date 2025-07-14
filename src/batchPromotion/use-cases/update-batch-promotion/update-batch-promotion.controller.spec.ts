@@ -1,10 +1,10 @@
+import { UpdateBatchPromotionController } from './update-batch-promotion.controller';
+import { UpdateBatchPromotionUseCase } from './update-batch-promotion.use-case';
 import {
   InternalServerErrorException,
   NotAcceptableException,
   NotFoundException,
 } from '@nestjs/common';
-import { UpdateBatchPromotionController } from './update-batch-promotion.controller';
-import { UpdateBatchPromotionUseCase } from './update-batch-promotion.use-case';
 
 describe('UpdateBatchPromotionController', () => {
   let controller: UpdateBatchPromotionController;

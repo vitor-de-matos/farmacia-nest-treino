@@ -1,5 +1,5 @@
-import { UpdateManufacturerDTO } from 'src/manufacturer/models/dtos/update-manufacturer.dto';
 import { UpdateManufacturerController } from './update-manufacturer.controller';
+import { UpdateManufacturerDTO } from 'src/manufacturer/models/dtos/update-manufacturer.dto';
 import { Fabricante } from 'src/manufacturer/models/entity/manufacturer.entity';
 import {
   InternalServerErrorException,

@@ -1,9 +1,9 @@
-import { CreateManufacturerDTO } from 'src/manufacturer/models/dtos/create-manufacturer.dto';
 import { CreateManufacturerController } from './create-manufacturer.controller';
+import { CreateManufacturerDTO } from 'src/manufacturer/models/dtos/create-manufacturer.dto';
 import {
-  BadRequestException,
   InternalServerErrorException,
   NotAcceptableException,
+  BadRequestException,
 } from '@nestjs/common';
 
 describe('CreateManufacturerController', () => {

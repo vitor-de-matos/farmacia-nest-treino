@@ -1,7 +1,7 @@
-import { IPersonRepo } from 'src/person/models/interface/person-repo.interface';
 import { FindPersonUseCase } from './find-person.use-case';
-import { Pessoa } from 'src/person/models/entity/person.entity';
 import { NotFoundException } from '@nestjs/common';
+import { IPersonRepo } from 'src/person/models/interface/person-repo.interface';
+import { Pessoa } from 'src/person/models/entity/person.entity';
 
 describe('FindPersonUseCase', () => {
   let useCase: FindPersonUseCase;

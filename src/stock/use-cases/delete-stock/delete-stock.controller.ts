@@ -1,4 +1,5 @@
 import { DeleteStockUseCase } from './delete-stock.use-case';
+import { AuthGuard } from '@nestjs/passport';
 import {
   ApiInternalServerErrorResponse,
   ApiNotAcceptableResponse,
@@ -11,12 +12,11 @@ import {
 import {
   NotAcceptableException,
   Controller,
+  UseGuards,
   Delete,
   Inject,
   Param,
-  UseGuards,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Estoque')
 @ApiBearerAuth('access-token')
