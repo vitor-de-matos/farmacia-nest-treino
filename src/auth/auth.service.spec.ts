@@ -137,12 +137,70 @@ describe('AuthService', () => {
       ).rejects.toThrow(UnauthorizedException);
     });
     it('deve lançar UnauthorizedException se o usuário não for encontrado', async () => {
+      ('');
       mockJwtService.verify.mockReturnValue({ id: 1 });
       mockRepo.findById.mockResolvedValue(null);
 
       await expect(
         authService.refreshAccessToken('valid-token'),
       ).rejects.toThrow(UnauthorizedException);
+    });
+
+    it('deve lançar UnauthorizedException se o refresh token estiver expirado', async () => {
+      const hashedToken = await bcrypt.hash('valid-token', 10);
+
+      const expiredDate = new Date(Date.now() - 1000);
+      const mockUser = {
+        id: 1,
+        person: { name: 'John Doe' },
+        permissionLevel: [1],
+        refreshToken: hashedToken,
+        refreshTokenExpiresAt: expiredDate,
+      };
+
+      mockJwtService.verify.mockReturnValue({ id: 1 });
+      mockRepo.findById.mockResolvedValue(mockUser);
+
+      await expect(
+        authService.refreshAccessToken('valid-token'),
+      ).rejects.toThrow(UnauthorizedException);
+    });
+
+    it('deve atualizar o usuário com refreshToken hasheado e data de expiração', async () => {
+      const mockUser: any = {
+        id: 1,
+        person: { name: 'Jane Doe' },
+        permissionLevel: [1],
+      };
+
+      mockJwtService.sign
+        .mockReturnValueOnce('access-token')
+        .mockReturnValueOnce('raw-refresh-token');
+
+      const spyHash = jest.spyOn(bcrypt, 'hash');
+      const result = await authService.login(mockUser, true);
+
+      expect(spyHash).toHaveBeenCalledWith('raw-refresh-token', 12);
+      expect(mockRepo.update).toHaveBeenCalledWith(
+        mockUser.id,
+        expect.objectContaining({
+          refreshToken: expect.any(String),
+          refreshTokenExpiresAt: expect.any(Date),
+        }),
+      );
+    });
+  });
+
+  describe('logout', () => {
+    it('deve limpar refreshToken e refreshTokenExpiresAt', async () => {
+      const userId = 42;
+
+      await authService.logout(userId);
+
+      expect(mockRepo.update).toHaveBeenCalledWith(userId, {
+        refreshToken: null,
+        refreshTokenExpiresAt: null,
+      });
     });
   });
 });

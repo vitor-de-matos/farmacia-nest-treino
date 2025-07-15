@@ -34,7 +34,7 @@ export class AuthService {
       permissions: user.permissionLevel,
     };
     return {
-      access_token: this.jwtService.sign(payload, { expiresIn: '1d' }),
+      access_token: this.jwtService.sign(payload, { expiresIn: '15m' }),
       refresh_token: await this.generateRefreshToken(user, remember),
     };
   }
